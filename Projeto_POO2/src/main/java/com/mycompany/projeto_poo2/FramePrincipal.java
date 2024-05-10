@@ -1,9 +1,8 @@
-package com.mycompany.projeto_poo2;
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+package com.mycompany.projeto_poo2;
 
 /**
  *
@@ -28,21 +27,16 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         textoPrincipal = new javax.swing.JLabel();
-        textoOpcao = new javax.swing.JLabel();
         botaoJogador = new javax.swing.JButton();
         botaoMestre = new javax.swing.JButton();
+        textoOpcao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Página Principal");
-        setEnabled(false);
 
         textoPrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        textoPrincipal.setText("Bem vindo ao assistente de RPG!");
+        textoPrincipal.setText("Bem-vindo ao assistente de RPG!");
 
-        textoOpcao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        textoOpcao.setText("Por favor, escolha uma opção:");
-
-        botaoJogador.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoJogador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoJogador.setText("Jogador");
         botaoJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,8 +44,16 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoMestre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoMestre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoMestre.setText("Mestre");
+        botaoMestre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoMestreActionPerformed(evt);
+            }
+        });
+
+        textoOpcao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textoOpcao.setText("Por favor, escolha uma opção:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -60,29 +62,29 @@ public class FramePrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(textoOpcao)
-                .addGap(200, 200, 200))
+                .addGap(168, 168, 168))
             .addGroup(layout.createSequentialGroup()
-                .addGap(137, 137, 137)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(115, 115, 115)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(botaoJogador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(207, 207, 207)
                         .addComponent(botaoMestre))
                     .addComponent(textoPrincipal))
-                .addGap(137, 137, 137))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(textoPrincipal)
-                .addGap(109, 109, 109)
+                .addGap(75, 75, 75)
                 .addComponent(textoOpcao)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoJogador)
                     .addComponent(botaoMestre))
-                .addContainerGap(258, Short.MAX_VALUE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         pack();
@@ -91,6 +93,10 @@ public class FramePrincipal extends javax.swing.JFrame {
     private void botaoJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoJogadorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoJogadorActionPerformed
+
+    private void botaoMestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMestreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoMestreActionPerformed
 
     /**
      * @param args the command line arguments
