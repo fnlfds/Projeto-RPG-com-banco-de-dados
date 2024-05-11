@@ -32,11 +32,12 @@ public class FramePrincipal extends javax.swing.JFrame {
         textoOpcao = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Página Principal");
 
         textoPrincipal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         textoPrincipal.setText("Bem-vindo ao assistente de RPG!");
 
-        botaoJogador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoJogador.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoJogador.setText("Jogador");
         botaoJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,7 +45,7 @@ public class FramePrincipal extends javax.swing.JFrame {
             }
         });
 
-        botaoMestre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoMestre.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoMestre.setText("Mestre");
         botaoMestre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,13 +65,15 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addComponent(textoOpcao)
                 .addGap(168, 168, 168))
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(textoPrincipal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
                         .addComponent(botaoJogador)
-                        .addGap(207, 207, 207)
-                        .addComponent(botaoMestre))
-                    .addComponent(textoPrincipal))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoMestre)))
                 .addContainerGap(116, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -84,7 +87,7 @@ public class FramePrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoJogador)
                     .addComponent(botaoMestre))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
 
         pack();

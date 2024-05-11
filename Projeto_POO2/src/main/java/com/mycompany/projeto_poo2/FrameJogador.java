@@ -32,8 +32,15 @@ public class FrameJogador extends javax.swing.JFrame {
         textoInimigo = new javax.swing.JLabel();
         textoHabilidade = new javax.swing.JLabel();
         textoMissao = new javax.swing.JLabel();
+        cadastrarPersonagem = new javax.swing.JButton();
+        consultarPersonagem = new javax.swing.JButton();
+        consultarEquipamento = new javax.swing.JButton();
+        consultarInimigo = new javax.swing.JButton();
+        consultarHabilidade = new javax.swing.JButton();
+        consultarMissao = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Página do Jogador");
 
         textoPrincipalJogador.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         textoPrincipalJogador.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -48,33 +55,73 @@ public class FrameJogador extends javax.swing.JFrame {
         textoEquipamento.setText("Equipamento");
 
         textoInimigo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textoInimigo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoInimigo.setText("Inimigo");
 
         textoHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         textoHabilidade.setText("Habilidade");
 
         textoMissao.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        textoMissao.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         textoMissao.setText("Missão");
+
+        cadastrarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cadastrarPersonagem.setText("Cadastrar");
+
+        consultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultarPersonagem.setText("Consultar");
+        consultarPersonagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarPersonagemActionPerformed(evt);
+            }
+        });
+
+        consultarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultarEquipamento.setText("Consultar");
+
+        consultarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        consultarInimigo.setText("Consultar");
+
+        consultarHabilidade.setText("Consultar");
+        consultarHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarHabilidadeActionPerformed(evt);
+            }
+        });
+
+        consultarMissao.setText("Consultar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(textoPrincipalJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(textoPersonagem)
-                        .addGap(63, 63, 63)
-                        .addComponent(textoEquipamento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(textoInimigo)
-                        .addGap(61, 61, 61)
-                        .addComponent(textoHabilidade)
-                        .addGap(51, 51, 51)
-                        .addComponent(textoMissao))
-                    .addComponent(textoPrincipalJogador))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(consultarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cadastrarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoPersonagem))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(consultarEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoEquipamento))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(consultarInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoHabilidade)
+                            .addComponent(consultarHabilidade))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(consultarMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 36, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,11 +135,28 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(textoInimigo)
                     .addComponent(textoHabilidade)
                     .addComponent(textoMissao))
-                .addContainerGap(435, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastrarPersonagem)
+                    .addComponent(consultarEquipamento)
+                    .addComponent(consultarInimigo)
+                    .addComponent(consultarHabilidade)
+                    .addComponent(consultarMissao))
+                .addGap(18, 18, 18)
+                .addComponent(consultarPersonagem)
+                .addContainerGap(345, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void consultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarPersonagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultarPersonagemActionPerformed
+
+    private void consultarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_consultarHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -130,6 +194,12 @@ public class FrameJogador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cadastrarPersonagem;
+    private javax.swing.JButton consultarEquipamento;
+    private javax.swing.JButton consultarHabilidade;
+    private javax.swing.JButton consultarInimigo;
+    private javax.swing.JButton consultarMissao;
+    private javax.swing.JButton consultarPersonagem;
     private javax.swing.JLabel textoEquipamento;
     private javax.swing.JLabel textoHabilidade;
     private javax.swing.JLabel textoInimigo;
