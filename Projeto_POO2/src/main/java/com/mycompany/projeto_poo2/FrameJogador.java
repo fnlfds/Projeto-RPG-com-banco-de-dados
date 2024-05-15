@@ -30,7 +30,6 @@ public class FrameJogador extends javax.swing.JFrame {
         textoHabilidade = new javax.swing.JLabel();
         textoMissao = new javax.swing.JLabel();
         cadastrarPersonagem = new javax.swing.JButton();
-        consultarPersonagem = new javax.swing.JButton();
         consultarEquipamento = new javax.swing.JButton();
         consultarInimigo = new javax.swing.JButton();
         consultarHabilidade = new javax.swing.JButton();
@@ -64,18 +63,10 @@ public class FrameJogador extends javax.swing.JFrame {
         textoMissao.setText("Missão");
 
         cadastrarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        cadastrarPersonagem.setText("Cadastrar");
+        cadastrarPersonagem.setText("Cadastrar/Consultar");
         cadastrarPersonagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastrarPersonagemActionPerformed(evt);
-            }
-        });
-
-        consultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        consultarPersonagem.setText("Consultar");
-        consultarPersonagem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                consultarPersonagemActionPerformed(evt);
             }
         });
 
@@ -112,30 +103,32 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(textoPrincipalJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoVoltarJogador)
+                            .addComponent(cadastrarPersonagem)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(consultarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cadastrarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textoPersonagem))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(consultarEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textoEquipamento))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textoInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(consultarInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(54, 54, 54)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(textoHabilidade)
-                                    .addComponent(consultarHabilidade))
-                                .addGap(55, 55, 55)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(consultarMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(textoMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 39, Short.MAX_VALUE)))
+                                .addGap(27, 27, 27)
+                                .addComponent(textoPersonagem)))
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(consultarEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoEquipamento))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(textoInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(consultarInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(54, 54, 54)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoHabilidade)
+                            .addComponent(consultarHabilidade))
+                        .addGap(55, 55, 55)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(consultarMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(textoMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(botaoVoltarJogador)
+                .addGap(303, 303, 303))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,19 +149,13 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(consultarInimigo)
                     .addComponent(consultarHabilidade)
                     .addComponent(consultarMissao))
-                .addGap(18, 18, 18)
-                .addComponent(consultarPersonagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
                 .addComponent(botaoVoltarJogador)
-                .addGap(88, 88, 88))
+                .addGap(17, 17, 17))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void consultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarPersonagemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_consultarPersonagemActionPerformed
 
     private void consultarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarHabilidadeActionPerformed
         // TODO add your handling code here:
@@ -224,7 +211,6 @@ public class FrameJogador extends javax.swing.JFrame {
     private javax.swing.JButton consultarHabilidade;
     private javax.swing.JButton consultarInimigo;
     private javax.swing.JButton consultarMissao;
-    private javax.swing.JButton consultarPersonagem;
     private javax.swing.JLabel textoEquipamento;
     private javax.swing.JLabel textoHabilidade;
     private javax.swing.JLabel textoInimigo;
