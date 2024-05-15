@@ -139,7 +139,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="rtSubtitulo">
       <Properties>
-        <Property name="text" type="java.lang.String" value="(consultas, altera&#xe7;&#xf5;es e exclus&#xf5;es por nome do personagem)"/>
+        <Property name="text" type="java.lang.String" value="(consultas, altera&#xe7;&#xf5;es e exclus&#xf5;es por nome do equipamento)"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="rtNome">

@@ -55,7 +55,7 @@ public class FrameEquipamento extends javax.swing.JPanel implements java.beans.C
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Equipamento");
 
-        rtSubtitulo.setText("(consultas, alterações e exclusões por nome do personagem)");
+        rtSubtitulo.setText("(consultas, alterações e exclusões por nome do equipamento)");
 
         rtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtNome.setText("Nome:");
