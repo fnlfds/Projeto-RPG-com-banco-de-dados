@@ -30,7 +30,7 @@
                   <Component id="textoPrincipalJogador" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="botaoVoltarJogador" min="-2" max="-2" attributes="0"/>
+                          <Component id="botaoVoltarPersonagem" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                   <Component id="consultarPersonagem" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
@@ -89,8 +89,8 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="consultarPersonagem" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="111" max="32767" attributes="0"/>
-              <Component id="botaoVoltarJogador" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="230" max="32767" attributes="0"/>
+              <Component id="botaoVoltarPersonagem" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -157,9 +157,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadastrarPersonagemActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="consultarPersonagem">
       <Properties>
@@ -201,7 +198,7 @@
         <Property name="text" type="java.lang.String" value="Consultar"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="botaoVoltarJogador">
+    <Component class="javax.swing.JButton" name="botaoVoltarPersonagem">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Segoe UI" size="14" style="0"/>
@@ -209,7 +206,7 @@
         <Property name="text" type="java.lang.String" value="Voltar para a tela principal"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoVoltarJogadorActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="botaoVoltarPersonagemActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

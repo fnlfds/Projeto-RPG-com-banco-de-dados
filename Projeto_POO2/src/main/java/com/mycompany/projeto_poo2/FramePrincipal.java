@@ -94,16 +94,29 @@ public class FramePrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoJogadorActionPerformed
-        // TODO add your handling code here:
+        abrirFrameJogador();
     }//GEN-LAST:event_botaoJogadorActionPerformed
 
     private void botaoMestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoMestreActionPerformed
-        // TODO add your handling code here:
+        abrirFrameMestre();
     }//GEN-LAST:event_botaoMestreActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void abrirFrameJogador(){
+        FrameJogador frameJogador = new FrameJogador();
+        frameJogador.setVisible(true);
+        dispose();
+    }
+    
+    public void abrirFrameMestre(){
+        FrameMestre frameMestre = new FrameMestre();
+        frameMestre.setVisible(true);
+        dispose();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -10,9 +10,6 @@ package com.mycompany.projeto_poo2;
  */
 public class FrameJogador extends javax.swing.JFrame {
 
-    /**
-     * Creates new form FrameJogador
-     */
     public FrameJogador() {
         initComponents();
     }
@@ -38,7 +35,7 @@ public class FrameJogador extends javax.swing.JFrame {
         consultarInimigo = new javax.swing.JButton();
         consultarHabilidade = new javax.swing.JButton();
         consultarMissao = new javax.swing.JButton();
-        botaoVoltarPersonagem = new javax.swing.JButton();
+        botaoVoltarJogador = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Jogador");
@@ -68,6 +65,11 @@ public class FrameJogador extends javax.swing.JFrame {
 
         cadastrarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         cadastrarPersonagem.setText("Cadastrar");
+        cadastrarPersonagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastrarPersonagemActionPerformed(evt);
+            }
+        });
 
         consultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         consultarPersonagem.setText("Consultar");
@@ -92,11 +94,11 @@ public class FrameJogador extends javax.swing.JFrame {
 
         consultarMissao.setText("Consultar");
 
-        botaoVoltarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoVoltarPersonagem.setText("Voltar para a tela principal");
-        botaoVoltarPersonagem.addActionListener(new java.awt.event.ActionListener() {
+        botaoVoltarJogador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoVoltarJogador.setText("Voltar para a tela principal");
+        botaoVoltarJogador.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarPersonagemActionPerformed(evt);
+                botaoVoltarJogadorActionPerformed(evt);
             }
         });
 
@@ -110,7 +112,7 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(textoPrincipalJogador, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(botaoVoltarPersonagem)
+                            .addComponent(botaoVoltarJogador)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(consultarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -156,8 +158,8 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(consultarMissao))
                 .addGap(18, 18, 18)
                 .addComponent(consultarPersonagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 230, Short.MAX_VALUE)
-                .addComponent(botaoVoltarPersonagem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addComponent(botaoVoltarJogador)
                 .addGap(88, 88, 88))
         );
 
@@ -172,9 +174,13 @@ public class FrameJogador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_consultarHabilidadeActionPerformed
 
-    private void botaoVoltarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarPersonagemActionPerformed
+    private void botaoVoltarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarJogadorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoVoltarPersonagemActionPerformed
+    }//GEN-LAST:event_botaoVoltarJogadorActionPerformed
+
+    private void cadastrarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPersonagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastrarPersonagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,7 +218,7 @@ public class FrameJogador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoVoltarPersonagem;
+    private javax.swing.JButton botaoVoltarJogador;
     private javax.swing.JButton cadastrarPersonagem;
     private javax.swing.JButton consultarEquipamento;
     private javax.swing.JButton consultarHabilidade;
