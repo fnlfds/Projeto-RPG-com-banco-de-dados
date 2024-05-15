@@ -39,12 +39,12 @@ public class FrameMissao extends javax.swing.JPanel implements java.beans.Custom
         cxObjetivo = new javax.swing.JTextField();
         rtRecompensa = new javax.swing.JLabel();
         cxRecompensa = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btCadMissao = new javax.swing.JButton();
+        btAltMissao = new javax.swing.JButton();
+        btConsMissao = new javax.swing.JButton();
+        btExcMissao = new javax.swing.JButton();
+        btLimpar = new javax.swing.JButton();
+        btSair = new javax.swing.JButton();
 
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Missão");
@@ -66,29 +66,29 @@ public class FrameMissao extends javax.swing.JPanel implements java.beans.Custom
         rtRecompensa.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtRecompensa.setText("Recompensa:");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Cadastrar");
+        btCadMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btCadMissao.setText("Cadastrar");
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Alterar");
+        btAltMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btAltMissao.setText("Alterar");
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Consultar");
+        btConsMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btConsMissao.setText("Consultar");
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Excluir");
+        btExcMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btExcMissao.setText("Excluir");
 
-        jButton5.setText("Limpar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        btLimpar.setText("Limpar");
+        btLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                btLimparActionPerformed(evt);
             }
         });
 
-        jButton6.setText("Sair");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btSair.setText("Sair");
+        btSair.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btSairActionPerformed(evt);
             }
         });
 
@@ -106,17 +106,17 @@ public class FrameMissao extends javax.swing.JPanel implements java.beans.Custom
                         .addComponent(rtSubtitulo))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1)
+                        .addComponent(btCadMissao)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
+                        .addComponent(btAltMissao)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton3)
+                        .addComponent(btConsMissao)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton4)
+                        .addComponent(btExcMissao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(jButton5)
+                        .addComponent(btLimpar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton6))
+                        .addComponent(btSair))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -155,12 +155,12 @@ public class FrameMissao extends javax.swing.JPanel implements java.beans.Custom
                     .addComponent(cxRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6))
+                    .addComponent(btCadMissao)
+                    .addComponent(btAltMissao)
+                    .addComponent(btConsMissao)
+                    .addComponent(btExcMissao)
+                    .addComponent(btLimpar)
+                    .addComponent(btSair))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -169,25 +169,25 @@ public class FrameMissao extends javax.swing.JPanel implements java.beans.Custom
         // TODO add your handling code here:
     }//GEN-LAST:event_cxNomeActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_btLimparActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btSairActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAltMissao;
+    private javax.swing.JButton btCadMissao;
+    private javax.swing.JButton btConsMissao;
+    private javax.swing.JButton btExcMissao;
+    private javax.swing.JButton btLimpar;
+    private javax.swing.JButton btSair;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxObjetivo;
     private javax.swing.JTextField cxRecompensa;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtObjetivo;
     private javax.swing.JLabel rtRecompensa;
