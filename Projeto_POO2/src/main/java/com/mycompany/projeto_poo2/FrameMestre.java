@@ -33,24 +33,10 @@ public class FrameMestre extends javax.swing.JFrame {
         textoHabilidade = new javax.swing.JLabel();
         textoMissao = new javax.swing.JLabel();
         botaoConsultarPersonagem = new javax.swing.JButton();
-        botaoCadastrarEquipamento = new javax.swing.JButton();
-        botaoCadastrarInimigo = new javax.swing.JButton();
-        botaoCadastrarHabilidade = new javax.swing.JButton();
-        botaoCadastrarMissao = new javax.swing.JButton();
-        botaoConsultarEquipamento = new javax.swing.JButton();
-        botaoConsultarInimigo = new javax.swing.JButton();
-        botaoConsultarHabilidade = new javax.swing.JButton();
-        botaoConsultarMissao = new javax.swing.JButton();
-        botaoAlterarPersonagem = new javax.swing.JButton();
-        botaoAlterarEquipamento = new javax.swing.JButton();
-        botaoAlterarInimigo = new javax.swing.JButton();
-        botaoAlterarHabilidade = new javax.swing.JButton();
-        botaoAlterarMissao = new javax.swing.JButton();
-        botaoExcluirPersonagem = new javax.swing.JButton();
-        botaoExcluirEquipamento = new javax.swing.JButton();
-        botaoExcluirInimigo = new javax.swing.JButton();
-        botaoExcluirHabilidade = new javax.swing.JButton();
-        botaoExcluirMissao = new javax.swing.JButton();
+        botaoGerenciarEquipamento = new javax.swing.JButton();
+        botaoGerenciarInimigo = new javax.swing.JButton();
+        botaoGerenciarHabilidade = new javax.swing.JButton();
+        botaoGerenciarMissao = new javax.swing.JButton();
         botaoVoltarMestre = new javax.swing.JButton();
         botaoCalcNivel = new javax.swing.JButton();
 
@@ -78,106 +64,44 @@ public class FrameMestre extends javax.swing.JFrame {
         textoMissao.setText("Missão");
 
         botaoConsultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarPersonagem.setText("Consultar");
+        botaoConsultarPersonagem.setText("Consultar/\nAlterar/\nExcluir");
         botaoConsultarPersonagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoConsultarPersonagemActionPerformed(evt);
             }
         });
 
-        botaoCadastrarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoCadastrarEquipamento.setText("Cadastrar");
-        botaoCadastrarEquipamento.addActionListener(new java.awt.event.ActionListener() {
+        botaoGerenciarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoGerenciarEquipamento.setText("Gerenciar");
+        botaoGerenciarEquipamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarEquipamentoActionPerformed(evt);
+                botaoGerenciarEquipamentoActionPerformed(evt);
             }
         });
 
-        botaoCadastrarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoCadastrarInimigo.setText("Cadastrar");
-        botaoCadastrarInimigo.addActionListener(new java.awt.event.ActionListener() {
+        botaoGerenciarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoGerenciarInimigo.setText("Gerenciar");
+        botaoGerenciarInimigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarInimigoActionPerformed(evt);
+                botaoGerenciarInimigoActionPerformed(evt);
             }
         });
 
-        botaoCadastrarHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoCadastrarHabilidade.setText("Cadastrar");
-        botaoCadastrarHabilidade.addActionListener(new java.awt.event.ActionListener() {
+        botaoGerenciarHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoGerenciarHabilidade.setText("Gerenciar");
+        botaoGerenciarHabilidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarHabilidadeActionPerformed(evt);
+                botaoGerenciarHabilidadeActionPerformed(evt);
             }
         });
 
-        botaoCadastrarMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoCadastrarMissao.setText("Cadastrar");
-        botaoCadastrarMissao.addActionListener(new java.awt.event.ActionListener() {
+        botaoGerenciarMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoGerenciarMissao.setText("Gerenciar");
+        botaoGerenciarMissao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoCadastrarMissaoActionPerformed(evt);
+                botaoGerenciarMissaoActionPerformed(evt);
             }
         });
-
-        botaoConsultarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarEquipamento.setText("Consultar");
-        botaoConsultarEquipamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoConsultarEquipamentoActionPerformed(evt);
-            }
-        });
-
-        botaoConsultarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarInimigo.setText("Consultar");
-        botaoConsultarInimigo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoConsultarInimigoActionPerformed(evt);
-            }
-        });
-
-        botaoConsultarHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarHabilidade.setText("Consultar");
-        botaoConsultarHabilidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoConsultarHabilidadeActionPerformed(evt);
-            }
-        });
-
-        botaoConsultarMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarMissao.setText("Consultar");
-        botaoConsultarMissao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoConsultarMissaoActionPerformed(evt);
-            }
-        });
-
-        botaoAlterarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoAlterarPersonagem.setText("Alterar");
-
-        botaoAlterarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoAlterarEquipamento.setText("Alterar");
-
-        botaoAlterarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoAlterarInimigo.setText("Alterar");
-
-        botaoAlterarHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoAlterarHabilidade.setText("Alterar");
-
-        botaoAlterarMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoAlterarMissao.setText("Alterar");
-
-        botaoExcluirPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoExcluirPersonagem.setText("Excluir");
-
-        botaoExcluirEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoExcluirEquipamento.setText("Excluir");
-
-        botaoExcluirInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoExcluirInimigo.setText("Excluir");
-
-        botaoExcluirHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoExcluirHabilidade.setText("Excluir");
-
-        botaoExcluirMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoExcluirMissao.setText("Excluir");
 
         botaoVoltarMestre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoVoltarMestre.setText("Voltar para a tela principal");
@@ -207,53 +131,37 @@ public class FrameMestre extends javax.swing.JFrame {
                         .addComponent(botaoVoltarMestre)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoPersonagem)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(botaoExcluirPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoAlterarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoConsultarPersonagem, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(botaoCalcNivel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(textoEquipamento)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(botaoExcluirEquipamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(botaoCadastrarEquipamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(17, 17, 17)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(textoInimigo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(botaoConsultarInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(botaoCadastrarHabilidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(botaoAlterarInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(botaoExcluirInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .addGap(50, 50, 50))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(botaoAlterarEquipamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(botaoConsultarEquipamento, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(194, 194, 194)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(textoHabilidade)
-                            .addComponent(botaoCadastrarInimigo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoConsultarHabilidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoAlterarHabilidade, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoExcluirHabilidade, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(botaoConsultarPersonagem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(botaoCalcNivel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(textoPersonagem)
+                                .addGap(36, 36, 36)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(botaoGerenciarEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(17, 17, 17))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(textoEquipamento)
+                                .addGap(9, 9, 9)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(textoInimigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(botaoGerenciarHabilidade)
+                                .addGap(50, 50, 50)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(botaoGerenciarInimigo)
+                            .addComponent(textoHabilidade))
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(botaoConsultarMissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(textoMissao)
-                            .addComponent(botaoCadastrarMissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoAlterarMissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(botaoExcluirMissao, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(botaoGerenciarMissao)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(textoMissao)
+                                .addGap(20, 20, 20)))
                         .addGap(27, 27, 27))))
         );
         layout.setVerticalGroup(
@@ -270,75 +178,36 @@ public class FrameMestre extends javax.swing.JFrame {
                     .addComponent(textoMissao))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoCadastrarEquipamento)
-                    .addComponent(botaoCadastrarInimigo)
-                    .addComponent(botaoCadastrarMissao)
-                    .addComponent(botaoCadastrarHabilidade)
+                    .addComponent(botaoGerenciarEquipamento)
+                    .addComponent(botaoGerenciarInimigo)
+                    .addComponent(botaoGerenciarMissao)
+                    .addComponent(botaoGerenciarHabilidade)
                     .addComponent(botaoCalcNivel))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoConsultarEquipamento)
-                    .addComponent(botaoConsultarInimigo)
-                    .addComponent(botaoConsultarHabilidade)
-                    .addComponent(botaoConsultarMissao)
-                    .addComponent(botaoConsultarPersonagem))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoAlterarEquipamento)
-                    .addComponent(botaoAlterarInimigo)
-                    .addComponent(botaoAlterarHabilidade)
-                    .addComponent(botaoAlterarMissao)
-                    .addComponent(botaoAlterarPersonagem))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(botaoExcluirEquipamento)
-                    .addComponent(botaoExcluirInimigo)
-                    .addComponent(botaoExcluirHabilidade)
-                    .addComponent(botaoExcluirMissao)
-                    .addComponent(botaoExcluirPersonagem))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addComponent(botaoConsultarPersonagem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
                 .addComponent(botaoVoltarMestre)
-                .addGap(26, 26, 26))
+                .addGap(37, 37, 37))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void botaoConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarPersonagemActionPerformed
+    private void botaoGerenciarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarEquipamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoConsultarPersonagemActionPerformed
+    }//GEN-LAST:event_botaoGerenciarEquipamentoActionPerformed
 
-    private void botaoCadastrarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarEquipamentoActionPerformed
+    private void botaoGerenciarInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarInimigoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCadastrarEquipamentoActionPerformed
+    }//GEN-LAST:event_botaoGerenciarInimigoActionPerformed
 
-    private void botaoCadastrarInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarInimigoActionPerformed
+    private void botaoGerenciarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarHabilidadeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCadastrarInimigoActionPerformed
+    }//GEN-LAST:event_botaoGerenciarHabilidadeActionPerformed
 
-    private void botaoCadastrarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarHabilidadeActionPerformed
+    private void botaoGerenciarMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarMissaoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCadastrarHabilidadeActionPerformed
-
-    private void botaoCadastrarMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarMissaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoCadastrarMissaoActionPerformed
-
-    private void botaoConsultarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarEquipamentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoConsultarEquipamentoActionPerformed
-
-    private void botaoConsultarInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarInimigoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoConsultarInimigoActionPerformed
-
-    private void botaoConsultarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarHabilidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoConsultarHabilidadeActionPerformed
-
-    private void botaoConsultarMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarMissaoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_botaoConsultarMissaoActionPerformed
+    }//GEN-LAST:event_botaoGerenciarMissaoActionPerformed
 
     private void botaoVoltarMestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarMestreActionPerformed
         // TODO add your handling code here:
@@ -347,6 +216,10 @@ public class FrameMestre extends javax.swing.JFrame {
     private void botaoCalcNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcNivelActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botaoCalcNivelActionPerformed
+
+    private void botaoConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarPersonagemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botaoConsultarPersonagemActionPerformed
 
     /**
      * @param args the command line arguments
@@ -384,26 +257,12 @@ public class FrameMestre extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoAlterarEquipamento;
-    private javax.swing.JButton botaoAlterarHabilidade;
-    private javax.swing.JButton botaoAlterarInimigo;
-    private javax.swing.JButton botaoAlterarMissao;
-    private javax.swing.JButton botaoAlterarPersonagem;
-    private javax.swing.JButton botaoCadastrarEquipamento;
-    private javax.swing.JButton botaoCadastrarHabilidade;
-    private javax.swing.JButton botaoCadastrarInimigo;
-    private javax.swing.JButton botaoCadastrarMissao;
     private javax.swing.JButton botaoCalcNivel;
-    private javax.swing.JButton botaoConsultarEquipamento;
-    private javax.swing.JButton botaoConsultarHabilidade;
-    private javax.swing.JButton botaoConsultarInimigo;
-    private javax.swing.JButton botaoConsultarMissao;
     private javax.swing.JButton botaoConsultarPersonagem;
-    private javax.swing.JButton botaoExcluirEquipamento;
-    private javax.swing.JButton botaoExcluirHabilidade;
-    private javax.swing.JButton botaoExcluirInimigo;
-    private javax.swing.JButton botaoExcluirMissao;
-    private javax.swing.JButton botaoExcluirPersonagem;
+    private javax.swing.JButton botaoGerenciarEquipamento;
+    private javax.swing.JButton botaoGerenciarHabilidade;
+    private javax.swing.JButton botaoGerenciarInimigo;
+    private javax.swing.JButton botaoGerenciarMissao;
     private javax.swing.JButton botaoVoltarMestre;
     private javax.swing.JLabel textoEquipamento;
     private javax.swing.JLabel textoHabilidade;
