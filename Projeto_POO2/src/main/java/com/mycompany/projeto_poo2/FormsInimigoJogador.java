@@ -82,6 +82,11 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
         rtSubtitulo.setText("(consultas por nome do Inimigo)");
 
         btLimparForm.setText("Limpar");
+        btLimparForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparFormActionPerformed(evt);
+            }
+        });
 
         rtRaca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtRaca.setText("Raça:");
@@ -256,11 +261,27 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
 
+    private void btLimparFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparFormActionPerformed
+        limpar();
+    }//GEN-LAST:event_btLimparFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
-        public void sair(){
+    public void limpar(){
+        cxNome.setText("");
+        cxRaca.setText("");
+        cxClasse.setText("");
+        cxNivel.setText("");   
+        cxPntMana.setText("");
+        cxPntVida.setText("");
+        cxFraqueza.setText("");
+        cxExpDrop.setText("");
+        checkChefe.setSelected(false);
+    }   
+    
+    public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
                         null,
                         "Deseja sair?",

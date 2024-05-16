@@ -152,7 +152,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparActionPerformed
-        // TODO add your handling code here:
+        limpar();
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
@@ -167,7 +167,13 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-        public void sair(){
+    public void limpar(){
+        cxNome.setText("");
+        cxObjetivo.setText("");
+        cxRecompensa.setText(""); 
+    }       
+      
+    public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
                         null,
                         "Deseja sair?",

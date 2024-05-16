@@ -72,6 +72,11 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         rtRaridade.setText("Raridade:");
 
         btLimparForm.setText("Limpar");
+        btLimparForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparFormActionPerformed(evt);
+            }
+        });
 
         btSairForm.setText("Sair");
         btSairForm.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +90,7 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
 
         rtSubtitulo.setText("(consultas por nome do equipamento)");
 
-        cbRaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comum", "Incomum", "Raro", "Épico", "Lendário" }));
+        cbRaridade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Comum", "Incomum", "Raro", "Muito Raro", "Épico", "Lendário" }));
         cbRaridade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbRaridadeActionPerformed(evt);
@@ -190,9 +195,17 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void btLimparFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparFormActionPerformed
+        limpar();
+    }//GEN-LAST:event_btLimparFormActionPerformed
+
+    public void limpar(){
+        cxNome.setText("");
+        cxTipo.setText("");
+        checkConsumivel.setSelected(false);
+        cxEfeito.setText("");
+        cbRaridade.setSelectedItem("Comum");
+    }
     
     public void sair(){
             int respSair = JOptionPane.showConfirmDialog(

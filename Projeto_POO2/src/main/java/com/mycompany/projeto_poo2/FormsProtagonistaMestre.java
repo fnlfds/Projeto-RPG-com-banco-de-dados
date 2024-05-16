@@ -85,6 +85,11 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         btExcPersonagem.setText("Excluir");
 
         btLimparForm.setText("Limpar");
+        btLimparForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparFormActionPerformed(evt);
+            }
+        });
 
         btSairForm.setText("Sair");
         btSairForm.addActionListener(new java.awt.event.ActionListener() {
@@ -336,11 +341,31 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
 
+    private void btLimparFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparFormActionPerformed
+        limpar();
+    }//GEN-LAST:event_btLimparFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
-        public void sair(){
+    public void limpar(){
+        cxNome.setText("");
+        cxRaca.setText("");
+        cxClasse.setText("");
+        cxNivel.setText("");   
+        cxPntMana.setText("");
+        cxPntVida.setText("");
+        cxCarisma.setText("");
+        cxDestreza.setText("");
+        cxForca.setText("");
+        cxInteligencia.setText("");
+        cxDinheiro.setText("");
+        cxExperiencia.setText("");
+        cxEfeito.setText("");
+    }       
+      
+    public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
                         null,
                         "Deseja sair?",

@@ -54,6 +54,11 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
         rtTitulo.setText("Habilidade");
 
         btLimparForm.setText("Limpar");
+        btLimparForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparFormActionPerformed(evt);
+            }
+        });
 
         rtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtNome.setText("Nome:");
@@ -175,11 +180,21 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
 
+    private void btLimparFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparFormActionPerformed
+        limpar();
+    }//GEN-LAST:event_btLimparFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
-        public void sair(){
+    public void limpar(){
+        cxNome.setText("");
+        cxDescricao.setText("");
+        cxEfeito.setText("");
+    }
+    
+    public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
                         null,
                         "Deseja sair?",

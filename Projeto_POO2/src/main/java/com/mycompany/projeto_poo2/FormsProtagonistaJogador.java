@@ -61,7 +61,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         rtRaca = new javax.swing.JLabel();
         rtPntVida = new javax.swing.JLabel();
         cxPntVida = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        btConsultarPersonagem = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -113,6 +113,11 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         rtTitulo.setText("Personagem");
 
         btLimparForm.setText("Limpar");
+        btLimparForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btLimparFormActionPerformed(evt);
+            }
+        });
 
         rtSubtitulo.setText("(consultas por nome do personagem)");
 
@@ -156,11 +161,11 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton1.setText("Consultar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btConsultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btConsultarPersonagem.setText("Consultar");
+        btConsultarPersonagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btConsultarPersonagemActionPerformed(evt);
             }
         });
 
@@ -221,7 +226,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                                     .addGap(223, 223, 223)
                                     .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 20, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
@@ -307,7 +312,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
@@ -338,19 +343,39 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cxPntVidaActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarPersonagemActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btConsultarPersonagemActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
 
+    private void btLimparFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btLimparFormActionPerformed
+        limpar();
+    }//GEN-LAST:event_btLimparFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
     
-        public void sair(){
+    public void limpar(){
+        cxNome.setText("");
+        cxRaca.setText("");
+        cxClasse.setText("");
+        cxNivel.setText("");   
+        cxPntMana.setText("");
+        cxPntVida.setText("");
+        cxCarisma.setText("");
+        cxDestreza.setText("");
+        cxForca.setText("");
+        cxInteligencia.setText("");
+        cxDinheiro.setText("");
+        cxExperiencia.setText("");
+        cxEfeito.setText("");
+    }       
+     
+    public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
                         null,
                         "Deseja sair?",
@@ -397,6 +422,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadPersonagem;
+    private javax.swing.JButton btConsultarPersonagem;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JTextField cxCarisma;
@@ -412,7 +438,6 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private javax.swing.JTextField cxPntMana;
     private javax.swing.JTextField cxPntVida;
     private javax.swing.JTextField cxRaca;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel rtAtributos;
     private javax.swing.JLabel rtCaracteristicas;
     private javax.swing.JLabel rtCarisma;
