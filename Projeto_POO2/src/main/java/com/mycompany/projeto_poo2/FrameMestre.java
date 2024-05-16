@@ -211,7 +211,7 @@ public class FrameMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoGerenciarMissaoActionPerformed
 
     private void botaoVoltarMestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarMestreActionPerformed
-        // TODO add your handling code here:
+        voltar();
     }//GEN-LAST:event_botaoVoltarMestreActionPerformed
 
     private void botaoCalcNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcNivelActionPerformed
@@ -225,7 +225,12 @@ public class FrameMestre extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
+
+    public void voltar(){
+        new FramePrincipal().show();
+        dispose();
+    }
+        
     public void abrirFormsProtagonistaMestre(){
         FormsProtagonistaMestre formsProtagonista = new FormsProtagonistaMestre();
         formsProtagonista.setVisible(true);

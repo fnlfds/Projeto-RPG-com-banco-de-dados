@@ -179,7 +179,7 @@ public class FrameJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_consultarHabilidadeActionPerformed
 
     private void botaoVoltarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarJogadorActionPerformed
-        // TODO add your handling code here:
+        voltar();
     }//GEN-LAST:event_botaoVoltarJogadorActionPerformed
 
     private void cadastrarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPersonagemActionPerformed
@@ -201,6 +201,11 @@ public class FrameJogador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+    public void voltar(){
+        new FramePrincipal().show();
+        dispose();
+    }
     
     public void abrirFormsProtagonistaJogador(){
         FormsProtagonistaJogador formsProtagonista = new FormsProtagonistaJogador();
