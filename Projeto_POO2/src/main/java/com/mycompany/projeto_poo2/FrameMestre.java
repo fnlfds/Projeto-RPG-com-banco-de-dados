@@ -125,7 +125,12 @@ public class FrameMestre extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(textoPrincipalMestre, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(botaoVoltarMestre)
+                        .addGap(53, 53, 53)
+                        .addComponent(textoHabilidade))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -146,17 +151,12 @@ public class FrameMestre extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(54, 54, 54)
                                 .addComponent(textoInimigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(botaoGerenciarHabilidade)
-                                .addGap(50, 50, 50))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(botaoVoltarMestre)
-                        .addGap(50, 50, 50)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(botaoGerenciarInimigo)
-                    .addComponent(textoHabilidade))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(botaoGerenciarInimigo)
+                                .addGap(50, 50, 50)
+                                .addComponent(botaoGerenciarHabilidade)))))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(botaoGerenciarMissao)
@@ -180,13 +180,13 @@ public class FrameMestre extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(botaoGerenciarEquipamento)
-                    .addComponent(botaoGerenciarInimigo)
                     .addComponent(botaoGerenciarMissao)
                     .addComponent(botaoGerenciarHabilidade)
-                    .addComponent(botaoCalcNivel))
+                    .addComponent(botaoCalcNivel)
+                    .addComponent(botaoGerenciarInimigo))
                 .addGap(18, 18, 18)
                 .addComponent(botaoConsultarPersonagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                 .addComponent(botaoVoltarMestre)
                 .addGap(29, 29, 29))
         );
@@ -195,19 +195,19 @@ public class FrameMestre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botaoGerenciarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarEquipamentoActionPerformed
-        // TODO add your handling code here:
+        abrirFormsEquipamentoMestre();
     }//GEN-LAST:event_botaoGerenciarEquipamentoActionPerformed
 
     private void botaoGerenciarInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarInimigoActionPerformed
-        // TODO add your handling code here:
+        abrirFormsInimigoMestre();
     }//GEN-LAST:event_botaoGerenciarInimigoActionPerformed
 
     private void botaoGerenciarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarHabilidadeActionPerformed
-        // TODO add your handling code here:
+        abrirFormsHabilidadeMestre();
     }//GEN-LAST:event_botaoGerenciarHabilidadeActionPerformed
 
     private void botaoGerenciarMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoGerenciarMissaoActionPerformed
-        // TODO add your handling code here:
+        abrirFormsMissaoMestre();
     }//GEN-LAST:event_botaoGerenciarMissaoActionPerformed
 
     private void botaoVoltarMestreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarMestreActionPerformed
@@ -219,12 +219,43 @@ public class FrameMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoCalcNivelActionPerformed
 
     private void botaoConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarPersonagemActionPerformed
-        // TODO add your handling code here:
+        abrirFormsProtagonistaMestre();
     }//GEN-LAST:event_botaoConsultarPersonagemActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void abrirFormsProtagonistaMestre(){
+        FormsProtagonistaMestre formsProtagonista = new FormsProtagonistaMestre();
+        formsProtagonista.setVisible(true);
+        //dispose();
+    }
+    
+    public void abrirFormsEquipamentoMestre(){
+        FormsEquipamentoMestre formsEquipamento = new FormsEquipamentoMestre();
+        formsEquipamento.setVisible(true);
+        //dispose();
+    }   
+    
+    public void abrirFormsInimigoMestre(){
+        FormsInimigoMestre formsInimigo = new FormsInimigoMestre();
+        formsInimigo.setVisible(true);
+        //dispose();
+    }
+      
+    public void abrirFormsHabilidadeMestre(){
+        FormsHabilidadeMestre formsHabilidade = new FormsHabilidadeMestre();
+        formsHabilidade.setVisible(true);
+        //dispose();
+    }    
+    
+    public void abrirFormsMissaoMestre(){
+        FormsMissaoMestre formsMissao = new FormsMissaoMestre();
+        formsMissao.setVisible(true);
+        //dispose();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

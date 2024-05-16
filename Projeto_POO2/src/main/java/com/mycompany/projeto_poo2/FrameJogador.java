@@ -72,10 +72,21 @@ public class FrameJogador extends javax.swing.JFrame {
 
         consultarEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         consultarEquipamento.setText("Consultar");
+        consultarEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarEquipamentoActionPerformed(evt);
+            }
+        });
 
         consultarInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         consultarInimigo.setText("Consultar");
+        consultarInimigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarInimigoActionPerformed(evt);
+            }
+        });
 
+        consultarHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         consultarHabilidade.setText("Consultar");
         consultarHabilidade.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,7 +94,13 @@ public class FrameJogador extends javax.swing.JFrame {
             }
         });
 
+        consultarMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         consultarMissao.setText("Consultar");
+        consultarMissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                consultarMissaoActionPerformed(evt);
+            }
+        });
 
         botaoVoltarJogador.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoVoltarJogador.setText("Voltar para a tela principal");
@@ -158,7 +175,7 @@ public class FrameJogador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void consultarHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarHabilidadeActionPerformed
-        // TODO add your handling code here:
+        abrirFormsHabilidadeJogador();
     }//GEN-LAST:event_consultarHabilidadeActionPerformed
 
     private void botaoVoltarJogadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarJogadorActionPerformed
@@ -166,12 +183,55 @@ public class FrameJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarJogadorActionPerformed
 
     private void cadastrarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarPersonagemActionPerformed
-        // TODO add your handling code here:
+        abrirFormsProtagonistaJogador();
     }//GEN-LAST:event_cadastrarPersonagemActionPerformed
+
+    private void consultarEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarEquipamentoActionPerformed
+        abrirFormsEquipamentoJogador();
+    }//GEN-LAST:event_consultarEquipamentoActionPerformed
+
+    private void consultarInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarInimigoActionPerformed
+        abrirFormsInimigoJogador();
+    }//GEN-LAST:event_consultarInimigoActionPerformed
+
+    private void consultarMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarMissaoActionPerformed
+        abrirFormsMissaoJogador();
+    }//GEN-LAST:event_consultarMissaoActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    
+    public void abrirFormsProtagonistaJogador(){
+        FormsProtagonistaJogador formsProtagonista = new FormsProtagonistaJogador();
+        formsProtagonista.setVisible(true);
+        dispose();
+    }
+    
+    public void abrirFormsEquipamentoJogador(){
+        FormsEquipamentoJogador formsEquipamento = new FormsEquipamentoJogador();
+        formsEquipamento.setVisible(true);
+        dispose();
+    }   
+    
+    public void abrirFormsInimigoJogador(){
+        FormsInimigoJogador formsInimigo = new FormsInimigoJogador();
+        formsInimigo.setVisible(true);
+        dispose();
+    }
+      
+    public void abrirFormsHabilidadeJogador(){
+        FormsHabilidadeJogador formsHabilidade = new FormsHabilidadeJogador();
+        formsHabilidade.setVisible(true);
+        dispose();
+    }    
+    
+    public void abrirFormsMissaoJogador(){
+        FormsMissaoJogador formsMissao = new FormsMissaoJogador();
+        formsMissao.setVisible(true);
+        dispose();
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
