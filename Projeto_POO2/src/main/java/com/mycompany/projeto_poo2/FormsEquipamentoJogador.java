@@ -215,9 +215,12 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
 
     
     public void voltar(){
-        new FrameJogador().show();
+        FrameJogador frameJogador = new FrameJogador();
+        frameJogador.setLocationRelativeTo(frameJogador);
+        frameJogador.setVisible(true);
         dispose();
     }
+    
     public void limpar(){
         cxNome.setText("");
         cxTipo.setText("");

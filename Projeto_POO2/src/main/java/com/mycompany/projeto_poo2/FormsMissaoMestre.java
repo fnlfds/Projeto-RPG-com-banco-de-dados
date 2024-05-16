@@ -201,9 +201,11 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
      */
 
     public void voltar(){
-        new FrameMestre().show();
+        FrameMestre frameMestre = new FrameMestre();
+        frameMestre.setLocationRelativeTo(frameMestre);
+        frameMestre.setVisible(true);
         dispose();
-    }    
+    }
     
     public void limpar(){
         cxNome.setText("");

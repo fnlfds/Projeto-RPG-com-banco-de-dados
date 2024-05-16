@@ -15,6 +15,7 @@ public class FramePrincipal extends javax.swing.JFrame {
      */
     public FramePrincipal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -107,12 +108,14 @@ public class FramePrincipal extends javax.swing.JFrame {
     
     public void abrirFrameJogador(){
         FrameJogador frameJogador = new FrameJogador();
+        frameJogador.setLocationRelativeTo(frameJogador);
         frameJogador.setVisible(true);
         dispose();
     }
     
     public void abrirFrameMestre(){
         FrameMestre frameMestre = new FrameMestre();
+        frameMestre.setLocationRelativeTo(frameMestre);
         frameMestre.setVisible(true);
         dispose();
     }
@@ -144,7 +147,7 @@ public class FramePrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FramePrincipal().setVisible(true);
+                new FramePrincipal().setVisible(true);  
             }
         });
     }

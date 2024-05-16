@@ -227,36 +227,43 @@ public class FrameMestre extends javax.swing.JFrame {
      */
 
     public void voltar(){
-        new FramePrincipal().show();
+        FramePrincipal framePrincipal = new FramePrincipal();
+        framePrincipal.setLocationRelativeTo(framePrincipal);
+        framePrincipal.setVisible(true);
         dispose();
     }
         
     public void abrirFormsProtagonistaMestre(){
         FormsProtagonistaMestre formsProtagonista = new FormsProtagonistaMestre();
+        formsProtagonista.setLocationRelativeTo(formsProtagonista);        
         formsProtagonista.setVisible(true);
         dispose();
     }
     
     public void abrirFormsEquipamentoMestre(){
         FormsEquipamentoMestre formsEquipamento = new FormsEquipamentoMestre();
+        formsEquipamento.setLocationRelativeTo(formsEquipamento);           
         formsEquipamento.setVisible(true);
         dispose();
     }   
     
     public void abrirFormsInimigoMestre(){
         FormsInimigoMestre formsInimigo = new FormsInimigoMestre();
+        formsInimigo.setLocationRelativeTo(formsInimigo);        
         formsInimigo.setVisible(true);
         dispose();
     }
       
     public void abrirFormsHabilidadeMestre(){
         FormsHabilidadeMestre formsHabilidade = new FormsHabilidadeMestre();
+        formsHabilidade.setLocationRelativeTo(formsHabilidade);        
         formsHabilidade.setVisible(true);
         dispose();
     }    
     
     public void abrirFormsMissaoMestre(){
         FormsMissaoMestre formsMissao = new FormsMissaoMestre();
+        formsMissao.setLocationRelativeTo(formsMissao);        
         formsMissao.setVisible(true);
         dispose();
     }

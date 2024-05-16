@@ -203,36 +203,43 @@ public class FrameJogador extends javax.swing.JFrame {
      */
     
     public void voltar(){
-        new FramePrincipal().show();
+        FramePrincipal framePrincipal = new FramePrincipal();
+        framePrincipal.setLocationRelativeTo(framePrincipal);
+        framePrincipal.setVisible(true);
         dispose();
     }
     
     public void abrirFormsProtagonistaJogador(){
         FormsProtagonistaJogador formsProtagonista = new FormsProtagonistaJogador();
+        formsProtagonista.setLocationRelativeTo(formsProtagonista);         
         formsProtagonista.setVisible(true);
         dispose();
     }
     
     public void abrirFormsEquipamentoJogador(){
         FormsEquipamentoJogador formsEquipamento = new FormsEquipamentoJogador();
+        formsEquipamento.setLocationRelativeTo(formsEquipamento);         
         formsEquipamento.setVisible(true);
         dispose();
     }   
     
     public void abrirFormsInimigoJogador(){
         FormsInimigoJogador formsInimigo = new FormsInimigoJogador();
+        formsInimigo.setLocationRelativeTo(formsInimigo);           
         formsInimigo.setVisible(true);
         dispose();
     }
       
     public void abrirFormsHabilidadeJogador(){
         FormsHabilidadeJogador formsHabilidade = new FormsHabilidadeJogador();
+        formsHabilidade.setLocationRelativeTo(formsHabilidade);          
         formsHabilidade.setVisible(true);
         dispose();
     }    
     
     public void abrirFormsMissaoJogador(){
         FormsMissaoJogador formsMissao = new FormsMissaoJogador();
+        formsMissao.setLocationRelativeTo(formsMissao);          
         formsMissao.setVisible(true);
         dispose();
     }
