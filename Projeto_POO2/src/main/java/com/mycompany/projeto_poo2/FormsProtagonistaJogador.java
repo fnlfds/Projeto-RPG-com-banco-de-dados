@@ -62,6 +62,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         rtPntVida = new javax.swing.JLabel();
         cxPntVida = new javax.swing.JTextField();
         btConsultarPersonagem = new javax.swing.JButton();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -169,6 +170,13 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             }
         });
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -227,7 +235,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                                     .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(29, 29, 29)
                                     .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 20, Short.MAX_VALUE))
+                        .addGap(0, 43, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,8 +264,10 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                 .addComponent(rtTitulo)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(579, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btLimparForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btSairForm)
                 .addContainerGap())
@@ -316,7 +326,8 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
-                    .addComponent(btSairForm))
+                    .addComponent(btSairForm)
+                    .addComponent(btVoltar))
                 .addGap(10, 10, 10))
         );
 
@@ -355,9 +366,18 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameJogador().show();
+        dispose();
+    }
     
     public void limpar(){
         cxNome.setText("");
@@ -425,6 +445,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private javax.swing.JButton btConsultarPersonagem;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxCarisma;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxDestreza;

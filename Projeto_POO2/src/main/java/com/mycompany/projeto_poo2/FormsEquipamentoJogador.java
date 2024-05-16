@@ -42,6 +42,7 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         rtTitulo = new javax.swing.JLabel();
         rtSubtitulo = new javax.swing.JLabel();
         cbRaridade = new javax.swing.JComboBox<>();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -97,6 +98,13 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
             }
         });
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,6 +114,8 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btLimparForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSairForm))
                     .addGroup(layout.createSequentialGroup()
@@ -136,17 +146,16 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
                                 .addComponent(checkConsumivel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(221, 221, 221)
-                                .addComponent(rtTitulo)))
-                        .addGap(0, 24, Short.MAX_VALUE)))
+                                .addComponent(rtTitulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(196, 196, 196)
+                                .addComponent(rtSubtitulo)))
+                        .addGap(0, 42, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(243, 243, 243)
-                .addComponent(btConsEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(rtSubtitulo)
-                .addGap(148, 148, 148))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btConsEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(217, 217, 217))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,7 +184,8 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
-                    .addComponent(btSairForm))
+                    .addComponent(btSairForm)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -199,6 +209,15 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    
+    public void voltar(){
+        new FrameJogador().show();
+        dispose();
+    }
     public void limpar(){
         cxNome.setText("");
         cxTipo.setText("");
@@ -256,6 +275,7 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
     private javax.swing.JButton btConsEquipamento;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JComboBox<String> cbRaridade;
     private javax.swing.JCheckBox checkConsumivel;
     private javax.swing.JTextField cxEfeito;

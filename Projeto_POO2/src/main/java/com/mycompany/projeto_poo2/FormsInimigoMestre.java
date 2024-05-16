@@ -56,6 +56,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         btCadInimigo = new javax.swing.JButton();
         rtSubtitulo = new javax.swing.JLabel();
         rtCaracteristicas = new javax.swing.JLabel();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -142,6 +143,13 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         rtCaracteristicas.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         rtCaracteristicas.setText("Características:");
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,6 +196,8 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                                 .addComponent(btExcInimigo)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(btLimparForm)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btVoltar)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btSairForm))
                             .addGroup(layout.createSequentialGroup()
@@ -263,7 +273,8 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                     .addComponent(btConsInimigo)
                     .addComponent(btExcInimigo)
                     .addComponent(btLimparForm)
-                    .addComponent(btSairForm))
+                    .addComponent(btSairForm)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -290,9 +301,18 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameMestre().show();
+        dispose();
+    }
     
     public void limpar(){
         cxNome.setText("");
@@ -359,6 +379,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private javax.swing.JButton btExcInimigo;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JCheckBox checkChefe;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxExpDrop;

@@ -46,6 +46,7 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
         rtEfeito = new javax.swing.JLabel();
         cxEfeito = new javax.swing.JTextField();
         rtRaridade = new javax.swing.JLabel();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -115,37 +116,49 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
         rtRaridade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtRaridade.setText("Raridade:");
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btCadEquipamento)
-                        .addGap(18, 18, 18)
-                        .addComponent(btAltEquipamento)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btLimparForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btSairForm))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(226, 226, 226)
+                        .addComponent(rtRaridade)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbRaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(226, 226, 226)
-                                        .addComponent(rtRaridade))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(203, 203, 203)
-                                        .addComponent(btConsEquipamento)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cbRaridade, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(btExcEquipamento)))
+                                .addComponent(btCadEquipamento)
+                                .addGap(18, 18, 18)
+                                .addComponent(btAltEquipamento))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(37, 37, 37)
+                                .addGap(197, 197, 197)
+                                .addComponent(btConsEquipamento)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btExcEquipamento)))
+                        .addGap(30, 30, 30)
+                        .addComponent(btLimparForm)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btVoltar))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(96, 96, 96)
+                                    .addComponent(rtTitulo))
+                                .addComponent(rtSubtitulo))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(rtEfeito)
@@ -160,18 +173,11 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(cxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(rtConsumivel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkConsumivel)))
-                        .addGap(0, 58, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(125, 125, 125)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(rtTitulo))
-                    .addComponent(rtSubtitulo))
+                                .addComponent(rtConsumivel)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(checkConsumivel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btSairForm)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -196,13 +202,14 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
                     .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rtRaridade)
                     .addComponent(cbRaridade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadEquipamento)
                     .addComponent(btAltEquipamento)
                     .addComponent(btConsEquipamento)
                     .addComponent(btExcEquipamento)
                     .addComponent(btLimparForm)
+                    .addComponent(btVoltar)
                     .addComponent(btSairForm))
                 .addContainerGap())
         );
@@ -231,6 +238,16 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
+    
+    public void voltar(){
+        new FrameMestre().show();
+        dispose();
+    }
+    
     public void limpar(){
         cxNome.setText("");
         cxTipo.setText("");
@@ -292,6 +309,7 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     private javax.swing.JButton btExcEquipamento;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JComboBox<String> cbRaridade;
     private javax.swing.JCheckBox checkConsumivel;
     private javax.swing.JTextField cxEfeito;

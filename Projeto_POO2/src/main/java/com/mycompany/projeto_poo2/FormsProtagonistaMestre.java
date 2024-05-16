@@ -63,6 +63,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         cxNome = new javax.swing.JTextField();
         rtRaca = new javax.swing.JLabel();
         cxRaca = new javax.swing.JTextField();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -163,6 +164,13 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         rtRaca.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtRaca.setText("Raça:");
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -216,7 +224,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                                     .addComponent(rtInteligencia)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(cxInteligencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 9, Short.MAX_VALUE))
+                        .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -255,6 +263,8 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                 .addComponent(btExcPersonagem)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btLimparForm)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btVoltar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btSairForm)
                 .addContainerGap())
@@ -314,7 +324,8 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                         .addComponent(btExcPersonagem))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btLimparForm)
-                        .addComponent(btSairForm)))
+                        .addComponent(btSairForm)
+                        .addComponent(btVoltar)))
                 .addGap(9, 9, 9))
         );
 
@@ -345,9 +356,18 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameMestre().show();
+        dispose();
+    }
     
     public void limpar(){
         cxNome.setText("");
@@ -417,6 +437,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     private javax.swing.JButton btExcPersonagem;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxCarisma;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxDestreza;

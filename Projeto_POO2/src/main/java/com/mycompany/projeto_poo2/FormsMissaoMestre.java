@@ -42,6 +42,7 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         btSair = new javax.swing.JButton();
         cxNome = new javax.swing.JTextField();
         rtObjetivo = new javax.swing.JLabel();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -91,25 +92,19 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         rtObjetivo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtObjetivo.setText("Objetivo:");
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btCadMissao)
-                        .addGap(18, 18, 18)
-                        .addComponent(btAltMissao)
-                        .addGap(18, 18, 18)
-                        .addComponent(btConsMissao)
-                        .addGap(18, 18, 18)
-                        .addComponent(btExcMissao)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                        .addComponent(btLimpar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btSair))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -124,16 +119,32 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(rtNome)
                                 .addGap(18, 18, 18)
-                                .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(108, 108, 108)
+                                        .addComponent(rtTitulo))
+                                    .addComponent(rtSubtitulo)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btCadMissao)
+                                .addGap(18, 18, 18)
+                                .addComponent(btAltMissao)
+                                .addGap(18, 18, 18)
+                                .addComponent(btConsMissao)
+                                .addGap(18, 18, 18)
+                                .addComponent(btExcMissao)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                                .addComponent(btLimpar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btSair)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(153, 153, 153)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addComponent(rtTitulo))
-                    .addComponent(rtSubtitulo))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +172,8 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
                     .addComponent(btConsMissao)
                     .addComponent(btExcMissao)
                     .addComponent(btLimpar)
-                    .addComponent(btSair))
+                    .addComponent(btSair)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -180,9 +192,18 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cxNomeActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameMestre().show();
+        dispose();
+    }    
     
     public void limpar(){
         cxNome.setText("");
@@ -243,6 +264,7 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
     private javax.swing.JButton btExcMissao;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSair;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxObjetivo;
     private javax.swing.JTextField cxRecompensa;

@@ -39,6 +39,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
         rtRecompensa = new javax.swing.JLabel();
         cxNome = new javax.swing.JTextField();
         cxRecompensa = new javax.swing.JTextField();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +80,13 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
             }
         });
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,39 +94,42 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(383, Short.MAX_VALUE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btLimpar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btVoltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSair))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(rtRecompensa)
-                                .addGap(18, 18, 18)
-                                .addComponent(cxRecompensa))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(rtObjetivo)
-                                .addGap(18, 18, 18)
-                                .addComponent(cxObjetivo))
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(rtRecompensa)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cxRecompensa))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rtObjetivo)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cxObjetivo))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rtNome)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(rtNome)
-                                .addGap(18, 18, 18)
-                                .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(264, 264, 264)
+                                .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 100, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(210, 210, 210))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(201, 201, 201)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(rtTitulo)
-                        .addGap(208, 208, 208))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rtSubtitulo)
-                        .addGap(162, 162, 162))))
+                        .addGap(46, 46, 46))
+                    .addComponent(rtSubtitulo, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,12 +150,13 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtRecompensa)
                     .addComponent(cxRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimpar)
-                    .addComponent(btSair))
+                    .addComponent(btSair)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -163,9 +175,18 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_cxNomeActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameJogador().show();
+        dispose();
+    }
     
     public void limpar(){
         cxNome.setText("");
@@ -222,6 +243,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     private javax.swing.JButton btConsMissao;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btSair;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JTextField cxNome;
     private javax.swing.JTextField cxObjetivo;
     private javax.swing.JTextField cxRecompensa;

@@ -53,6 +53,7 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
         cxPntMana = new javax.swing.JTextField();
         rtPntVida = new javax.swing.JLabel();
         cxPntVida = new javax.swing.JTextField();
+        btVoltar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -125,6 +126,13 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
             }
         });
 
+        btVoltar.setText("Voltar");
+        btVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -149,13 +157,12 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btConsInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(313, 313, 313))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btLimparForm)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btSairForm))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(rtNivel)
@@ -165,18 +172,6 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                                 .addGap(239, 239, 239)
                                 .addComponent(rtAtributos))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(rtFraqueza)
-                                .addGap(18, 18, 18)
-                                .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(rtExpDrop)
-                                .addGap(18, 18, 18)
-                                .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rtChefe)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(checkChefe))
-                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(cxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(rtPntMana)
@@ -185,10 +180,29 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(rtPntVida)
                                 .addGap(18, 18, 18)
-                                .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btLimparForm)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(rtFraqueza)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(24, 24, 24)
+                                        .addComponent(rtExpDrop)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btVoltar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btSairForm))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(28, 28, 28)
+                                        .addComponent(rtChefe)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(checkChefe))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(326, 326, 326)
                         .addComponent(rtTitulo))
@@ -196,10 +210,6 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                         .addGap(277, 277, 277)
                         .addComponent(rtSubtitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btConsInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(313, 313, 313))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -242,7 +252,8 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
-                    .addComponent(btSairForm))
+                    .addComponent(btSairForm)
+                    .addComponent(btVoltar))
                 .addContainerGap())
         );
 
@@ -265,9 +276,18 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btLimparFormActionPerformed
 
+    private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
+        voltar();
+    }//GEN-LAST:event_btVoltarActionPerformed
+
     /**
      * @param args the command line arguments
      */
+
+    public void voltar(){
+        new FrameJogador().show();
+        dispose();
+    }
     
     public void limpar(){
         cxNome.setText("");
@@ -330,6 +350,7 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
     private javax.swing.JButton btConsInimigo;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
+    private javax.swing.JButton btVoltar;
     private javax.swing.JCheckBox checkChefe;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxExpDrop;
