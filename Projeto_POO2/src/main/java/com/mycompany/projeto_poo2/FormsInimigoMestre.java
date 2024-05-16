@@ -4,6 +4,8 @@
  */
 package com.mycompany.projeto_poo2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bruno
@@ -75,6 +77,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         rtRaca.setText("Raça:");
 
         btSairForm.setText("Sair");
+        btSairForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairFormActionPerformed(evt);
+            }
+        });
 
         rtClasse.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtClasse.setText("Classe:");
@@ -236,13 +243,14 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(rtAtributos)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rtChefe)
-                    .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rtExpDrop)
-                    .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rtFraqueza)
-                    .addComponent(checkChefe, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(checkChefe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(rtChefe)
+                        .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rtExpDrop)
+                        .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(rtFraqueza)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadInimigo)
@@ -269,9 +277,27 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btCadInimigoActionPerformed
 
+    private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
+        sair();
+    }//GEN-LAST:event_btSairFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+        public void sair(){
+            int respSair = JOptionPane.showConfirmDialog(
+                        null,
+                        "Deseja sair?",
+                        "Saida",
+                        JOptionPane.YES_NO_OPTION
+                );
+        if(respSair == 0){
+            //System.exit(0);
+            dispose();
+        }
+    }
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

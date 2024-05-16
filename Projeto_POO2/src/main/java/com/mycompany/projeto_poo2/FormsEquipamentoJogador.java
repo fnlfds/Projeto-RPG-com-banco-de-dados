@@ -74,6 +74,11 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         btLimparForm.setText("Limpar");
 
         btSairForm.setText("Sair");
+        btSairForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSairFormActionPerformed(evt);
+            }
+        });
 
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Equipamento");
@@ -181,9 +186,27 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Selected Item: " + selectedItem);
     }//GEN-LAST:event_cbRaridadeActionPerformed
 
+    private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
+        sair();
+    }//GEN-LAST:event_btSairFormActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+    public void sair(){
+            int respSair = JOptionPane.showConfirmDialog(
+                        null,
+                        "Deseja sair?",
+                        "Saida",
+                        JOptionPane.YES_NO_OPTION
+                );
+        if(respSair == 0){
+            //System.exit(0);
+            dispose();
+        }
+    }
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

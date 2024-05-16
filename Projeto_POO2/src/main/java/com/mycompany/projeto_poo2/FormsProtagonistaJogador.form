@@ -88,7 +88,6 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="rtNivel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="223" max="-2" attributes="0"/>
@@ -322,6 +321,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairFormActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="rtEfeito">
       <Properties>

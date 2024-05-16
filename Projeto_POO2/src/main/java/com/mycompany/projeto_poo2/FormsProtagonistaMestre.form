@@ -187,13 +187,15 @@
                   </Group>
               </Group>
               <EmptySpace pref="44" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btLimparForm" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btSairForm" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="3" groupAlignment="3" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="btAltPersonagem" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btConsPersonagem" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btExcPersonagem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="btLimparForm" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btSairForm" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -250,6 +252,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btSairFormActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="rtNivel">
       <Properties>

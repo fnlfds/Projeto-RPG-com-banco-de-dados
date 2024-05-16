@@ -229,31 +229,31 @@ public class FrameMestre extends javax.swing.JFrame {
     public void abrirFormsProtagonistaMestre(){
         FormsProtagonistaMestre formsProtagonista = new FormsProtagonistaMestre();
         formsProtagonista.setVisible(true);
-        //dispose();
+        dispose();
     }
     
     public void abrirFormsEquipamentoMestre(){
         FormsEquipamentoMestre formsEquipamento = new FormsEquipamentoMestre();
         formsEquipamento.setVisible(true);
-        //dispose();
+        dispose();
     }   
     
     public void abrirFormsInimigoMestre(){
         FormsInimigoMestre formsInimigo = new FormsInimigoMestre();
         formsInimigo.setVisible(true);
-        //dispose();
+        dispose();
     }
       
     public void abrirFormsHabilidadeMestre(){
         FormsHabilidadeMestre formsHabilidade = new FormsHabilidadeMestre();
         formsHabilidade.setVisible(true);
-        //dispose();
+        dispose();
     }    
     
     public void abrirFormsMissaoMestre(){
         FormsMissaoMestre formsMissao = new FormsMissaoMestre();
         formsMissao.setVisible(true);
-        //dispose();
+        dispose();
     }
     
     public static void main(String args[]) {

@@ -4,6 +4,8 @@
  */
 package com.mycompany.projeto_poo2;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author bruno
@@ -154,7 +156,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_btLimparActionPerformed
 
     private void btSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairActionPerformed
-        // TODO add your handling code here:
+        sair();
     }//GEN-LAST:event_btSairActionPerformed
 
     private void cxNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxNomeActionPerformed
@@ -164,6 +166,20 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    
+        public void sair(){
+            int respSair = JOptionPane.showConfirmDialog(
+                        null,
+                        "Deseja sair?",
+                        "Saida",
+                        JOptionPane.YES_NO_OPTION
+                );
+        if(respSair == 0){
+            //System.exit(0);
+            dispose();
+        }
+    }
+        
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
