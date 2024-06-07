@@ -215,7 +215,7 @@ public class FrameMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarMestreActionPerformed
 
     private void botaoCalcNivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCalcNivelActionPerformed
-        // TODO add your handling code here:
+        abrirFormsCalcularNivel();
     }//GEN-LAST:event_botaoCalcNivelActionPerformed
 
     private void botaoConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoConsultarPersonagemActionPerformed
@@ -265,6 +265,13 @@ public class FrameMestre extends javax.swing.JFrame {
         FormsMissaoMestre formsMissao = new FormsMissaoMestre();
         formsMissao.setLocationRelativeTo(formsMissao);        
         formsMissao.setVisible(true);
+        dispose();
+    }
+    
+    public void abrirFormsCalcularNivel(){
+        FormsCalcularNivel formsNivel = new FormsCalcularNivel();
+        formsNivel.setLocationRelativeTo(formsNivel);
+        formsNivel.setVisible(true);
         dispose();
     }
     

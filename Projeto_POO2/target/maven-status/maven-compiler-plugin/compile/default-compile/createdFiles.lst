@@ -4,6 +4,7 @@ com\mycompany\projeto_poo2\FormsEquipamentoJogador$1.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$5.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$5.class
 com\mycompany\projeto_poo2\FrameMestre$1.class
+com\mycompany\projeto_poo2\FormsCalcularNivel$2.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$4.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$8.class
 com\mycompany\projeto_poo2\FramePrincipal$3.class
@@ -54,6 +55,7 @@ com\mycompany\projeto_poo2\FrameJogador$7.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$4.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador.class
 com\mycompany\projeto_poo2\FrameMestre$8.class
+com\mycompany\projeto_poo2\FormsCalcularNivel.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$7.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$7.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador$1.class
@@ -62,6 +64,7 @@ com\mycompany\projeto_poo2\FormsHabilidadeJogador$4.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$1.class
+com\mycompany\projeto_poo2\FormsCalcularNivel$4.class
 com\mycompany\projeto_poo2\FrameJogador$1.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$1.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$2.class
@@ -70,8 +73,10 @@ com\mycompany\projeto_poo2\Personagem.class
 com\mycompany\projeto_poo2\FormsMissaoMestre.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$9.class
+com\mycompany\projeto_poo2\FormsCalcularNivel$1.class
 com\mycompany\projeto_poo2\FormsInimigoMestre.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre.class
+com\mycompany\projeto_poo2\FormsCalcularNivel$3.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$5.class
 com\mycompany\projeto_poo2\FrameMestre$3.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$3.class

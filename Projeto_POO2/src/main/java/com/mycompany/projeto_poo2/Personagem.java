@@ -4,7 +4,7 @@ public class Personagem {
     private String nome;
     private int pontoVida;
     private int pontoMana;
-    private int nivel;
+    public int nivel;
     private String raca;
     private String classe;
 

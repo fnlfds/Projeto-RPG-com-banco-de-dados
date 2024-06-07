@@ -1,17 +1,28 @@
 package com.mycompany.projeto_poo2;
 
 public class Missao {
+    private int id_missoes;
     private String nome;
     private String objetivo;
     private String Recompensa;
     
-    public Missao(String nome, String objetivo, String recompensa) {
+    public Missao(int id_missoes, String nome, String objetivo, String recompensa) {
+        this.id_missoes = id_missoes;
         this.nome = nome;
         this.objetivo = objetivo;
         Recompensa = recompensa;
     }
 
     //getters e setters
+    
+    public int getId_Missoes(){
+        return id_missoes;
+    }
+    
+    public void setId_Missoes(int id_missoes){
+        this.id_missoes = id_missoes;
+    }
+    
     public String getNome() {
         return nome;
     }
