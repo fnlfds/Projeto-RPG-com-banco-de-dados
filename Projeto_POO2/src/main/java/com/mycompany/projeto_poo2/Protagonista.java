@@ -1,7 +1,6 @@
 package com.mycompany.projeto_poo2;
 
 public class Protagonista extends Personagem{
-    private int id_protagonista;
     private int experiencia;
     private int forca;
     private int destreza;
@@ -10,9 +9,10 @@ public class Protagonista extends Personagem{
     private String efeito;
     private int dinheiro;
 
-    public Protagonista(int id_protagonista,int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca, int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, String raca) {
+    public Protagonista(int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
+            int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, 
+            String raca) {
         super(classe, nivel, nome, pontoMana, pontoVida, raca);
-        this.id_protagonista = id_protagonista;
         this.carisma = carisma;
         this.destreza = destreza;
         this.dinheiro = dinheiro;
@@ -20,6 +20,22 @@ public class Protagonista extends Personagem{
         this.experiencia = experiencia;
         this.forca = forca;
         this.inteligencia = inteligencia;
+    }
+
+    public void consultarProtagonista(){
+
+    }
+
+    public void alterarProtagonista(){
+
+    }
+
+    public void excluirProtagonista(){
+
+    }
+
+    public void cadastrarProtagonista(){
+        
     }
 
     public void calcularNivel(int experienciaAdquirida) {
@@ -32,14 +48,7 @@ public class Protagonista extends Personagem{
     }
 
     //getters e setters
-    public int getId_Protagonista(){
-        return id_protagonista;
-    }
-    
-    public void setId_Protagonista(int id_protagonista) {
-        this.id_protagonista = id_protagonista;
-    }
-    
+ 
     public int getExperiencia() {
         return experiencia;
     }

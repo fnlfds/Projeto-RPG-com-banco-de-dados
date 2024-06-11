@@ -15,7 +15,7 @@ public class Personagem {
         this.pontoMana = pontoMana;
         this.pontoVida = pontoVida;
         this.raca = raca;
-    }
+        }
 
     //getters e setters
     public String getNome() {

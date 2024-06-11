@@ -4,13 +4,29 @@ public class Missao {
     private int id_missoes;
     private String nome;
     private String objetivo;
-    private String Recompensa;
+    private String recompensa;
     
     public Missao(int id_missoes, String nome, String objetivo, String recompensa) {
         this.id_missoes = id_missoes;
         this.nome = nome;
         this.objetivo = objetivo;
-        Recompensa = recompensa;
+        this.recompensa = recompensa;
+    }
+
+    public void consultarMissao(){
+
+    }
+
+    public void alterarMissao(){
+
+    }
+
+    public void excluirMissao(){
+
+    }
+
+    public void cadastrarMissao(){
+
     }
 
     //getters e setters
@@ -40,11 +56,11 @@ public class Missao {
     }
 
     public String getRecompensa() {
-        return Recompensa;
+        return recompensa;
     }
 
     public void setRecompensa(String recompensa) {
-        Recompensa = recompensa;
+        this.recompensa = recompensa;
     }
 
     

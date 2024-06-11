@@ -30,7 +30,7 @@ public class Equipamento {
     }
 
     public void cadastrarEquipamento(){
-
+        
     }
 
     //getters e setters

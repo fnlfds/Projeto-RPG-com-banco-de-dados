@@ -14,6 +14,22 @@ public class Inimigo extends Personagem {
         this.fraqueza = fraqueza;
     }
 
+    public void consultarInimigo(){
+
+    }
+
+    public void alterarInimigo(){
+
+    }
+
+    public void excluirInimigo(){
+
+    }
+
+    public void cadastrarInimigo(){
+
+    }
+
     //getters e setters
     
     public int getId_Inimigo(){

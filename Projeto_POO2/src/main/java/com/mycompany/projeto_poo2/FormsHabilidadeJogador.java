@@ -56,6 +56,11 @@ public class FormsHabilidadeJogador extends javax.swing.JFrame {
 
         btConsHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsHabilidade.setText("Consultar");
+        btConsHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsHabilidadeActionPerformed(evt);
+            }
+        });
 
         btLimparForm.setText("Limpar");
         btLimparForm.addActionListener(new java.awt.event.ActionListener() {
@@ -170,6 +175,10 @@ public class FormsHabilidadeJogador extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btConsHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments
