@@ -327,8 +327,8 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
 
     private void btCadPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadPersonagemActionPerformed
         
-        int nivel = 0, pntmana = 0, pntvida = 0, carisma = 0, destreza = 0, forca = 0, inteligencia = 0, dinheiro = 0, experiencia = 0;
-        String classe = "", efeito = "", nome = "", raca = "";
+        int nivel = 0, pntmana = 0, pntvida = 0, carisma = 0, destreza = 0, forca = 0, inteligencia = 0, 
+        dinheiro = 0, experiencia = 0; String classe = "", efeito = "", nome = "", raca = "";
         try {
             String carismaS = cxCarisma.getText();
             String destrezaS = cxDestreza.getText();
@@ -341,10 +341,11 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             String pntvidaS = cxPntVida.getText();
             
             if (nivelS.isEmpty() || pntmanaS.isEmpty() || pntvidaS.isEmpty() || carismaS.isEmpty() || 
-                destrezaS.isEmpty() || forcaS.isEmpty() ||inteligenciaS.isEmpty() || dinheiroS.isEmpty() ||
-                experienciaS.isEmpty()) {
+            destrezaS.isEmpty() || forcaS.isEmpty() ||inteligenciaS.isEmpty() || dinheiroS.isEmpty() ||
+            experienciaS.isEmpty()) {
                 throw new IllegalArgumentException("Os campos numéricos não podem estar vazios.");
             }
+            
             nivel = Integer.parseInt(nivelS.trim());
             pntmana = Integer.parseInt(pntmanaS.trim());
             pntvida = Integer.parseInt(pntvidaS.trim());
@@ -353,28 +354,23 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             inteligencia = Integer.parseInt(inteligenciaS.trim());
             dinheiro = Integer.parseInt(dinheiroS.trim());
             experiencia = Integer.parseInt(experienciaS.trim());
-            
-        }catch (NumberFormatException ex) {
-            JOptionPane.showMessageDialog(null, "Erro: Por favor, insira números inteiros válidos.");
-        }catch (IllegalArgumentException ex) {
-            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
-        }
-        
-        try {
             classe = cxClasse.getText();
             efeito = cxEfeito.getText();
             nome = cxNome.getText();
             raca = cxRaca.getText();
-            
             if(classe.isEmpty() || efeito.isEmpty() || nome.isEmpty() || raca.isEmpty()){
                 throw new NullPointerException("Um ou mais campos estão vazios.");
             }
-        }catch (NullPointerException ex) {
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: Por favor, insira números inteiros válidos.");
+            return;
+        }catch (IllegalArgumentException | NullPointerException ex) {
             JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            return;
         }
-        
+
         Protagonista p = new Protagonista(carisma, destreza, dinheiro, efeito, experiencia, forca, 
-                inteligencia, classe, nivel, nome, pntmana, pntvida, raca);
+        inteligencia, classe, nivel, nome, pntmana, pntvida, raca);
         p.cadastrarProtagonista();
         
     }//GEN-LAST:event_btCadPersonagemActionPerformed

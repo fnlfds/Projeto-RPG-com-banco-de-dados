@@ -1,4 +1,9 @@
 package com.mycompany.projeto_poo2;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class Protagonista extends Personagem{
     private int experiencia;
@@ -8,10 +13,10 @@ public class Protagonista extends Personagem{
     private int carisma;
     private String efeito;
     private int dinheiro;
-
+    
     public Protagonista(int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
-            int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, 
-            String raca) {
+        int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, 
+        String raca) {
         super(classe, nivel, nome, pontoMana, pontoVida, raca);
         this.carisma = carisma;
         this.destreza = destreza;
@@ -35,7 +40,8 @@ public class Protagonista extends Personagem{
     }
 
     public void cadastrarProtagonista(){
-        
+        ConexaoBD c = new ConexaoBD();
+        c.fazerConexao();
     }
 
     public void calcularNivel(int experienciaAdquirida) {
