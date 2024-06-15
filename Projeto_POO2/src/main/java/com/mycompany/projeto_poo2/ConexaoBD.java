@@ -14,7 +14,7 @@ public class ConexaoBD {
         String url = "jdbc:mysql://localhost:3306/rpg";
         String driver = "com.mysql.cj.jdbc.Driver";
         String user = "root";
-        String senha = "direito";
+        String senha = "Nerdscraft2";
         try{
             JOptionPane.showMessageDialog(null,"Tentando conectar o BD...");
             conn = DriverManager.getConnection(url,user,senha);

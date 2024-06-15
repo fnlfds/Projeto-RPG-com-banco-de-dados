@@ -1,6 +1,14 @@
 package com.mycompany.projeto_poo2;
 
 import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 public class FormsProtagonistaJogador extends javax.swing.JFrame {
     public FormsProtagonistaJogador() {
@@ -46,6 +54,10 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         cxPntVida = new javax.swing.JTextField();
         btConsultarPersonagem = new javax.swing.JButton();
         btVoltar = new javax.swing.JButton();
+        cbxEquipamento = new javax.swing.JComboBox();
+        rtEquipamento = new javax.swing.JLabel();
+        rtHabilidade = new javax.swing.JLabel();
+        cbxHabilidade = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,6 +172,46 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             }
         });
 
+        cbxEquipamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxEquipamento.setToolTipText("");
+        cbxEquipamento.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxEquipamentoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEquipamentoActionPerformed(evt);
+            }
+        });
+
+        rtEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtEquipamento.setText("Equipamento:");
+
+        rtHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtHabilidade.setText("Habilidade:");
+
+        cbxHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxHabilidade.setToolTipText("");
+        cbxHabilidade.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxHabilidadeAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxHabilidadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -204,21 +256,39 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(rtDinheiro)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(rtExperiencia)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(rtEfeito)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(223, 223, 223)
-                                    .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(29, 29, 29)
-                                    .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 43, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(158, 158, 158)
+                                            .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(29, 29, 29)
+                                            .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(rtEquipamento)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(cbxEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(18, 18, 18))
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addGap(22, 22, 22)
+                                                    .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(rtExperiencia)))
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                    .addComponent(rtEfeito)
+                                                    .addGap(18, 18, 18)
+                                                    .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(rtHabilidade)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(156, 156, 156))))))))
+                        .addGap(0, 5, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -302,7 +372,13 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                         .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rtExperiencia)
                         .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtEquipamento)
+                    .addComponent(rtHabilidade)
+                    .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -327,38 +403,50 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
 
     private void btCadPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadPersonagemActionPerformed
         
-        int nivel = 0, pntmana = 0, pntvida = 0, carisma = 0, destreza = 0, forca = 0, inteligencia = 0, 
-        dinheiro = 0, experiencia = 0; String classe = "", efeito = "", nome = "", raca = "";
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");
+        Protagonista protagonista = new Protagonista(0,0,0,"",0,0,0,"",0,"",0,0,"",equip, habil);
+
         try {
-            String carismaS = cxCarisma.getText();
-            String destrezaS = cxDestreza.getText();
-            String dinheiroS = cxDinheiro.getText();
-            String experienciaS = cxExperiencia.getText();
-            String forcaS = cxForca.getText();
-            String inteligenciaS = cxInteligencia.getText();
-            String nivelS = cxNivel.getText();
-            String pntmanaS = cxPntMana.getText();
-            String pntvidaS = cxPntVida.getText();
-            
-            if (nivelS.isEmpty() || pntmanaS.isEmpty() || pntvidaS.isEmpty() || carismaS.isEmpty() || 
-            destrezaS.isEmpty() || forcaS.isEmpty() ||inteligenciaS.isEmpty() || dinheiroS.isEmpty() ||
-            experienciaS.isEmpty()) {
+            String t1 = cxNome.getText();
+            String t2 = cxPntVida.getText();
+            String t3 = cxPntMana.getText();
+            String t4 = cxNivel.getText();
+            String t5 = cxRaca.getText();
+            String t6 = cxClasse.getText();
+            String t7 = cxExperiencia.getText();
+            String t8 = cxForca.getText();
+            String t9 = cxDestreza.getText();
+            String t10 = cxInteligencia.getText();
+            String t11 = cxCarisma.getText();
+            String t12 = cxEfeito.getText();
+            String t13 = cxDinheiro.getText();
+            equip = (Equipamento) cbxEquipamento.getSelectedItem();
+            habil = (Habilidade) cbxHabilidade.getSelectedItem();
+  
+            if (t4.isEmpty() || t3.isEmpty() || t2.isEmpty() || t11.isEmpty() || 
+            t9.isEmpty() || t8.isEmpty() ||t10.isEmpty() ||t13.isEmpty() ||
+            t7.isEmpty()) {
                 throw new IllegalArgumentException("Os campos numéricos não podem estar vazios.");
             }
             
-            nivel = Integer.parseInt(nivelS.trim());
-            pntmana = Integer.parseInt(pntmanaS.trim());
-            pntvida = Integer.parseInt(pntvidaS.trim());
-            carisma = Integer.parseInt(carismaS.trim());
-            forca = Integer.parseInt(forcaS.trim());
-            inteligencia = Integer.parseInt(inteligenciaS.trim());
-            dinheiro = Integer.parseInt(dinheiroS.trim());
-            experiencia = Integer.parseInt(experienciaS.trim());
-            classe = cxClasse.getText();
-            efeito = cxEfeito.getText();
-            nome = cxNome.getText();
-            raca = cxRaca.getText();
-            if(classe.isEmpty() || efeito.isEmpty() || nome.isEmpty() || raca.isEmpty()){
+            protagonista.setNome(t1);
+            protagonista.setPontoVida(Integer.parseInt(t2));
+            protagonista.setPontoMana(Integer.parseInt(t3));
+            protagonista.setNivel(Integer.parseInt(t4));
+            protagonista.setRaca(t5);
+            protagonista.setClasse(t6);
+            protagonista.setExperiencia(Integer.parseInt(t7));
+            protagonista.setForca(Integer.parseInt(t8));
+            protagonista.setDestreza(Integer.parseInt(t9));
+            protagonista.setInteligencia(Integer.parseInt(t10));
+            protagonista.setCarisma(Integer.parseInt(t11));
+            protagonista.setEfeito(t12);
+            protagonista.setDinheiro(Integer.parseInt(t13));
+            protagonista.setEquipamento(equip);
+            protagonista.setHabilidade(habil);
+
+            if(t6.isEmpty() || t12.isEmpty() || t1.isEmpty() || t5.isEmpty()){
                 throw new NullPointerException("Um ou mais campos estão vazios.");
             }
         }catch (NumberFormatException ex) {
@@ -368,10 +456,10 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
             return;
         }
-
-        Protagonista p = new Protagonista(carisma, destreza, dinheiro, efeito, experiencia, forca, 
-        inteligencia, classe, nivel, nome, pntmana, pntvida, raca);
-        p.cadastrarProtagonista();
+        
+        ProtagonistaDAO dao = new ProtagonistaDAO();
+        dao.inserir(protagonista);
+        System.out.println("Cadastro realizado com sucesso");
         
     }//GEN-LAST:event_btCadPersonagemActionPerformed
 
@@ -398,6 +486,32 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void cbxEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamentoActionPerformed
+
+    }//GEN-LAST:event_cbxEquipamentoActionPerformed
+
+    private void cbxEquipamentoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxEquipamentoAncestorAdded
+       EquipamentoDAO dao = new EquipamentoDAO();
+       List<Equipamento> lista = dao.listaEquipamento();
+       cbxEquipamento.removeAllItems();
+       for(Equipamento e: lista){
+           cbxEquipamento.addItem(e);
+       }
+    }//GEN-LAST:event_cbxEquipamentoAncestorAdded
+
+    private void cbxHabilidadeAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxHabilidadeAncestorAdded
+       HabilidadeDAO dao = new HabilidadeDAO();
+       List<Habilidade> lista = dao.listaHabilidade();
+       cbxHabilidade.removeAllItems();
+       for(Habilidade e: lista){
+           cbxHabilidade.addItem(e);
+       }
+    }//GEN-LAST:event_cbxHabilidadeAncestorAdded
+
+    private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -438,6 +552,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             dispose();
         }
     }
+    
         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -477,6 +592,8 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox cbxEquipamento;
+    private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JTextField cxCarisma;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxDestreza;
@@ -497,8 +614,10 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private javax.swing.JLabel rtDestreza;
     private javax.swing.JLabel rtDinheiro;
     private javax.swing.JLabel rtEfeito;
+    private javax.swing.JLabel rtEquipamento;
     private javax.swing.JLabel rtExperiencia;
     private javax.swing.JLabel rtForca;
+    private javax.swing.JLabel rtHabilidade;
     private javax.swing.JLabel rtInteligencia;
     private javax.swing.JLabel rtNivel;
     private javax.swing.JLabel rtNome;

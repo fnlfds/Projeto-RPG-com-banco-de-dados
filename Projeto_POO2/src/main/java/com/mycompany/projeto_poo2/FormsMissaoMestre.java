@@ -51,6 +51,11 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
 
         btCadMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btCadMissao.setText("Cadastrar");
+        btCadMissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCadMissaoActionPerformed(evt);
+            }
+        });
 
         btAltMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btAltMissao.setText("Alterar");
@@ -195,6 +200,31 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btCadMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadMissaoActionPerformed
+        Missao missao = new Missao(0,"","","");
+
+        try {
+            String t1 = cxNome.getText();
+            String t2 = cxObjetivo.getText();
+            String t3 = cxRecompensa.getText();
+      
+            missao.setNome(t1);
+            missao.setObjetivo(t2);
+            missao.setRecompensa(t3);
+
+            if(t1.isEmpty() || t2.isEmpty() || t3.isEmpty()){
+                throw new NullPointerException("Um ou mais campos estão vazios.");
+            }
+        }catch (IllegalArgumentException | NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            return;
+        }
+        
+        MissaoDAO dao = new MissaoDAO();
+        dao.inserir(missao);
+        System.out.println("Cadastro realizado com sucesso");        // TODO add your handling code here:
+    }//GEN-LAST:event_btCadMissaoActionPerformed
 
     /**
      * @param args the command line arguments

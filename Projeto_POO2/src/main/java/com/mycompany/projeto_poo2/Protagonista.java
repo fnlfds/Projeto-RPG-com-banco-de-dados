@@ -13,10 +13,12 @@ public class Protagonista extends Personagem{
     private int carisma;
     private String efeito;
     private int dinheiro;
+    private Equipamento equipamento;
+    private Habilidade habilidade;
     
-    public Protagonista(int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
+   public Protagonista(int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
         int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, 
-        String raca) {
+        String raca,Equipamento equipamento, Habilidade habilidade) {
         super(classe, nivel, nome, pontoMana, pontoVida, raca);
         this.carisma = carisma;
         this.destreza = destreza;
@@ -25,6 +27,8 @@ public class Protagonista extends Personagem{
         this.experiencia = experiencia;
         this.forca = forca;
         this.inteligencia = inteligencia;
+        this.equipamento = equipamento;
+        this.habilidade = habilidade;
     }
 
     public void consultarProtagonista(){
@@ -40,8 +44,7 @@ public class Protagonista extends Personagem{
     }
 
     public void cadastrarProtagonista(){
-        ConexaoBD c = new ConexaoBD();
-        c.fazerConexao();
+
     }
 
     public void calcularNivel(int experienciaAdquirida) {
@@ -55,6 +58,21 @@ public class Protagonista extends Personagem{
 
     //getters e setters
  
+    public Habilidade getHabilidade(){
+        return habilidade;
+    }
+    
+    public void setHabilidade(Habilidade habilidade){
+        this.habilidade = habilidade;
+    }
+    public Equipamento getEquipamento(){
+        return equipamento;
+    }
+    
+    public void setEquipamento(Equipamento equipamento){
+        this.equipamento = equipamento;
+    }
+    
     public int getExperiencia() {
         return experiencia;
     }

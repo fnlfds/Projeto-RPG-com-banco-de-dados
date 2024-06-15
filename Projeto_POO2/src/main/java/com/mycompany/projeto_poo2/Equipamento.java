@@ -1,13 +1,15 @@
 package com.mycompany.projeto_poo2;
 
 public class Equipamento {
+    private int id;
     private String nome;
     private String tipo;
     private String efeito;
     private boolean consumivel;
     private String raridade;
 
-    public Equipamento(boolean consumivel, String efeito, String nome, String raridade, String tipo) {
+   public Equipamento(int id,boolean consumivel, String efeito, String nome, String raridade, String tipo) {
+        this.id = id;
         this.consumivel = consumivel;
         this.efeito = efeito;
         this.nome = nome;
@@ -35,6 +37,14 @@ public class Equipamento {
 
     //getters e setters
 
+    public int getId(){
+        return id;
+    }
+    
+    public void setId(int id){
+        this.id = id;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -59,7 +69,7 @@ public class Equipamento {
         this.efeito = efeito;
     }
 
-    public boolean getConsumivel() {
+    public boolean isConsumivel() {
         return consumivel;
     }
 
@@ -74,5 +84,12 @@ public class Equipamento {
     public void setRaridade(String raridade) {
         this.raridade = raridade;
     }
-  
+    
+    @Override
+    
+    public String toString(){
+        return this.getNome();
+    }
 }
+
+

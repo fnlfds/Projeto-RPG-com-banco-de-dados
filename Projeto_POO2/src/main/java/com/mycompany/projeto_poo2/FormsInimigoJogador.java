@@ -5,6 +5,7 @@
 package com.mycompany.projeto_poo2;
 
 import javax.swing.JOptionPane;
+import java.util.List;
 
 /**
  *
@@ -54,6 +55,10 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
         rtPntVida = new javax.swing.JLabel();
         cxPntVida = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
+        rtEquipamento = new javax.swing.JLabel();
+        cbxEquipamentos = new javax.swing.JComboBox();
+        rtHabilidade = new javax.swing.JLabel();
+        cbxHabilidade = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -133,6 +138,39 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
             }
         });
 
+        rtEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtEquipamento.setText("Equipamento:");
+
+        cbxEquipamentos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxEquipamentos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxEquipamentosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxEquipamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEquipamentosActionPerformed(evt);
+            }
+        });
+
+        rtHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtHabilidade.setText("Habilidade:");
+
+        cbxHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxHabilidade.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxHabilidadeAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -157,10 +195,6 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(cxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(37, 37, 37))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btConsInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(313, 313, 313))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -210,6 +244,20 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                         .addGap(277, 277, 277)
                         .addComponent(rtSubtitulo)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btConsInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(313, 313, 313))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(114, 114, 114)
+                .addComponent(rtEquipamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(117, 117, 117)
+                .addComponent(rtHabilidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -247,7 +295,13 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
                         .addComponent(rtExpDrop)
                         .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rtFraqueza)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtEquipamento)
+                    .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtHabilidade)
+                    .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
                 .addComponent(btConsInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -279,6 +333,28 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void cbxEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEquipamentosActionPerformed
+
+    private void cbxEquipamentosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxEquipamentosAncestorAdded
+       EquipamentoDAO dao = new EquipamentoDAO();
+       List<Equipamento> lista = dao.listaEquipamento();
+       cbxEquipamentos.removeAllItems();
+       for(Equipamento e: lista){
+           cbxEquipamentos.addItem(e);
+       }
+    }//GEN-LAST:event_cbxEquipamentosAncestorAdded
+
+    private void cbxHabilidadeAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxHabilidadeAncestorAdded
+       HabilidadeDAO dao = new HabilidadeDAO();
+       List<Habilidade> lista = dao.listaHabilidade();
+       cbxHabilidade.removeAllItems();
+       for(Habilidade e: lista){
+           cbxHabilidade.addItem(e);
+       }
+    }//GEN-LAST:event_cbxHabilidadeAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -353,6 +429,9 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox cbxEquipamento;
+    private javax.swing.JComboBox cbxEquipamentos;
+    private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JCheckBox checkChefe;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxExpDrop;
@@ -366,8 +445,10 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
     private javax.swing.JLabel rtCaracteristicas;
     private javax.swing.JLabel rtChefe;
     private javax.swing.JLabel rtClasse;
+    private javax.swing.JLabel rtEquipamento;
     private javax.swing.JLabel rtExpDrop;
     private javax.swing.JLabel rtFraqueza;
+    private javax.swing.JLabel rtHabilidade;
     private javax.swing.JLabel rtNivel;
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtPntMana;

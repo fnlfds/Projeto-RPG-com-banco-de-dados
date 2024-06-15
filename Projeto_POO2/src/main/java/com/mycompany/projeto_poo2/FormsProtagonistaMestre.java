@@ -5,7 +5,8 @@
 package com.mycompany.projeto_poo2;
 
 import javax.swing.JOptionPane;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author bruno
@@ -64,6 +65,10 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         rtRaca = new javax.swing.JLabel();
         cxRaca = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
+        cbxEquipamento = new javax.swing.JComboBox();
+        rtEquipamento = new javax.swing.JLabel();
+        rtHabilidade = new javax.swing.JLabel();
+        cbxHabilidade = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -171,6 +176,46 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
             }
         });
 
+        cbxEquipamento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxEquipamento.setToolTipText("");
+        cbxEquipamento.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxEquipamentoAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEquipamentoActionPerformed(evt);
+            }
+        });
+
+        rtEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtEquipamento.setText("Equipamento:");
+
+        rtHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtHabilidade.setText("Habilidade:");
+
+        cbxHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxHabilidade.setToolTipText("");
+        cbxHabilidade.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxHabilidadeAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxHabilidadeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,7 +228,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(61, 61, 61)
                                 .addComponent(cxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -196,18 +241,6 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(rtDinheiro)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(rtExperiencia)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(rtEfeito)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(rtCarisma)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -223,7 +256,29 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(rtInteligencia)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(cxInteligencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(cxInteligencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(rtDinheiro)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(rtEquipamento)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbxEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(84, 84, 84)
+                                            .addComponent(rtHabilidade)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(rtExperiencia)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(rtEfeito)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                         .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
@@ -316,7 +371,13 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                         .addComponent(cxDinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rtExperiencia)
                         .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cbxEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtEquipamento)
+                    .addComponent(rtHabilidade)
+                    .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btAltPersonagem)
@@ -359,6 +420,32 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void cbxEquipamentoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxEquipamentoAncestorAdded
+        EquipamentoDAO dao = new EquipamentoDAO();
+        List<Equipamento> lista = dao.listaEquipamento();
+        cbxEquipamento.removeAllItems();
+        for(Equipamento e: lista){
+            cbxEquipamento.addItem(e);
+        }
+    }//GEN-LAST:event_cbxEquipamentoAncestorAdded
+
+    private void cbxEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamentoActionPerformed
+
+    }//GEN-LAST:event_cbxEquipamentoActionPerformed
+
+    private void cbxHabilidadeAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxHabilidadeAncestorAdded
+        HabilidadeDAO dao = new HabilidadeDAO();
+        List<Habilidade> lista = dao.listaHabilidade();
+        cbxHabilidade.removeAllItems();
+        for(Habilidade e: lista){
+            cbxHabilidade.addItem(e);
+        }
+    }//GEN-LAST:event_cbxHabilidadeAncestorAdded
+
+    private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -440,6 +527,8 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox cbxEquipamento;
+    private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JTextField cxCarisma;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxDestreza;
@@ -460,8 +549,10 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     private javax.swing.JLabel rtDestreza;
     private javax.swing.JLabel rtDinheiro;
     private javax.swing.JLabel rtEfeito;
+    private javax.swing.JLabel rtEquipamento;
     private javax.swing.JLabel rtExperiencia;
     private javax.swing.JLabel rtForca;
+    private javax.swing.JLabel rtHabilidade;
     private javax.swing.JLabel rtInteligencia;
     private javax.swing.JLabel rtNivel;
     private javax.swing.JLabel rtNome;

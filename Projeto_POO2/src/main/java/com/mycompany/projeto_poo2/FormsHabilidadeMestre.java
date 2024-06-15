@@ -183,7 +183,29 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btCadHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadHabilidadeActionPerformed
-        // TODO add your handling code here:
+        Habilidade habil = new Habilidade(0,"","","");
+
+        try {
+            String t1 = cxNome.getText();
+            String t2 = cxDescricao.getText();
+            String t3 = cxEfeito.getText();
+      
+            habil.setNome(t1);
+            habil.setDescricao(t2);
+            habil.setEfeito(t3);
+
+
+            if(t1.isEmpty() || t2.isEmpty() || t3.isEmpty()){
+                throw new NullPointerException("Um ou mais campos estão vazios.");
+            }
+        }catch (IllegalArgumentException | NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            return;
+        }
+        
+        HabilidadeDAO dao = new HabilidadeDAO();
+        dao.inserir(habil);
+        System.out.println("Cadastro realizado com sucesso");
     }//GEN-LAST:event_btCadHabilidadeActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed

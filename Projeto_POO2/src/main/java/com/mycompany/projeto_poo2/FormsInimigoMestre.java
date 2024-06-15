@@ -4,6 +4,7 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /**
@@ -57,6 +58,10 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         rtSubtitulo = new javax.swing.JLabel();
         rtCaracteristicas = new javax.swing.JLabel();
         btVoltar = new javax.swing.JButton();
+        rtEquipamento = new javax.swing.JLabel();
+        cbxEquipamentos = new javax.swing.JComboBox();
+        rtHabilidade = new javax.swing.JLabel();
+        cbxHabilidade = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -150,6 +155,39 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             }
         });
 
+        rtEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtEquipamento.setText("Equipamento:");
+
+        cbxEquipamentos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxEquipamentos.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxEquipamentosAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+        cbxEquipamentos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxEquipamentosActionPerformed(evt);
+            }
+        });
+
+        rtHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        rtHabilidade.setText("Habilidade:");
+
+        cbxHabilidade.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Selecione" }));
+        cbxHabilidade.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                cbxHabilidadeAncestorAdded(evt);
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -230,6 +268,16 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(87, 87, 87)
+                .addComponent(rtEquipamento)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(105, 105, 105)
+                .addComponent(rtHabilidade)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -266,7 +314,13 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                         .addComponent(rtExpDrop)
                         .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(rtFraqueza)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rtEquipamento)
+                    .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(rtHabilidade)
+                    .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadInimigo)
                     .addComponent(btAltInimigo)
@@ -290,7 +344,55 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_cxPntVidaActionPerformed
 
     private void btCadInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadInimigoActionPerformed
-        // TODO add your handling code here:
+        
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");
+        Inimigo inimigo = new Inimigo(0,false,0,"","",0,"",0,0,"",equip, habil);
+
+        try {
+            String t1 = cxNome.getText();
+            String t2 = cxPntVida.getText();
+            String t3 = cxPntMana.getText();
+            String t4 = cxNivel.getText();
+            String t5 = cxRaca.getText();
+            String t6 = cxClasse.getText();
+            boolean t7 = checkChefe.isSelected();           
+            String t8 = cxExpDrop.getText();
+            String t9 = cxFraqueza.getText();
+            equip = (Equipamento) cbxEquipamentos.getSelectedItem();
+            habil = (Habilidade) cbxHabilidade.getSelectedItem();
+  
+            if (t4.isEmpty() || t3.isEmpty() || t2.isEmpty() || t8.isEmpty()) {
+                throw new IllegalArgumentException("Os campos numéricos não podem estar vazios.");
+            }
+            
+            inimigo.setNome(t1);
+            inimigo.setPontoVida(Integer.parseInt(t2));
+            inimigo.setPontoMana(Integer.parseInt(t3));
+            inimigo.setNivel(Integer.parseInt(t4));
+            inimigo.setRaca(t5);
+            inimigo.setClasse(t6);
+            inimigo.setChefe(t7);
+            inimigo.setExperienciaDrop(Integer.parseInt(t8));
+            inimigo.setFraqueza(t9);
+            inimigo.setEquipamento(equip);
+            inimigo.setHabilidade(habil);
+
+            if(t6.isEmpty() || t9.isEmpty() || t1.isEmpty() || t5.isEmpty()){
+                throw new NullPointerException("Um ou mais campos estão vazios.");
+            }
+        }catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: Por favor, insira números inteiros válidos.");
+            return;
+        }catch (IllegalArgumentException | NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            return;
+        }
+        
+        InimigoDAO dao = new InimigoDAO();
+        dao.inserir(inimigo);
+        System.out.println("Cadastro realizado com sucesso");
+        
     }//GEN-LAST:event_btCadInimigoActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
@@ -304,6 +406,28 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void cbxEquipamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxEquipamentosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxEquipamentosActionPerformed
+
+    private void cbxEquipamentosAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxEquipamentosAncestorAdded
+       EquipamentoDAO dao = new EquipamentoDAO();
+       List<Equipamento> lista = dao.listaEquipamento();
+       cbxEquipamentos.removeAllItems();
+       for(Equipamento e: lista){
+           cbxEquipamentos.addItem(e);
+       }
+    }//GEN-LAST:event_cbxEquipamentosAncestorAdded
+
+    private void cbxHabilidadeAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxHabilidadeAncestorAdded
+       HabilidadeDAO dao = new HabilidadeDAO();
+       List<Habilidade> lista = dao.listaHabilidade();
+       cbxHabilidade.removeAllItems();
+       for(Habilidade e: lista){
+           cbxHabilidade.addItem(e);
+       }
+    }//GEN-LAST:event_cbxHabilidadeAncestorAdded
 
     /**
      * @param args the command line arguments
@@ -382,6 +506,10 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
+    private javax.swing.JComboBox cbxEquipamento;
+    private javax.swing.JComboBox cbxEquipamento1;
+    private javax.swing.JComboBox cbxEquipamentos;
+    private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JCheckBox checkChefe;
     private javax.swing.JTextField cxClasse;
     private javax.swing.JTextField cxExpDrop;
@@ -395,8 +523,10 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private javax.swing.JLabel rtCaracteristicas;
     private javax.swing.JLabel rtChefe;
     private javax.swing.JLabel rtClasse;
+    private javax.swing.JLabel rtEquipamento;
     private javax.swing.JLabel rtExpDrop;
     private javax.swing.JLabel rtFraqueza;
+    private javax.swing.JLabel rtHabilidade;
     private javax.swing.JLabel rtNivel;
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtPntMana;

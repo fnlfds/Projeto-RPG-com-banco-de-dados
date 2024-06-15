@@ -5,13 +5,18 @@ public class Inimigo extends Personagem {
     private boolean chefe;
     private int experienciaDrop;
     private String fraqueza;
+    private Equipamento equipamento;
+    private Habilidade habilidade;
 
-    public Inimigo(int id_inimigo, boolean chefe, int experienciaDrop, String fraqueza, String classe, int nivel, String nome, int pontoMana, int pontoVida, String raca) {
+    public Inimigo(int id_inimigo, boolean chefe, int experienciaDrop, String fraqueza, String classe, int nivel, String nome,
+            int pontoMana, int pontoVida, String raca, Equipamento equipamento, Habilidade habilidade) {
         super(classe, nivel, nome, pontoMana, pontoVida, raca);
         this.id_inimigo = id_inimigo;
         this.chefe = chefe;
         this.experienciaDrop = experienciaDrop;
         this.fraqueza = fraqueza;
+        this.equipamento = equipamento;
+        this.habilidade = habilidade;
     }
 
     public void consultarInimigo(){
@@ -31,6 +36,20 @@ public class Inimigo extends Personagem {
     }
 
     //getters e setters
+    public Habilidade getHabilidade(){
+        return habilidade;
+    }
+    
+    public void setHabilidade(Habilidade habilidade){
+        this.habilidade = habilidade;
+    }
+    public Equipamento getEquipamento(){
+        return equipamento;
+    }
+    
+    public void setEquipamento(Equipamento equipamento){
+        this.equipamento = equipamento;
+    }
     
     public int getId_Inimigo(){
         return id_inimigo;
@@ -40,7 +59,7 @@ public class Inimigo extends Personagem {
         this.id_inimigo = id_inimigo;
     }
     
-    public boolean getChefe() {
+    public boolean isChefe() {
         return chefe;
     }
 

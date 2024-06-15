@@ -18,7 +18,8 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     public FormsEquipamentoMestre() {
         initComponents();
     }
-
+    
+    String raridade;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,6 +62,11 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
         rtConsumivel.setText("Consumível");
 
         checkConsumivel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        checkConsumivel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                checkConsumivelActionPerformed(evt);
+            }
+        });
 
         btCadEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btCadEquipamento.setText("Cadastrar");
@@ -218,12 +224,36 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void cbRaridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaridadeActionPerformed
-        String selectedItem = (String) cbRaridade.getSelectedItem();
-        JOptionPane.showMessageDialog(this, "Selected Item: " + selectedItem);
+        raridade = cbRaridade.getSelectedItem().toString();
     }//GEN-LAST:event_cbRaridadeActionPerformed
 
     private void btCadEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCadEquipamentoActionPerformed
-        // TODO add your handling code here:
+                                                      
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        try {
+            String t1 = cxNome.getText();
+            String t2 = cxTipo.getText();
+            String t3 = cxEfeito.getText();
+            boolean t4 = checkConsumivel.isSelected();
+            String t5 = cbRaridade.getSelectedItem().toString();
+     
+            equip.setNome(t1);
+            equip.setTipo(t2);
+            equip.setEfeito(t3);
+            equip.setConsumivel(t4);
+            equip.setRaridade(t5);
+
+            if(t1.isEmpty() || t2.isEmpty() || t3.isEmpty() || t5.isEmpty()){
+                throw new NullPointerException("Um ou mais campos estão vazios.");
+            }
+        }catch (IllegalArgumentException | NullPointerException ex) {
+            JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
+            return;
+        }
+        
+        EquipamentoDAO dao = new EquipamentoDAO();
+        dao.inserir(equip);
+        System.out.println("Cadastro realizado com sucesso");        // TODO add your handling code here:
     }//GEN-LAST:event_btCadEquipamentoActionPerformed
 
     private void cxEfeitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEfeitoActionPerformed
@@ -241,6 +271,10 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void checkConsumivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkConsumivelActionPerformed
+
+    }//GEN-LAST:event_checkConsumivelActionPerformed
 
     
     public void voltar(){
