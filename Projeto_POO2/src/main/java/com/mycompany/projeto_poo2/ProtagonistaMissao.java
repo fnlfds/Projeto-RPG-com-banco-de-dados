@@ -4,12 +4,6 @@
  */
 package com.mycompany.projeto_poo2;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,46 +16,7 @@ public class ProtagonistaMissao {
     private int protagonista_idprotagonista;
     private int missao_idmissao;
 
-    String url = "jdbc:mysql://localhost:3306/rpg";
-    String driver = "com.mysql.cj.jdbc.Driver";
-    String user = "root";
-    String senha = "Nerdscraft2";
     
-    Connection conn = null;
-    PreparedStatement ps = null;
-    
-        public void inserir(ProtagonistaMissao protmis){
-            
-            boolean sucesso = false;
-        try{
-            Class.forName(driver);
-        }catch(Exception ex){
-              System.out.println(ex);
-        }
-        
-        try{
-            conn = DriverManager.getConnection(url,user,senha);
-
-                            String sql1 = "INSERT INTO diario_de_missoes(protagonista_idprotagonista,missao_idmissao) VALUES(?,?);";
-                            ps = conn.prepareStatement(sql1);
-                            ps.setInt(1,protmis.getProtagonista().getId_Protagonista());
-                            ps.setInt(2,protmis.getMissao().getId_Missao());
-                            ps.execute();
-                            sucesso = true;
-                            ps.close();
-                            conn.close();
-             if (sucesso) {
-            JOptionPane.showMessageDialog(
-                    null,
-                    "Cadastro realizado com sucesso!",
-                    "Cadastro de Habilidade",
-                    JOptionPane.INFORMATION_MESSAGE
-                );
-            }
-        }catch (SQLException e) {
-            e.printStackTrace();
-            }
-    }
         
     public Protagonista getProtagonista() {
         return protagonista;

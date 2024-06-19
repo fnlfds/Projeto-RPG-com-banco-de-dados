@@ -4,6 +4,8 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.sql.SQLException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 import javax.swing.JOptionPane;
 
@@ -38,6 +40,8 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
         btVoltar = new javax.swing.JButton();
         btLimparForm = new javax.swing.JButton();
         btSairForm = new javax.swing.JButton();
+        btExcluir = new javax.swing.JButton();
+        btConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,7 +82,7 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
         rtMissao.setText("Missão:");
 
         btCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btCadastrar.setText("Cadastrar");
+        btCadastrar.setText("Entrar na Missão");
         btCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btCadastrarActionPerformed(evt);
@@ -106,6 +110,22 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
             }
         });
 
+        btExcluir.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btExcluir.setText("Sair da Missão");
+        btExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcluirActionPerformed(evt);
+            }
+        });
+
+        btConsultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btConsultar.setText("Consultar missões do personagem");
+        btConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsultarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -115,6 +135,9 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(rtTitulo))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addComponent(rtProtagonista)
                                 .addGap(18, 18, 18)
@@ -123,12 +146,12 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                                 .addComponent(rtMissao)
                                 .addGap(18, 18, 18)
                                 .addComponent(cbxMissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(41, 41, 41)
-                                .addComponent(rtTitulo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(195, 195, 195)
-                                .addComponent(btCadastrar)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btCadastrar)
+                                .addGap(18, 18, 18)
+                                .addComponent(btExcluir)
+                                .addGap(44, 44, 44)))
                         .addGap(0, 43, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -138,6 +161,10 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btSairForm)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btConsultar)
+                .addGap(109, 109, 109))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,9 +177,13 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                     .addComponent(cbxMissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rtProtagonista)
                     .addComponent(rtMissao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(btCadastrar)
-                .addGap(47, 47, 47)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btCadastrar)
+                    .addComponent(btExcluir))
+                .addGap(18, 18, 18)
+                .addComponent(btConsultar)
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
                     .addComponent(btSairForm)
@@ -192,12 +223,10 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
             protmis.setMissao(missao);
 
              if (cbxProtagonista.getItemCount() == 0) {
-            // ComboBox está vazia, exibe mensagem de erro ao usuário
             JOptionPane.showMessageDialog(null, "Erro: É necessário cadastrar um personagem primeiro.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
             }
              if (cbxMissao.getItemCount() == 0) {
-            // ComboBox está vazia, exibe mensagem de erro ao usuário
             JOptionPane.showMessageDialog(null, "Erro: É necessário cadastrar uma missao primeiro.", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
             }             
@@ -208,8 +237,9 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
             return;
         }
-        
-        protmis.inserir(protmis);        // TODO add your handling code here:
+        LinkProtagonistaDAO linkprot = new LinkProtagonistaDAO();
+        linkprot.inserir(protmis);
+
     }//GEN-LAST:event_btCadastrarActionPerformed
 
     private void cbxMissaoAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_cbxMissaoAncestorAdded
@@ -232,6 +262,14 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
+
+    private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
+
+    }//GEN-LAST:event_btExcluirActionPerformed
+
+    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
+
+    }//GEN-LAST:event_btConsultarActionPerformed
 
     public void voltar(){
         FrameJogador frameJogador = new FrameJogador();
@@ -294,6 +332,8 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
+    private javax.swing.JButton btConsultar;
+    private javax.swing.JButton btExcluir;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
