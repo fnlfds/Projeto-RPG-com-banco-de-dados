@@ -78,40 +78,37 @@ String url = "jdbc:mysql://localhost:3306/rpg";
             e.printStackTrace();
             }
     }
-        
-    public boolean estaNaMissao(ProtagonistaMissao protmis) throws SQLException {
-        String query = "SELECT COUNT(*) FROM diario_de_missoes WHERE protagonista_idprotagonista = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, protmis.getProtagonista_idprotagonista());
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                return rs.getInt(1) > 0;
+    public void excluir(ProtagonistaMissao protmis) {
+        boolean sucesso = false; 
+        String sql = "DELETE FROM diario_de_missoes WHERE protagonista_idprotagonista = ? AND missao_idmissao = ?";
+        try{
+            conn = DriverManager.getConnection(url,user,senha);
+            ps = conn.prepareStatement(sql);
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setInt(1, protmis.getProtagonista().getId_Protagonista());
+                ps.setInt(2, protmis.getMissao().getId_Missao());
+                int linhasAfetadas = ps.executeUpdate();
+                sucesso = (linhasAfetadas > 0);
+                ps.close();
+                conn.close();                
             }
+        }catch (SQLException e) {
+         e.printStackTrace();
         }
-        return false;
+        if (sucesso) {
+            JOptionPane.showMessageDialog(
+                null,
+                "O personagem saiu da missão com sucesso!",
+                "Exclusão do Diario de missões",
+                JOptionPane.INFORMATION_MESSAGE
+            );        
+        }else {
+            JOptionPane.showMessageDialog(
+                null,
+                "O personagem não se encontra nesta missão.",
+                "Erro de Exclusão",
+                JOptionPane.ERROR_MESSAGE
+            );
+        }
     }
-    
-    public List<Missao> listarMissoesPersonagem(ProtagonistaMissao protmis) throws SQLException {
-        List<Missao> missoes = new ArrayList<>();
-        String query = "SELECT m.id_missao, m.nome, m.objetivo, m.recompensa FROM missao m " +
-                       "JOIN diario_de_missoes dm ON m.id_missao = dm.missao_idmiessao " +
-                       "WHERE dm.protagonista_idprotagonista = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, protmis.getProtagonista_idprotagonista());
-            ResultSet rs = stmt.executeQuery();
-            while (rs.next()) {
-                Missao missao = new Missao(rs.getInt("id"), rs.getString("nome"), rs.getString("objetivo"), rs.getString("recompensa"));
-                missoes.add(missao);
-            }
-        }
-        return missoes;
-    }
-    public void excluir(ProtagonistaMissao protmis) throws SQLException {
-        String query = "DELETE FROM diario_de_missoes WHERE protagonista_idprotagonista = ? AND missao_idmissao = ?";
-        try (PreparedStatement stmt = conn.prepareStatement(query)) {
-            stmt.setInt(1, protmis.getProtagonista_idprotagonista());
-            stmt.setInt(2, protmis.getMissao_idmissao());
-            stmt.executeUpdate();
-        }
-    }    
 }

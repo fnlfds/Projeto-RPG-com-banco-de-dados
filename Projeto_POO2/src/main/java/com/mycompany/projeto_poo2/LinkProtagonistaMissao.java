@@ -237,8 +237,8 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro: " + ex.getMessage());
             return;
         }
-        LinkProtagonistaDAO linkprot = new LinkProtagonistaDAO();
-        linkprot.inserir(protmis);
+        LinkProtagonistaDAO dao = new LinkProtagonistaDAO();
+        dao.inserir(protmis);
 
     }//GEN-LAST:event_btCadastrarActionPerformed
 
@@ -264,7 +264,22 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
     }//GEN-LAST:event_btSairFormActionPerformed
 
     private void btExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcluirActionPerformed
-
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");        
+        Protagonista protagonista = new Protagonista(0,0,0,0,"",0,0,0,"",0,"",0,0,"",equip, habil);
+        ProtagonistaMissao protmis = new ProtagonistaMissao();
+        Missao missao = new Missao(0,"","","");
+        try {
+            protagonista = (Protagonista) cbxProtagonista.getSelectedItem();
+            missao = (Missao) cbxMissao.getSelectedItem();
+            
+            protmis.setProtagonista(protagonista);
+            protmis.setMissao(missao);
+        }catch(Exception e){
+          System.out.println(e);
+        }
+        LinkProtagonistaDAO dao = new LinkProtagonistaDAO();
+        dao.excluir(protmis);    
     }//GEN-LAST:event_btExcluirActionPerformed
 
     private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
