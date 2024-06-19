@@ -112,7 +112,10 @@ public class HabilidadeDAO {
                         JOptionPane.showMessageDialog(null, "Erro: Esta habilidade não existe.");
                     }
                 }
-            }
+            }catch (SQLIntegrityConstraintViolationException e) {
+                JOptionPane.showMessageDialog(null, "Erro: Não é possível excluir a habilidade"
+                        + " porque está associado a um personagem.");
+             }
         }                   
         catch (SQLException e) {
             e.printStackTrace();

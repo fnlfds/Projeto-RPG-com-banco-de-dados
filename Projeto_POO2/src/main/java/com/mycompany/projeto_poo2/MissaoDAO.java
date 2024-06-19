@@ -25,6 +25,33 @@ public class MissaoDAO {
        
     
     //manipulações SQL
+        
+    public List<Missao> listaMissao(){
+     try{
+        conn = DriverManager.getConnection(url,user,senha);
+        List<Missao> lista = new ArrayList<>();
+        String sql = "select * from missao";
+        ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        while(rs.next()){
+            
+            Missao obj = new Missao(0,"","","");
+            
+            obj.setId_Missao(rs.getInt("idmissao"));
+            obj.setNome(rs.getString("nome"));
+            obj.setObjetivo(rs.getString("objetivo"));
+            obj.setRecompensa(rs.getString("recompensa"));
+            
+            lista.add(obj);               
+        }
+        return lista;
+     }catch(Exception ex){
+              System.out.println(ex);
+        }       
+            return null;
+    }        
+        
     public void inserir(Missao missao){
         boolean sucesso = false;
         try{

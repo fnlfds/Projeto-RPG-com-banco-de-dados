@@ -122,4 +122,10 @@ public class Protagonista extends Personagem{
     public void setDinheiro(int dinheiro) {
         this.dinheiro = dinheiro;
     }
+    
+     @Override
+    
+    public String toString(){
+        return this.getNome();
+    }      
 }

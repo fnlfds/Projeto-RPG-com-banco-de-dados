@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProtagonistaDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
@@ -22,6 +24,47 @@ public class ProtagonistaDAO {
         
     
     //manipulações SQL
+        
+    public List<Protagonista> listaProtagonista(){
+     try{
+        conn = DriverManager.getConnection(url,user,senha);
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");
+        List<Protagonista> lista = new ArrayList<>();
+        String sql = "select * from protagonista";
+        ps = conn.prepareStatement(sql);
+        ResultSet rs = ps.executeQuery();
+        
+        while(rs.next()){
+            
+            Protagonista obj = new Protagonista(0,0,0,0,"",0,0,0,"",0,"",0,0,"",equip, habil);
+            
+            obj.setId_Protagonista(rs.getInt("idprotagonista"));
+            obj.setNome(rs.getString("nome"));
+            obj.setPontoVida(rs.getInt("pontovida"));
+            obj.setPontoMana(rs.getInt("pontomana"));
+            obj.setNivel(rs.getInt("nivel"));
+            obj.setRaca(rs.getString("raca"));
+            obj.setClasse(rs.getString("classe"));
+            obj.setExperiencia(rs.getInt("experiencia"));
+            obj.setForca(rs.getInt("forca"));
+            obj.setDestreza(rs.getInt("destreza"));
+            obj.setInteligencia(rs.getInt("inteligencia"));
+            obj.setCarisma(rs.getInt("carisma"));
+            obj.setEfeito(rs.getString("efeito"));
+            obj.setDinheiro(rs.getInt("dinheiro"));
+            obj.setEquipamento(equip);
+            obj.setHabilidade(habil);
+            
+            lista.add(obj);               
+        }
+        return lista;
+     }catch(Exception ex){
+              System.out.println(ex);
+        }       
+            return null;
+    }        
+        
     public void inserir(Protagonista protagonista){
         boolean sucesso = false;
         try{

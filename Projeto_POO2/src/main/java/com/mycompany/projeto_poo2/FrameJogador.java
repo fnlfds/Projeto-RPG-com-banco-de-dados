@@ -35,6 +35,7 @@ public class FrameJogador extends javax.swing.JFrame {
         consultarHabilidade = new javax.swing.JButton();
         consultarMissao = new javax.swing.JButton();
         botaoVoltarJogador = new javax.swing.JButton();
+        btAssociar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Página do Jogador");
@@ -110,6 +111,14 @@ public class FrameJogador extends javax.swing.JFrame {
             }
         });
 
+        btAssociar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btAssociar.setText("Associar personagem");
+        btAssociar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAssociarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -132,20 +141,27 @@ public class FrameJogador extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textoInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(consultarInimigo, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(50, 50, 50)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(textoHabilidade)
                             .addComponent(consultarHabilidade))
-                        .addGap(55, 55, 55)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(consultarMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textoMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(textoMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 39, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btAssociar)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(consultarMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(327, 327, 327)
                 .addComponent(botaoVoltarJogador)
-                .addGap(303, 303, 303))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,10 +181,12 @@ public class FrameJogador extends javax.swing.JFrame {
                     .addComponent(consultarEquipamento)
                     .addComponent(consultarInimigo)
                     .addComponent(consultarHabilidade)
-                    .addComponent(consultarMissao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                    .addComponent(btAssociar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(consultarMissao)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                 .addComponent(botaoVoltarJogador)
-                .addGap(17, 17, 17))
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -198,6 +216,10 @@ public class FrameJogador extends javax.swing.JFrame {
         abrirFormsMissaoJogador();
     }//GEN-LAST:event_consultarMissaoActionPerformed
 
+    private void btAssociarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAssociarActionPerformed
+        abrirFormsAssociarMissao();
+    }//GEN-LAST:event_btAssociarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -215,6 +237,13 @@ public class FrameJogador extends javax.swing.JFrame {
         formsProtagonista.setVisible(true);
         dispose();
     }
+
+    public void abrirFormsAssociarMissao(){
+        LinkProtagonistaMissao link = new LinkProtagonistaMissao();
+        link.setLocationRelativeTo(link);         
+        link.setVisible(true);
+        dispose();
+    }       
     
     public void abrirFormsEquipamentoJogador(){
         FormsEquipamentoJogador formsEquipamento = new FormsEquipamentoJogador();
@@ -278,6 +307,7 @@ public class FrameJogador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoVoltarJogador;
+    private javax.swing.JButton btAssociar;
     private javax.swing.JButton cadastrarPersonagem;
     private javax.swing.JButton consultarEquipamento;
     private javax.swing.JButton consultarHabilidade;

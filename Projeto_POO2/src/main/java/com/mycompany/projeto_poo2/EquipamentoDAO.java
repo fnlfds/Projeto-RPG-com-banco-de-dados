@@ -116,7 +116,9 @@ public class EquipamentoDAO {
                             JOptionPane.showMessageDialog(null, "Erro: Este equipamento não existe.");
                         }
                     }
-                }
+                }catch (SQLIntegrityConstraintViolationException e) {
+                JOptionPane.showMessageDialog(null, "Erro: Não é possível excluir o equipamento porque está associado a um personagem.");
+                 }
             }                   
             catch (SQLException e) {
                 e.printStackTrace();

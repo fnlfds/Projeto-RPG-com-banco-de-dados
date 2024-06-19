@@ -451,6 +451,16 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             if(t6.isEmpty() || t12.isEmpty() || t1.isEmpty() || t5.isEmpty()){
                 throw new NullPointerException("Um ou mais campos estão vazios.");
             }
+             if (cbxEquipamento.getItemCount() == 0) {
+            // ComboBox está vazia, exibe mensagem de erro ao usuário
+            JOptionPane.showMessageDialog(null, "Erro: É necessário cadastrar um equipamento primeiro.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+            }
+             if (cbxHabilidade.getItemCount() == 0) {
+            // ComboBox está vazia, exibe mensagem de erro ao usuário
+            JOptionPane.showMessageDialog(null, "Erro: É necessário cadastrar uma habilidade primeiro.", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+            }             
         }catch (NumberFormatException ex) {
             JOptionPane.showMessageDialog(null, "Erro: Por favor, insira números inteiros válidos.");
             return;
