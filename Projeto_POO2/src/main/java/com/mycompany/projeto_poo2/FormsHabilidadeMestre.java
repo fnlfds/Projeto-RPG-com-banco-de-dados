@@ -4,6 +4,9 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -50,6 +53,11 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
 
         btExcHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcHabilidade.setText("Excluir");
+        btExcHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcHabilidadeActionPerformed(evt);
+            }
+        });
 
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Habilidade");
@@ -205,7 +213,6 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
         
         HabilidadeDAO dao = new HabilidadeDAO();
         dao.inserir(habil);
-        System.out.println("Cadastro realizado com sucesso");
     }//GEN-LAST:event_btCadHabilidadeActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
@@ -219,6 +226,18 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btExcHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcHabilidadeActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da habilidade",
+            "Excluir Habilidade",
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        HabilidadeDAO dao = new HabilidadeDAO();
+        dao.excluir(nome);  
+    }//GEN-LAST:event_btExcHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments

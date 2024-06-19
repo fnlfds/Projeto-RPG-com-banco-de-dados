@@ -3,6 +3,7 @@ com\mycompany\projeto_poo2\ConexaoBD.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$3.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$1.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$5.class
+com\mycompany\projeto_poo2\FormsInimigoMestre$11.class
 com\mycompany\projeto_poo2\MissaoDAO.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$5.class
 com\mycompany\projeto_poo2\FrameMestre$1.class
@@ -65,6 +66,7 @@ com\mycompany\projeto_poo2\FormsHabilidadeMestre$2.class
 com\mycompany\projeto_poo2\FormsInimigoJogador.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$4.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$4.class
+com\mycompany\projeto_poo2\FormsMissaoMestre$7.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$1.class
 com\mycompany\projeto_poo2\FrameJogador$7.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$4.class
@@ -77,11 +79,13 @@ com\mycompany\projeto_poo2\FormsHabilidadeJogador$1.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$12.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$3.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador$4.class
+com\mycompany\projeto_poo2\FormsHabilidadeMestre$6.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$7.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$1.class
 com\mycompany\projeto_poo2\FormsCalcularNivel$4.class
+com\mycompany\projeto_poo2\FormsEquipamentoMestre$9.class
 com\mycompany\projeto_poo2\FrameJogador$1.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$1.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$2.class
@@ -102,6 +106,7 @@ com\mycompany\projeto_poo2\Protagonista.class
 com\mycompany\projeto_poo2\FrameJogador$5.class
 com\mycompany\projeto_poo2\Habilidade.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre.class
+com\mycompany\projeto_poo2\FormsProtagonistaMestre$13.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$6.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$1.class
 com\mycompany\projeto_poo2\HabilidadeDAO.class

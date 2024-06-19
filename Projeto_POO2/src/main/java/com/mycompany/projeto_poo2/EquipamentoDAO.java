@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ public class EquipamentoDAO {
             
             Equipamento obj = new Equipamento(0,false,"","","","");
             
-            obj.setId(rs.getInt("idequipamento"));
+            obj.setId_Equipamento(rs.getInt("idequipamento"));
             obj.setNome(rs.getString("nome"));
             obj.setTipo(rs.getString("tipo"));
             obj.setEfeito(rs.getString("efeito"));
@@ -51,8 +52,8 @@ public class EquipamentoDAO {
     }    
     
     //manipulações SQL
-    public void inserir(Equipamento equip)
-    {
+    public void inserir(Equipamento equip){
+        boolean sucesso = false;
         try{
             Class.forName(driver);
         }catch(Exception ex){
@@ -61,20 +62,72 @@ public class EquipamentoDAO {
         
         try{
             conn = DriverManager.getConnection(url,user,senha);
-            String sql1 = "INSERT INTO equipamento(nome,tipo,efeito,consumivel,raridade) VALUES(?,?,?,?,?);";
-            ps = conn.prepareStatement(sql1);
-            ps.setString(1,equip.getNome());
-            ps.setString(2,equip.getTipo());
-            ps.setString(3,equip.getEfeito());
-            ps.setString(4,Boolean.toString(equip.isConsumivel()));
-            ps.setString(5,equip.getRaridade());
-            ps.execute();
-            ps.close();
-            conn.close();
-     
-        }catch(Exception ex){
-              System.out.println(ex);
-        }
-        
+            String checkSql = "SELECT COUNT(*) FROM equipamento WHERE nome = ?";
+                try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                checkStatement.setString(1, equip.getNome());
+                    try (ResultSet resultSet = checkStatement.executeQuery()) {
+                        if (resultSet.next() && resultSet.getInt(1) > 0) {
+                        JOptionPane.showMessageDialog(null, "Erro: Já existe um equipamento com esse nome.");
+                        } else {
+                            String sql1 = "INSERT INTO equipamento(nome,tipo,efeito,consumivel,raridade) VALUES(?,?,?,?,?);";
+                            ps = conn.prepareStatement(sql1);
+                            ps.setString(1,equip.getNome());
+                            ps.setString(2,equip.getTipo());
+                            ps.setString(3,equip.getEfeito());
+                            ps.setString(4,Boolean.toString(equip.isConsumivel()));
+                            ps.setString(5,equip.getRaridade());
+                            ps.execute();
+                            sucesso = true;
+                            ps.close();
+                            conn.close();
+                        }
+                    }
+                }
+            if (sucesso) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Cadastro realizado com sucesso!",
+                    "Cadastro de Equipamento",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+            }
     }
+
+    public void excluir(String nome){
+        boolean sucesso = false;
+        String sql = "DELETE FROM equipamento WHERE nome = ?";
+            try{
+                conn = DriverManager.getConnection(url,user,senha);
+                ps = conn.prepareStatement(sql);
+                String checkSql = "SELECT COUNT(*) FROM equipamento WHERE nome = ?";
+                try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                    checkStatement.setString(1, nome);
+                    try (ResultSet resultSet = checkStatement.executeQuery()) {
+                        if (resultSet.next() && resultSet.getInt(1) > 0) {
+                            ps.setString(1, nome);
+                            ps.executeUpdate();
+                            sucesso = true;
+                            ps.close();
+                            conn.close();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Erro: Este equipamento não existe.");
+                        }
+                    }
+                }
+            }                   
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Exclusão realizada com sucesso!",
+                        "Exclusão do Equipamento",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } 
+        }    
 }

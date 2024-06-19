@@ -12,23 +12,7 @@ public class Habilidade {
         this.efeito = efeito;
         this.nome = nome;
     }
-
-    public void consultarHabilidade(){
-
-    }
-
-    public void alterarHabilidade(){
-
-    }
-
-    public void excluirHabilidade(){
-
-    }
-
-    public void cadastrarHabilidade(){
-
-    }
-
+    
     //getters e setters
     
     public int getId_Habilidade(){

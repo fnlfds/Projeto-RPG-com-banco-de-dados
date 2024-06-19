@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +25,8 @@ public class MissaoDAO {
        
     
     //manipulações SQL
-    public void inserir(Missao missao)
-    {
+    public void inserir(Missao missao){
+        boolean sucesso = false;
         try{
             Class.forName(driver);
         }catch(Exception ex){
@@ -34,18 +35,70 @@ public class MissaoDAO {
         
         try{
             conn = DriverManager.getConnection(url,user,senha);
-            String sql1 = "INSERT INTO missao(nome,objetivo,recompensa) VALUES(?,?,?);";
-            ps = conn.prepareStatement(sql1);
-            ps.setString(1,missao.getNome());
-            ps.setString(2,missao.getObjetivo());
-            ps.setString(3,missao.getRecompensa());
-            ps.execute();
-            ps.close();
-            conn.close();
-     
-        }catch(Exception ex){
-              System.out.println(ex);
-        }
-        
+            String checkSql = "SELECT COUNT(*) FROM missao WHERE nome = ?";
+                try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                checkStatement.setString(1, missao.getNome());
+                    try (ResultSet resultSet = checkStatement.executeQuery()) {
+                        if (resultSet.next() && resultSet.getInt(1) > 0) {
+                        JOptionPane.showMessageDialog(null, "Erro: Já existe uma missão com esse nome.");
+                        } else {
+                            String sql1 = "INSERT INTO missao(nome,objetivo,recompensa) VALUES(?,?,?);";
+                            ps = conn.prepareStatement(sql1);
+                            ps.setString(1,missao.getNome());
+                            ps.setString(2,missao.getObjetivo());
+                            ps.setString(3,missao.getRecompensa());
+                            ps.execute();
+                            sucesso = true;
+                            ps.close();
+                            conn.close();
+                           }
+                    }
+                }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Cadastro realizado com sucesso!",
+                        "Cadastro de Missao",
+                        JOptionPane.INFORMATION_MESSAGE
+                );
+                }       
+        }catch (SQLException e) {
+            e.printStackTrace();
+         }
     }
+        
+    public void excluir(String nome){
+        boolean sucesso = false;
+        String sql = "DELETE FROM missao WHERE nome = ?";
+            try{
+                conn = DriverManager.getConnection(url,user,senha);
+                ps = conn.prepareStatement(sql);
+                String checkSql = "SELECT COUNT(*) FROM missao WHERE nome = ?";
+                try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                    checkStatement.setString(1, nome);
+                    try (ResultSet resultSet = checkStatement.executeQuery()) {
+                        if (resultSet.next() && resultSet.getInt(1) > 0) {
+                            ps.setString(1, nome);
+                            ps.executeUpdate();
+                            sucesso = true;
+                            ps.close();
+                            conn.close();
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Erro: Esta missão não existe.");
+                        }
+                    }
+                }
+            }                   
+            catch (SQLException e) {
+                e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Exclusão realizada com sucesso!",
+                        "Exclusão de Missão",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                } 
+        }
 }

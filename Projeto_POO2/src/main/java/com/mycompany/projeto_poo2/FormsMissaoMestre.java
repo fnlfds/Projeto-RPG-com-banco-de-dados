@@ -4,6 +4,9 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -68,6 +71,11 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
 
         btExcMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcMissao.setText("Excluir");
+        btExcMissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcMissaoActionPerformed(evt);
+            }
+        });
 
         rtSubtitulo.setText("(consultas, alterações e exclusões por nome da missão)");
 
@@ -223,8 +231,20 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         
         MissaoDAO dao = new MissaoDAO();
         dao.inserir(missao);
-        System.out.println("Cadastro realizado com sucesso");        // TODO add your handling code here:
+// TODO add your handling code here:
     }//GEN-LAST:event_btCadMissaoActionPerformed
+
+    private void btExcMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcMissaoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da missão",
+            "Excluir Missão",
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        MissaoDAO dao = new MissaoDAO();
+        dao.excluir(nome);        // TODO add your handling code here:
+    }//GEN-LAST:event_btExcMissaoActionPerformed
 
     /**
      * @param args the command line arguments

@@ -13,22 +13,6 @@ public class Missao {
         this.recompensa = recompensa;
     }
 
-    public void consultarMissao(){
-
-    }
-
-    public void alterarMissao(){
-
-    }
-
-    public void excluirMissao(){
-
-    }
-
-    public void cadastrarMissao(){
-
-    }
-
     //getters e setters
     
     public int getId_Missoes(){

@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLIntegrityConstraintViolationException;
 
 public class HabilidadeDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
@@ -49,8 +50,8 @@ public class HabilidadeDAO {
     }    
     
     //manipulações SQL
-    public void inserir(Habilidade habil)
-    {
+    public void inserir(Habilidade habil){
+            boolean sucesso = false;
         try{
             Class.forName(driver);
         }catch(Exception ex){
@@ -59,18 +60,73 @@ public class HabilidadeDAO {
         
         try{
             conn = DriverManager.getConnection(url,user,senha);
-            String sql1 = "INSERT INTO habilidade(nome,descricao,efeito) VALUES(?,?,?);";
-            ps = conn.prepareStatement(sql1);
-            ps.setString(1,habil.getNome());
-            ps.setString(2,habil.getDescricao());
-            ps.setString(3,habil.getEfeito());
-            ps.execute();
-            ps.close();
-            conn.close();
-     
-        }catch(Exception ex){
-              System.out.println(ex);
-        }
-        
+            String checkSql = "SELECT COUNT(*) FROM habilidade WHERE nome = ?";
+                try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                checkStatement.setString(1, habil.getNome());
+                    try (ResultSet resultSet = checkStatement.executeQuery()) {
+                        if (resultSet.next() && resultSet.getInt(1) > 0) {
+                        JOptionPane.showMessageDialog(null, "Erro: Já existe uma habilidade com esse nome.");
+                        } else {
+                            String sql1 = "INSERT INTO habilidade(nome,descricao,efeito) VALUES(?,?,?);";
+                            ps = conn.prepareStatement(sql1);
+                            ps.setString(1,habil.getNome());
+                            ps.setString(2,habil.getDescricao());
+                            ps.setString(3,habil.getEfeito());
+                            ps.execute();
+                            sucesso = true;
+                            ps.close();
+                            conn.close();
+                        }
+                    }
+                }
+             if (sucesso) {
+            JOptionPane.showMessageDialog(
+                    null,
+                    "Cadastro realizado com sucesso!",
+                    "Cadastro de Habilidade",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+            }
+        }catch (SQLException e) {
+            e.printStackTrace();
+            }
     }
+    
+    public void excluir(String nome){
+        boolean sucesso = false;
+        String sql = "DELETE FROM habilidade WHERE nome = ?";
+        try{
+            conn = DriverManager.getConnection(url,user,senha);
+            ps = conn.prepareStatement(sql);
+            String checkSql = "SELECT COUNT(*) FROM habilidade WHERE nome = ?";
+            try (PreparedStatement checkStatement = conn.prepareStatement(checkSql)) {
+                checkStatement.setString(1, nome);
+                try (ResultSet resultSet = checkStatement.executeQuery()) {
+                    if (resultSet.next() && resultSet.getInt(1) > 0) {
+                        ps.setString(1, nome);
+                        ps.executeUpdate();
+                        sucesso = true;
+                        ps.close();
+                        conn.close();
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erro: Esta habilidade não existe.");
+                    }
+                }
+            }
+        }                   
+        catch (SQLException e) {
+            e.printStackTrace();
+            }
+             if (sucesso) {
+                JOptionPane.showMessageDialog(
+                    null,
+                    "Exclusão realizada com sucesso!",
+                    "Exclusão de Habilidade",
+                    JOptionPane.INFORMATION_MESSAGE
+                );
+        }        
+    }
+    
+    
+    
 }

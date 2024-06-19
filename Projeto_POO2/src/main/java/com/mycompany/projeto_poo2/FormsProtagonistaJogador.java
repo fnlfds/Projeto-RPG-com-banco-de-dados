@@ -8,6 +8,8 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class FormsProtagonistaJogador extends javax.swing.JFrame {
@@ -405,7 +407,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         
         Equipamento equip = new Equipamento(0,false,"","","","");
         Habilidade habil = new Habilidade(0,"","","");
-        Protagonista protagonista = new Protagonista(0,0,0,"",0,0,0,"",0,"",0,0,"",equip, habil);
+        Protagonista protagonista = new Protagonista(0,0,0,0,"",0,0,0,"",0,"",0,0,"",equip, habil);
 
         try {
             String t1 = cxNome.getText();
@@ -459,8 +461,6 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         
         ProtagonistaDAO dao = new ProtagonistaDAO();
         dao.inserir(protagonista);
-        System.out.println("Cadastro realizado com sucesso");
-        
     }//GEN-LAST:event_btCadPersonagemActionPerformed
 
     private void cxPntManaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxPntManaActionPerformed

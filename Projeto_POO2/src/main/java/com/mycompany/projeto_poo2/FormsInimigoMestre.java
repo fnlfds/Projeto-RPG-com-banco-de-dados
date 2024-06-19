@@ -4,7 +4,10 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.sql.SQLException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -76,6 +79,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
 
         btExcInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcInimigo.setText("Excluir");
+        btExcInimigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcInimigoActionPerformed(evt);
+            }
+        });
 
         btLimparForm.setText("Limpar");
         btLimparForm.addActionListener(new java.awt.event.ActionListener() {
@@ -391,8 +399,6 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         
         InimigoDAO dao = new InimigoDAO();
         dao.inserir(inimigo);
-        System.out.println("Cadastro realizado com sucesso");
-        
     }//GEN-LAST:event_btCadInimigoActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
@@ -428,6 +434,18 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
            cbxHabilidade.addItem(e);
        }
     }//GEN-LAST:event_cbxHabilidadeAncestorAdded
+
+    private void btExcInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcInimigoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome do inimigo",
+            "Excluir Inimigo",
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        InimigoDAO dao = new InimigoDAO();
+        dao.excluir(nome);          // TODO add your handling code here:
+    }//GEN-LAST:event_btExcInimigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -506,8 +524,6 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox cbxEquipamento;
-    private javax.swing.JComboBox cbxEquipamento1;
     private javax.swing.JComboBox cbxEquipamentos;
     private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JCheckBox checkChefe;

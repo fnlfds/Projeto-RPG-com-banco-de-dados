@@ -89,6 +89,11 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
 
         btExcPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcPersonagem.setText("Excluir");
+        btExcPersonagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcPersonagemActionPerformed(evt);
+            }
+        });
 
         btLimparForm.setText("Limpar");
         btLimparForm.addActionListener(new java.awt.event.ActionListener() {
@@ -446,6 +451,18 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxHabilidadeActionPerformed
+
+    private void btExcPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcPersonagemActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome do personagem",
+            "Excluir Personagem",
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        ProtagonistaDAO dao = new ProtagonistaDAO();
+        dao.excluir(nome);            // TODO add your handling code here:
+    }//GEN-LAST:event_btExcPersonagemActionPerformed
 
     /**
      * @param args the command line arguments

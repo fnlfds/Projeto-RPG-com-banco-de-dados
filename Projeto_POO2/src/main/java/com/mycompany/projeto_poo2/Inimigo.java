@@ -19,22 +19,6 @@ public class Inimigo extends Personagem {
         this.habilidade = habilidade;
     }
 
-    public void consultarInimigo(){
-
-    }
-
-    public void alterarInimigo(){
-
-    }
-
-    public void excluirInimigo(){
-
-    }
-
-    public void cadastrarInimigo(){
-
-    }
-
     //getters e setters
     public Habilidade getHabilidade(){
         return habilidade;

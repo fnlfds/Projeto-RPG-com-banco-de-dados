@@ -4,6 +4,9 @@
  */
 package com.mycompany.projeto_poo2;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -84,6 +87,11 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
 
         btExcEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcEquipamento.setText("Excluir");
+        btExcEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btExcEquipamentoActionPerformed(evt);
+            }
+        });
 
         btLimparForm.setText("Limpar");
         btLimparForm.addActionListener(new java.awt.event.ActionListener() {
@@ -253,7 +261,7 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
         
         EquipamentoDAO dao = new EquipamentoDAO();
         dao.inserir(equip);
-        System.out.println("Cadastro realizado com sucesso");        // TODO add your handling code here:
+    // TODO add your handling code here:
     }//GEN-LAST:event_btCadEquipamentoActionPerformed
 
     private void cxEfeitoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cxEfeitoActionPerformed
@@ -275,6 +283,18 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     private void checkConsumivelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkConsumivelActionPerformed
 
     }//GEN-LAST:event_checkConsumivelActionPerformed
+
+    private void btExcEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcEquipamentoActionPerformed
+         String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome do equipamento",
+            "Excluir Equipamento",
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        EquipamentoDAO dao = new EquipamentoDAO();
+        dao.excluir(nome);          // TODO add your handling code here:
+    }//GEN-LAST:event_btExcEquipamentoActionPerformed
 
     
     public void voltar(){

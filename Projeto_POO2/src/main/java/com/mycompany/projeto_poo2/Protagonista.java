@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class Protagonista extends Personagem{
+    private int id_protagonista;
     private int experiencia;
     private int forca;
     private int destreza;
@@ -16,10 +17,11 @@ public class Protagonista extends Personagem{
     private Equipamento equipamento;
     private Habilidade habilidade;
     
-   public Protagonista(int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
+   public Protagonista(int id_protagonista,int carisma, int destreza, int dinheiro, String efeito, int experiencia, int forca,
         int inteligencia, String classe, int nivel, String nome, int pontoMana, int pontoVida, 
         String raca,Equipamento equipamento, Habilidade habilidade) {
         super(classe, nivel, nome, pontoMana, pontoVida, raca);
+        this.id_protagonista = id_protagonista;
         this.carisma = carisma;
         this.destreza = destreza;
         this.dinheiro = dinheiro;
@@ -31,21 +33,6 @@ public class Protagonista extends Personagem{
         this.habilidade = habilidade;
     }
 
-    public void consultarProtagonista(){
-
-    }
-
-    public void alterarProtagonista(){
-
-    }
-
-    public void excluirProtagonista(){
-
-    }
-
-    public void cadastrarProtagonista(){
-
-    }
 
     public void calcularNivel(int experienciaAdquirida) {
         this.experiencia += experienciaAdquirida;
@@ -57,7 +44,14 @@ public class Protagonista extends Personagem{
     }
 
     //getters e setters
- 
+    public int getId_Protagonista(){
+        return id_protagonista;
+    }
+    
+    public void setId_Protagonista(int id_protagonista){
+        this.id_protagonista = id_protagonista;
+    }
+    
     public Habilidade getHabilidade(){
         return habilidade;
     }

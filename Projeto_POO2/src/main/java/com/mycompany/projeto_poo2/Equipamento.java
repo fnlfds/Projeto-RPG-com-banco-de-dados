@@ -1,15 +1,15 @@
 package com.mycompany.projeto_poo2;
 
 public class Equipamento {
-    private int id;
+    private int id_equipamento;
     private String nome;
     private String tipo;
     private String efeito;
     private boolean consumivel;
     private String raridade;
 
-   public Equipamento(int id,boolean consumivel, String efeito, String nome, String raridade, String tipo) {
-        this.id = id;
+   public Equipamento(int id_equipamento,boolean consumivel, String efeito, String nome, String raridade, String tipo) {
+        this.id_equipamento = id_equipamento;
         this.consumivel = consumivel;
         this.efeito = efeito;
         this.nome = nome;
@@ -17,32 +17,15 @@ public class Equipamento {
         this.tipo = tipo;
     }
 
-    
-
-    public void consultarEquipamento(){
-
-    }
-
-    public void alterarEquipamento(){
-
-    }
-
-    public void excluirEquipamento(){
-
-    }
-
-    public void cadastrarEquipamento(){
-        
-    }
 
     //getters e setters
 
-    public int getId(){
-        return id;
+    public int getId_Equipamento(){
+        return id_equipamento;
     }
     
-    public void setId(int id){
-        this.id = id;
+    public void setId_Equipamento(int id_equipamento){
+        this.id_equipamento = id_equipamento;
     }
     
     public String getNome() {
