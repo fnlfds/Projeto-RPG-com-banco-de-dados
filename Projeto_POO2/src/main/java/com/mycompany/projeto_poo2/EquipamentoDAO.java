@@ -18,7 +18,7 @@ public class EquipamentoDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
         String driver = "com.mysql.cj.jdbc.Driver";
         String user = "root";
-        String senha = "Nerdscraft2";
+        String senha = "utfpr";
     
         Connection conn = null;
         PreparedStatement ps = null;
@@ -159,7 +159,7 @@ public class EquipamentoDAO {
                     JOptionPane.showMessageDialog(
                         null,
                         "Verifique as informações!",
-                        "Consulta da Missão",
+                        "Consulta da Equipamento",
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 }         

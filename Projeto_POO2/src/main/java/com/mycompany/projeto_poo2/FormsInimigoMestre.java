@@ -200,6 +200,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
             }
         });
+        cbxHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxHabilidadeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -486,11 +491,23 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             cbxHabilidade.setSelectedItem(inimigo.getHabilidade());          
         } else {
             JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
-            cxObjetivo.setText("");
+            cxRaca.setText("");
             cxNome.setText("");
-            cxRecompensa.setText("");
+            cxClasse.setText("");
+            cxNivel.setText("");
+            cxPntMana.setText("");
+            cxPntVida.setText("");
+            cxFraqueza.setText("");
+            cxExpDrop.setText("");
+            cbxEquipamentos.setSelectedIndex(-1);
+            cbxHabilidade.setSelectedIndex(-1);
+            checkChefe.setSelected(false);
            }        // TODO add your handling code here:        // TODO add your handling code here:
     }//GEN-LAST:event_btConsInimigoActionPerformed
+
+    private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments

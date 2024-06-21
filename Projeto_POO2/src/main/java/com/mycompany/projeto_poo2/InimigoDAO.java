@@ -16,7 +16,7 @@ public class InimigoDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
         String driver = "com.mysql.cj.jdbc.Driver";
         String user = "root";
-        String senha = "Nerdscraft2";
+        String senha = "utfpr";
         Connection conn = null;
         PreparedStatement ps = null;
     
@@ -123,6 +123,7 @@ public class InimigoDAO {
                 if(rs.next()){
                     inimigo = new Inimigo(0,false,0,"","",0,"",0,0,"",equip,habil);   
                     inimigo.setId_Inimigo(rs.getInt("idinimigo"));
+                    inimigo.setChefe(rs.getBoolean("chefe"));                    
                     inimigo.setNome(rs.getString("nome"));
                     inimigo.setPontoVida(rs.getInt("pontovida"));
                     inimigo.setPontoMana(rs.getInt("pontomana"));
@@ -131,8 +132,8 @@ public class InimigoDAO {
                     inimigo.setClasse(rs.getString("classe"));
                     inimigo.setExperienciaDrop(rs.getInt("experiencia_dropada"));
                     inimigo.setFraqueza(rs.getString("fraqueza"));
-                    inimigo.setEquipamento(equip);
-                    inimigo.setHabilidade(habil);                   
+                    inimigo.setEquipamento(equip);            
+                    inimigo.setHabilidade(habil);                  
                     sucesso = true;                    
                 }
             }catch (SQLException e) {
