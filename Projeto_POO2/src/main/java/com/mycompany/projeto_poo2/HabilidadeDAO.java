@@ -129,5 +129,35 @@ public class HabilidadeDAO {
                 );
         }        
     }
- 
+
+    public Habilidade consultar(String nome) {
+        boolean sucesso = false;        
+        String sql = "SELECT * FROM habilidade WHERE nome = ?";
+        Habilidade habil = null;     
+        try (Connection conn = DriverManager.getConnection(url,user,senha);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, nome);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    habil = new Habilidade(0,"","","");   
+                    habil.setId_Habilidade(rs.getInt("idhabilidade"));
+                    habil.setNome(rs.getString("nome"));
+                    habil.setDescricao(rs.getString("descricao"));
+                    habil.setEfeito(rs.getString("efeito"));
+                    sucesso = true;                    
+                }
+            }catch (SQLException e) {
+            e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Verifique as informações!",
+                        "Consulta da Habilidade",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }         
+        return habil;
+    }    
 }

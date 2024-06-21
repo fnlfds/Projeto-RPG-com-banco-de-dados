@@ -31,7 +31,6 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
         rtObjetivo = new javax.swing.JLabel();
         btConsMissao = new javax.swing.JButton();
         rtTitulo = new javax.swing.JLabel();
-        rtSubtitulo = new javax.swing.JLabel();
         btLimpar = new javax.swing.JButton();
         rtNome = new javax.swing.JLabel();
         cxObjetivo = new javax.swing.JTextField();
@@ -48,11 +47,14 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
 
         btConsMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsMissao.setText("Consultar");
+        btConsMissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsMissaoActionPerformed(evt);
+            }
+        });
 
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Missão");
-
-        rtSubtitulo.setText("(consultas por nome da missão)");
 
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -118,27 +120,20 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(264, 264, 264)
+                                .addGap(250, 250, 250)
+                                .addComponent(rtTitulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
                                 .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 100, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(201, 201, 201)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(rtTitulo)
-                        .addGap(46, 46, 46))
-                    .addComponent(rtSubtitulo, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rtTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rtSubtitulo)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtNome)
                     .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -150,9 +145,9 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtRecompensa)
                     .addComponent(cxRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimpar)
                     .addComponent(btSair)
@@ -178,6 +173,28 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btConsMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsMissaoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da missão",
+            "Consultar Missao",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        MissaoDAO dao = new MissaoDAO();
+        Missao missao = dao.consultar(nome);
+        if (missao != null){
+            cxNome.setText(missao.getNome());
+            cxObjetivo.setText(missao.getObjetivo());
+            cxRecompensa.setText(missao.getRecompensa());
+        } else {
+            JOptionPane.showMessageDialog(null,"Missão não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxObjetivo.setText("");
+            cxNome.setText("");
+            cxRecompensa.setText("");
+           }        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsMissaoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,7 +269,6 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtObjetivo;
     private javax.swing.JLabel rtRecompensa;
-    private javax.swing.JLabel rtSubtitulo;
     private javax.swing.JLabel rtTitulo;
     // End of variables declaration//GEN-END:variables
 }

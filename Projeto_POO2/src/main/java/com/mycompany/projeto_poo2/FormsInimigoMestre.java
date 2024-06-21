@@ -73,6 +73,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
 
         btConsInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsInimigo.setText("Consultar");
+        btConsInimigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsInimigoActionPerformed(evt);
+            }
+        });
 
         rtNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtNome.setText("Nome:");
@@ -456,6 +461,36 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         InimigoDAO dao = new InimigoDAO();
         dao.excluir(nome);          // TODO add your handling code here:
     }//GEN-LAST:event_btExcInimigoActionPerformed
+
+    private void btConsInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsInimigoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome do Inimigo",
+            "Consultar Inimigo",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        InimigoDAO dao = new InimigoDAO();
+        Inimigo inimigo = dao.consultar(nome);
+        if (inimigo != null){
+            cxNome.setText(inimigo.getNome());
+            cxRaca.setText(inimigo.getRaca());
+            cxClasse.setText(inimigo.getClasse());
+            cxNivel.setText(Integer.toString(inimigo.getNivel()));
+            cxPntMana.setText(Integer.toString(inimigo.getPontoMana()));
+            cxPntVida.setText(Integer.toString(inimigo.getPontoVida()));
+            cxFraqueza.setText(inimigo.getFraqueza());
+            cxExpDrop.setText(Integer.toString(inimigo.getExperienciaDrop()));
+            checkChefe.setSelected(inimigo.isChefe());
+            cbxEquipamentos.setSelectedItem(inimigo.getEquipamento());
+            cbxHabilidade.setSelectedItem(inimigo.getHabilidade());          
+        } else {
+            JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxObjetivo.setText("");
+            cxNome.setText("");
+            cxRecompensa.setText("");
+           }        // TODO add your handling code here:        // TODO add your handling code here:
+    }//GEN-LAST:event_btConsInimigoActionPerformed
 
     /**
      * @param args the command line arguments

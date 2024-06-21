@@ -20,6 +20,7 @@ com\mycompany\projeto_poo2\FormsInimigoMestre$3.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$2.class
 com\mycompany\projeto_poo2\LinkProtagonistaMissao$2.class
 com\mycompany\projeto_poo2\LinkProtagonistaMissao$5.class
+com\mycompany\projeto_poo2\FormsEquipamentoJogador$7.class
 com\mycompany\projeto_poo2\FrameJogador$8.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$4.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$2.class
@@ -31,6 +32,8 @@ com\mycompany\projeto_poo2\FormsProtagonistaJogador$14.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$5.class
 com\mycompany\projeto_poo2\LinkProtagonistaMissao$8.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$6.class
+com\mycompany\projeto_poo2\FormsMissaoMestre$8.class
+com\mycompany\projeto_poo2\FormsHabilidadeMestre$7.class
 com\mycompany\projeto_poo2\Missao.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador.class
 com\mycompany\projeto_poo2\ProtagonistaMissao.class
@@ -59,6 +62,7 @@ com\mycompany\projeto_poo2\FormsInimigoJogador$3.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$10.class
 com\mycompany\projeto_poo2\LinkProtagonistaMissao$7.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$12.class
+com\mycompany\projeto_poo2\FormsMissaoJogador$6.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador$3.class
 com\mycompany\projeto_poo2\FramePrincipal.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$8.class
@@ -113,6 +117,7 @@ com\mycompany\projeto_poo2\FrameMestre$3.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$3.class
 com\mycompany\projeto_poo2\Protagonista.class
 com\mycompany\projeto_poo2\FrameJogador$5.class
+com\mycompany\projeto_poo2\FormsEquipamentoMestre$10.class
 com\mycompany\projeto_poo2\Habilidade.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$13.class

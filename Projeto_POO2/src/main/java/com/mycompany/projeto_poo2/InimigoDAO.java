@@ -107,5 +107,45 @@ public class InimigoDAO {
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 } 
-        }    
+        }
+
+    public Inimigo consultar(String nome) {
+        boolean sucesso = false;        
+        String sql = "SELECT * FROM inimigo WHERE nome = ?";
+        Inimigo inimigo = null;
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");
+        try (Connection conn = DriverManager.getConnection(url,user,senha);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, nome);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    inimigo = new Inimigo(0,false,0,"","",0,"",0,0,"",equip,habil);   
+                    inimigo.setId_Inimigo(rs.getInt("idinimigo"));
+                    inimigo.setNome(rs.getString("nome"));
+                    inimigo.setPontoVida(rs.getInt("pontovida"));
+                    inimigo.setPontoMana(rs.getInt("pontomana"));
+                    inimigo.setNivel(rs.getInt("nivel"));
+                    inimigo.setRaca(rs.getString("raca"));
+                    inimigo.setClasse(rs.getString("classe"));
+                    inimigo.setExperienciaDrop(rs.getInt("experiencia_dropada"));
+                    inimigo.setFraqueza(rs.getString("fraqueza"));
+                    inimigo.setEquipamento(equip);
+                    inimigo.setHabilidade(habil);                   
+                    sucesso = true;                    
+                }
+            }catch (SQLException e) {
+            e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Verifique as informações!",
+                        "Consulta de Inimigo",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }         
+        return inimigo;
+    }     
 }

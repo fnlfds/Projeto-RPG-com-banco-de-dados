@@ -177,7 +177,25 @@ public class FormsHabilidadeJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btConsHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsHabilidadeActionPerformed
-        // TODO add your handling code here:
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da habilidade",
+            "Consultar Habilidade",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        HabilidadeDAO dao = new HabilidadeDAO();
+        Habilidade habil = dao.consultar(nome);
+        if (habil != null){
+            cxNome.setText(habil.getNome());
+            cxDescricao.setText(habil.getDescricao());
+            cxEfeito.setText(habil.getEfeito());
+        } else {
+            JOptionPane.showMessageDialog(null,"Habilidade não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxDescricao.setText("");
+            cxNome.setText("");
+            cxEfeito.setText("");
+           }               // TODO add your handling code here:
     }//GEN-LAST:event_btConsHabilidadeActionPerformed
 
     /**

@@ -131,5 +131,39 @@ public class EquipamentoDAO {
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 } 
-        }    
+        }
+
+    public Equipamento consultar(String nome) {
+        boolean sucesso = false;        
+        String sql = "SELECT * FROM equipamento WHERE nome = ?";
+        Equipamento equip = null;     
+        try (Connection conn = DriverManager.getConnection(url,user,senha);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, nome);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    equip = new Equipamento(0,false,"","","","");   
+                    equip.setId_Equipamento(rs.getInt("idequipamento"));
+                    equip.setNome(rs.getString("nome"));
+                    equip.setTipo(rs.getString("tipo"));
+                    equip.setEfeito(rs.getString("efeito"));
+                    equip.setConsumivel(rs.getBoolean("consumivel"));
+                    equip.setRaridade(rs.getString("raridade"));
+                    sucesso = true;                    
+                }
+            }catch (SQLException e) {
+            e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Verifique as informações!",
+                        "Consulta da Missão",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }         
+        return equip;
+    }    
+    
 }

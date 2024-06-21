@@ -62,6 +62,11 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
 
         btConsEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsEquipamento.setText("Consultar");
+        btConsEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsEquipamentoActionPerformed(evt);
+            }
+        });
 
         cxEfeito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -197,8 +202,7 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_cxEfeitoActionPerformed
 
     private void cbRaridadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbRaridadeActionPerformed
-        String selectedItem = (String) cbRaridade.getSelectedItem();
-        JOptionPane.showMessageDialog(this, "Selected Item: " + selectedItem);
+
     }//GEN-LAST:event_cbRaridadeActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
@@ -212,6 +216,32 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
     private void btVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btVoltarActionPerformed
         voltar();
     }//GEN-LAST:event_btVoltarActionPerformed
+
+    private void btConsEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsEquipamentoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome do equipamento",
+            "Consultar Equipamento",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        EquipamentoDAO dao = new EquipamentoDAO();
+        Equipamento equip = dao.consultar(nome);
+        if (equip != null){
+            cxNome.setText(equip.getNome());
+            cxTipo.setText(equip.getTipo());
+            cxEfeito.setText(equip.getEfeito());
+            cbRaridade.setSelectedItem(equip.getRaridade());
+            checkConsumivel.setSelected(equip.isConsumivel());
+        } else {
+            JOptionPane.showMessageDialog(null,"Missão não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxTipo.setText("");
+            cxNome.setText("");
+            cxEfeito.setText("");
+            cbRaridade.setSelectedIndex(-1);
+            checkConsumivel.setSelected(false);
+           }         // TODO add your handling code here:
+    }//GEN-LAST:event_btConsEquipamentoActionPerformed
 
     
     public void voltar(){

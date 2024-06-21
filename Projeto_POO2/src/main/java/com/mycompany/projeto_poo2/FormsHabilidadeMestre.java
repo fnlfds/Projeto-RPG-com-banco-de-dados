@@ -98,6 +98,11 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
 
         btConsHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsHabilidade.setText("Consultar");
+        btConsHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsHabilidadeActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -238,6 +243,28 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
         HabilidadeDAO dao = new HabilidadeDAO();
         dao.excluir(nome);  
     }//GEN-LAST:event_btExcHabilidadeActionPerformed
+
+    private void btConsHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsHabilidadeActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da habilidade",
+            "Consultar Habilidade",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        HabilidadeDAO dao = new HabilidadeDAO();
+        Habilidade habil = dao.consultar(nome);
+        if (habil != null){
+            cxNome.setText(habil.getNome());
+            cxDescricao.setText(habil.getDescricao());
+            cxEfeito.setText(habil.getEfeito());
+        } else {
+            JOptionPane.showMessageDialog(null,"Habilidade não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxDescricao.setText("");
+            cxNome.setText("");
+            cxEfeito.setText("");
+           }            // TODO add your handling code here:
+    }//GEN-LAST:event_btConsHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments

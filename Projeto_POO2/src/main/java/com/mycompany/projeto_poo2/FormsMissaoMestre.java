@@ -39,7 +39,6 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         btConsMissao = new javax.swing.JButton();
         rtTitulo = new javax.swing.JLabel();
         btExcMissao = new javax.swing.JButton();
-        rtSubtitulo = new javax.swing.JLabel();
         btLimpar = new javax.swing.JButton();
         rtNome = new javax.swing.JLabel();
         btSair = new javax.swing.JButton();
@@ -65,6 +64,11 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
 
         btConsMissao.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsMissao.setText("Consultar");
+        btConsMissao.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsMissaoActionPerformed(evt);
+            }
+        });
 
         rtTitulo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         rtTitulo.setText("Missão");
@@ -76,8 +80,6 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
                 btExcMissaoActionPerformed(evt);
             }
         });
-
-        rtSubtitulo.setText("(consultas, alterações e exclusões por nome da missão)");
 
         btLimpar.setText("Limpar");
         btLimpar.addActionListener(new java.awt.event.ActionListener() {
@@ -137,12 +139,9 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(108, 108, 108)
-                                        .addComponent(rtTitulo))
-                                    .addComponent(rtSubtitulo)))
+                                .addGap(108, 307, Short.MAX_VALUE)
+                                .addComponent(rtTitulo)
+                                .addGap(109, 109, 109))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btCadMissao)
                                 .addGap(18, 18, 18)
@@ -164,9 +163,7 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rtTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rtSubtitulo)
-                .addGap(18, 18, 18)
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtNome)
                     .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -246,6 +243,28 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
         dao.excluir(nome);        // TODO add your handling code here:
     }//GEN-LAST:event_btExcMissaoActionPerformed
 
+    private void btConsMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsMissaoActionPerformed
+        String nome = JOptionPane.showInputDialog(
+            null,
+            "Informe o nome da missão",
+            "Consultar Missão",
+            JOptionPane.QUESTION_MESSAGE
+        );
+        
+        MissaoDAO dao = new MissaoDAO();
+        Missao missao = dao.consultar(nome);
+        if (missao != null){
+            cxNome.setText(missao.getNome());
+            cxObjetivo.setText(missao.getObjetivo());
+            cxRecompensa.setText(missao.getRecompensa());
+        } else {
+            JOptionPane.showMessageDialog(null,"Missão não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxObjetivo.setText("");
+            cxNome.setText("");
+            cxRecompensa.setText("");
+           }
+    }//GEN-LAST:event_btConsMissaoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,7 +342,6 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtObjetivo;
     private javax.swing.JLabel rtRecompensa;
-    private javax.swing.JLabel rtSubtitulo;
     private javax.swing.JLabel rtTitulo;
     // End of variables declaration//GEN-END:variables
 }

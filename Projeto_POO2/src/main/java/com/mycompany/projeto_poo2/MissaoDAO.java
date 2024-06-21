@@ -128,4 +128,35 @@ public class MissaoDAO {
                     );
                 } 
         }
+    
+    public Missao consultar(String nome) {
+        boolean sucesso = false;        
+        String sql = "SELECT * FROM missao WHERE nome = ?";
+        Missao missao = null;     
+        try (Connection conn = DriverManager.getConnection(url,user,senha);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, nome);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    missao = new Missao(0,"","","");   
+                    missao.setId_Missao(rs.getInt("idmissao"));
+                    missao.setNome(rs.getString("nome"));
+                    missao.setObjetivo(rs.getString("objetivo"));
+                    missao.setRecompensa(rs.getString("recompensa"));
+                    sucesso = true;                    
+                }
+            }catch (SQLException e) {
+            e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Verifique as informações!",
+                        "Consulta da Missão",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }         
+        return missao;
+    }    
 }
