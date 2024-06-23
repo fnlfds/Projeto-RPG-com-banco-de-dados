@@ -81,6 +81,11 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
 
         btAltEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btAltEquipamento.setText("Alterar");
+        btAltEquipamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAltEquipamentoActionPerformed(evt);
+            }
+        });
 
         btConsEquipamento.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsEquipamento.setText("Consultar");
@@ -290,35 +295,22 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_checkConsumivelActionPerformed
 
     private void btExcEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcEquipamentoActionPerformed
-         String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do equipamento",
-            "Excluir Equipamento",
-            JOptionPane.QUESTION_MESSAGE
-        );
-
+        String nome = cxNome.getText();
         EquipamentoDAO dao = new EquipamentoDAO();
         dao.excluir(nome);          // TODO add your handling code here:
     }//GEN-LAST:event_btExcEquipamentoActionPerformed
 
     private void btConsEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsEquipamentoActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do equipamento",
-            "Consultar Equipamento",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         EquipamentoDAO dao = new EquipamentoDAO();
         Equipamento equip = dao.consultar(nome);
         if (equip != null){
-            cxNome.setText(equip.getNome());
             cxTipo.setText(equip.getTipo());
             cxEfeito.setText(equip.getEfeito());
             cbRaridade.setSelectedItem(equip.getRaridade());
             checkConsumivel.setSelected(equip.isConsumivel());
         } else {
-            JOptionPane.showMessageDialog(null,"Missão não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Equipamento não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
             cxTipo.setText("");
             cxNome.setText("");
             cxEfeito.setText("");
@@ -326,6 +318,39 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
             checkConsumivel.setSelected(false);
            }        // TODO add your handling code here:
     }//GEN-LAST:event_btConsEquipamentoActionPerformed
+        EquipamentoDAO dao = new EquipamentoDAO();      
+        private Equipamento equipamentoAtual;
+    private void btAltEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltEquipamentoActionPerformed
+        if (equipamentoAtual == null) {
+            String nomeEquipamento = cxNome.getText();
+            equipamentoAtual = dao.consultar(nomeEquipamento);
+
+            if (equipamentoAtual != null) {
+                cxTipo.setText(equipamentoAtual.getTipo());
+                cxEfeito.setText(equipamentoAtual.getEfeito());
+                checkConsumivel.setSelected(equipamentoAtual.isConsumivel());
+                cbRaridade.setSelectedItem(equipamentoAtual.getRaridade());
+            } else {
+                JOptionPane.showMessageDialog(null, "Equipamento não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                limpar();
+            }
+            
+        }else {
+                    if (!equipamentoAtual.getNome().equals(cxNome.getText())) {
+                        JOptionPane.showMessageDialog(null, "O nome do equipamento não pode ser alterado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        cxNome.setText(equipamentoAtual.getNome()); // Reseta o nome para o original
+                    }else {
+                        equipamentoAtual.setTipo(cxTipo.getText());
+                        equipamentoAtual.setEfeito(cxEfeito.getText());
+                        equipamentoAtual.setConsumivel(checkConsumivel.isSelected());
+                        equipamentoAtual.setRaridade(cbRaridade.getSelectedItem().toString());
+                        dao.atualizar(equipamentoAtual);
+                        JOptionPane.showMessageDialog(null, "Equipamento atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        resetForm();
+                }
+        }
+       // TODO add your handling code here:
+    }//GEN-LAST:event_btAltEquipamentoActionPerformed
 
     
     public void voltar(){
@@ -355,6 +380,12 @@ public class FormsEquipamentoMestre extends javax.swing.JFrame {
             dispose();
         }
     }
+    
+    private void resetForm() {
+        equipamentoAtual = null;
+        cxNome.setText("");
+        limpar();
+    }    
         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

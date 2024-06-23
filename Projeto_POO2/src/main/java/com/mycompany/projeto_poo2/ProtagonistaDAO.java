@@ -139,7 +139,9 @@ public class ProtagonistaDAO {
                             JOptionPane.showMessageDialog(null, "Erro: Este personagem não existe.");
                         }
                     }
-                }
+                }catch (SQLIntegrityConstraintViolationException e) {
+                JOptionPane.showMessageDialog(null, "Erro: Não é possível excluir o personagem pois ele está em uma missão.");
+                 }
             }                   
             catch (SQLException e) {
                 e.printStackTrace();
@@ -152,5 +154,100 @@ public class ProtagonistaDAO {
                         JOptionPane.INFORMATION_MESSAGE
                     );
                 } 
-        }    
+        }
+
+    public Protagonista consultar(String nome) {
+        boolean sucesso = false;        
+        String sql = "SELECT * FROM protagonista WHERE nome = ?";
+        Protagonista protag = null;      
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        Habilidade habil = new Habilidade(0,"","","");
+        try (Connection conn = DriverManager.getConnection(url,user,senha);
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+                ps.setString(1, nome);
+                ResultSet rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    protag = new Protagonista(0,0,0,0,"",0,0,0,"",0,"",0,0,"",equip,habil);   
+                    protag.setId_Protagonista(rs.getInt("idprotagonista"));                
+                    protag.setNome(rs.getString("nome"));
+                    protag.setPontoVida(rs.getInt("pontovida"));
+                    protag.setPontoMana(rs.getInt("pontomana"));
+                    protag.setNivel(rs.getInt("nivel"));
+                    protag.setRaca(rs.getString("raca"));
+                    protag.setClasse(rs.getString("classe"));
+                    protag.setExperiencia(rs.getInt("experiencia"));
+                    protag.setForca(rs.getInt("forca"));
+                    protag.setDestreza(rs.getInt("destreza"));
+                    protag.setInteligencia(rs.getInt("inteligencia"));                    
+                    protag.setCarisma(rs.getInt("carisma"));
+                    protag.setEfeito(rs.getString("efeito"));
+                    protag.setDinheiro(rs.getInt("dinheiro")); 
+                    int equipamentoId = rs.getInt("equipamento_idequipamento");
+                    int habilidadeId = rs.getInt("habilidade_idHabilidade");
+                    EquipamentoDAO dao = new EquipamentoDAO();
+                    Equipamento equipamento = dao.obterEquipamentoPorId(equipamentoId);
+                    HabilidadeDAO dao1 = new HabilidadeDAO();
+                    Habilidade habilidade = dao1.obterHabilidadePorId(habilidadeId);                      
+                    protag.setEquipamento(equipamento);                
+                    protag.setHabilidade(habilidade);                  
+                    sucesso = true;  
+                }
+            }catch (SQLException e) {
+            e.printStackTrace();
+            }
+                if (sucesso) {
+                    JOptionPane.showMessageDialog(
+                        null,
+                        "Verifique as informações!",
+                        "Consulta de Personagem",
+                        JOptionPane.INFORMATION_MESSAGE
+                    );
+                }         
+        return protag;
+    }
+
+    public void atualizar(Protagonista protag) {
+        String query = "UPDATE protagonista SET pontovida = ?, pontomana = ?, raca = ? , classe = ?, forca = ?, destreza = ?"
+                + ",inteligencia = ?, carisma = ?, efeito = ?, dinheiro = ?, habilidade_idHabilidade = ?, equipamento_idequipamento = ?  WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            preparedStatement.setInt(1, protag.getPontoVida());
+            preparedStatement.setInt(2, protag.getPontoMana());
+            preparedStatement.setString(3, protag.getRaca());
+            preparedStatement.setString(4, protag.getClasse());
+            preparedStatement.setInt(5, protag.getForca());
+            preparedStatement.setInt(6, protag.getDestreza()); 
+            preparedStatement.setInt(7, protag.getInteligencia()); 
+            preparedStatement.setInt(8, protag.getCarisma()); 
+            preparedStatement.setString(9, protag.getEfeito()); 
+            preparedStatement.setInt(10, protag.getDinheiro());
+            preparedStatement.setInt(11, protag.getHabilidade().getId_Habilidade());            
+            preparedStatement.setInt(12, protag.getEquipamento().getId_Equipamento());
+            preparedStatement.setString(13, protag.getNome());            
+            preparedStatement.executeUpdate();     
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    public void atualizarExperienciaENivel(Protagonista protagonista) {
+        String query = "UPDATE protagonista SET experiencia = ?, nivel = ? WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, protagonista.getExperiencia());
+            preparedStatement.setInt(2, protagonista.getNivel());
+            preparedStatement.setString(3, protagonista.getNome());
+
+            preparedStatement.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }    
 }

@@ -32,7 +32,6 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         rtClasse = new javax.swing.JLabel();
         cxClasse = new javax.swing.JTextField();
         cxEfeito = new javax.swing.JTextField();
-        btAltPersonagem = new javax.swing.JButton();
         btConsPersonagem = new javax.swing.JButton();
         btExcPersonagem = new javax.swing.JButton();
         btLimparForm = new javax.swing.JButton();
@@ -81,11 +80,13 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
             }
         });
 
-        btAltPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btAltPersonagem.setText("Alterar");
-
         btConsPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsPersonagem.setText("Consultar");
+        btConsPersonagem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsPersonagemActionPerformed(evt);
+            }
+        });
 
         btExcPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btExcPersonagem.setText("Excluir");
@@ -283,7 +284,11 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                                             .addGap(18, 18, 18)
                                             .addComponent(rtEfeito)
                                             .addGap(18, 18, 18)
-                                            .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                            .addComponent(cxEfeito, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(btConsPersonagem)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btExcPersonagem))))
                         .addGap(0, 19, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtNivel)
@@ -315,13 +320,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                         .addComponent(rtTitulo)))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btAltPersonagem)
-                .addGap(18, 18, 18)
-                .addComponent(btConsPersonagem)
-                .addGap(18, 18, 18)
-                .addComponent(btExcPersonagem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btLimparForm)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btVoltar)
@@ -385,7 +384,6 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btAltPersonagem)
                         .addComponent(btConsPersonagem)
                         .addComponent(btExcPersonagem))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -464,6 +462,45 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
         dao.excluir(nome);            // TODO add your handling code here:
     }//GEN-LAST:event_btExcPersonagemActionPerformed
 
+    private void btConsPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsPersonagemActionPerformed
+        String nome = cxNome.getText(); 
+        ProtagonistaDAO dao = new ProtagonistaDAO();
+        Protagonista protag = dao.consultar(nome);
+        if (protag != null){
+            cxRaca.setText(protag.getRaca());
+            cxClasse.setText(protag.getClasse());
+            cxNivel.setText(Integer.toString(protag.getNivel()));
+            cxPntMana.setText(Integer.toString(protag.getPontoMana()));
+            cxPntVida.setText(Integer.toString(protag.getPontoVida()));
+            cxCarisma.setText(Integer.toString(protag.getCarisma()));
+            cxDestreza.setText(Integer.toString(protag.getDestreza()));
+            cxForca.setText(Integer.toString(protag.getForca()));
+            cxInteligencia.setText(Integer.toString(protag.getInteligencia()));
+            cxDinheiro.setText(Integer.toString(protag.getDinheiro()));
+            cxExperiencia.setText(Integer.toString(protag.getExperiencia()));
+            cxEfeito.setText(protag.getEfeito());            
+            cbxEquipamento.setSelectedItem(protag.getEquipamento());
+            cbxHabilidade.setSelectedItem(protag.getHabilidade());            
+        } else {
+            JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxRaca.setText("");
+            cxNome.setText("");
+            cxClasse.setText("");
+            cxNivel.setText("");
+            cxPntMana.setText("");
+            cxPntVida.setText("");
+            cxCarisma.setText("");
+            cxDestreza.setText("");
+            cxForca.setText("");
+            cxInteligencia.setText("");
+            cxDinheiro.setText("");
+            cxExperiencia.setText("");
+            cxEfeito.setText("");            
+            cbxEquipamento.setSelectedIndex(-1);
+            cbxHabilidade.setSelectedIndex(-1);
+           }          // TODO add your handling code here:
+    }//GEN-LAST:event_btConsPersonagemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -538,7 +575,6 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btAltPersonagem;
     private javax.swing.JButton btConsPersonagem;
     private javax.swing.JButton btExcPersonagem;
     private javax.swing.JButton btLimparForm;

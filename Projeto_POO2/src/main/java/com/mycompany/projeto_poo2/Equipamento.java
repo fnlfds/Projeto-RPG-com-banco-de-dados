@@ -73,6 +73,19 @@ public class Equipamento {
     public String toString(){
         return this.getNome();
     }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Equipamento that = (Equipamento) obj;
+        return id_equipamento == that.id_equipamento;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id_equipamento);
+    }    
 }
 
 

@@ -95,6 +95,11 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
 
         btAltHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btAltHabilidade.setText("Alterar");
+        btAltHabilidade.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAltHabilidadeActionPerformed(evt);
+            }
+        });
 
         btConsHabilidade.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsHabilidade.setText("Consultar");
@@ -233,29 +238,16 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btExcHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcHabilidadeActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome da habilidade",
-            "Excluir Habilidade",
-            JOptionPane.QUESTION_MESSAGE
-        );
-
+        String nome = cxNome.getText();
         HabilidadeDAO dao = new HabilidadeDAO();
         dao.excluir(nome);  
     }//GEN-LAST:event_btExcHabilidadeActionPerformed
 
     private void btConsHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsHabilidadeActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome da habilidade",
-            "Consultar Habilidade",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         HabilidadeDAO dao = new HabilidadeDAO();
         Habilidade habil = dao.consultar(nome);
         if (habil != null){
-            cxNome.setText(habil.getNome());
             cxDescricao.setText(habil.getDescricao());
             cxEfeito.setText(habil.getEfeito());
         } else {
@@ -265,6 +257,34 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
             cxEfeito.setText("");
            }            // TODO add your handling code here:
     }//GEN-LAST:event_btConsHabilidadeActionPerformed
+        HabilidadeDAO dao = new HabilidadeDAO();      
+        private Habilidade habil;
+    private void btAltHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltHabilidadeActionPerformed
+        if (habil == null) {
+            String nome = cxNome.getText();
+            habil = dao.consultar(nome);
+
+            if (habil != null) {
+                cxDescricao.setText(habil.getDescricao());
+                cxEfeito.setText(habil.getEfeito());
+            } else {
+                JOptionPane.showMessageDialog(null, "Habilidade não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+                limpar();
+            }
+            
+        }else {
+                    if (!habil.getNome().equals(cxNome.getText())) {
+                        JOptionPane.showMessageDialog(null, "O nome da habilidade não pode ser alterado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        cxNome.setText(habil.getNome()); // Reseta o nome para o original
+                    }else {
+                        habil.setDescricao(cxDescricao.getText());
+                        habil.setEfeito(cxEfeito.getText());
+                        dao.atualizar(habil);
+                        JOptionPane.showMessageDialog(null, "Habilidade atualizada com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        resetForm();
+                }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btAltHabilidadeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -295,6 +315,12 @@ public class FormsHabilidadeMestre extends javax.swing.JFrame {
             dispose();
         }
     }
+    
+    private void resetForm() {
+        habil = null;
+        cxNome.setText("");
+        limpar();
+    }      
         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

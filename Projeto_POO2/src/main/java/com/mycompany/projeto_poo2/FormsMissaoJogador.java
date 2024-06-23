@@ -39,6 +39,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
         cxNome = new javax.swing.JTextField();
         cxRecompensa = new javax.swing.JTextField();
         btVoltar = new javax.swing.JButton();
+        rtSubtitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -89,6 +90,8 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
             }
         });
 
+        rtSubtitulo.setText("(consultas por nome da Missão)");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -105,7 +108,13 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
+                                .addGap(250, 250, 250)
+                                .addComponent(rtTitulo))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(237, 237, 237)
+                                .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                         .addComponent(rtRecompensa)
@@ -118,22 +127,22 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(rtNome)
                                         .addGap(18, 18, 18)
-                                        .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(250, 250, 250)
-                                .addComponent(rtTitulo))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(237, 237, 237)
-                                .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                                        .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 103, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(rtSubtitulo)
+                .addGap(204, 204, 204))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(rtTitulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rtSubtitulo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtNome)
                     .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -145,7 +154,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtRecompensa)
                     .addComponent(cxRecompensa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(40, 40, 40)
                 .addComponent(btConsMissao, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,17 +184,10 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btConsMissaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsMissaoActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome da missão",
-            "Consultar Missao",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         MissaoDAO dao = new MissaoDAO();
         Missao missao = dao.consultar(nome);
         if (missao != null){
-            cxNome.setText(missao.getNome());
             cxObjetivo.setText(missao.getObjetivo());
             cxRecompensa.setText(missao.getRecompensa());
         } else {
@@ -269,6 +271,7 @@ public class FormsMissaoJogador extends javax.swing.JFrame {
     private javax.swing.JLabel rtNome;
     private javax.swing.JLabel rtObjetivo;
     private javax.swing.JLabel rtRecompensa;
+    private javax.swing.JLabel rtSubtitulo;
     private javax.swing.JLabel rtTitulo;
     // End of variables declaration//GEN-END:variables
 }

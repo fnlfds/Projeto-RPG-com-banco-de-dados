@@ -51,5 +51,18 @@ public class Habilidade {
     
     public String toString(){
         return this.getNome();
-    }   
+    }
+ 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Habilidade that = (Habilidade) obj;
+        return id_habilidade == that.id_habilidade;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(id_habilidade);
+    }    
 }

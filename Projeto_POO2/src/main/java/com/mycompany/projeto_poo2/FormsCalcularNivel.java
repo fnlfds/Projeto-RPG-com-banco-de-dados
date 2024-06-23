@@ -36,7 +36,7 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
         btLimparForm = new javax.swing.JButton();
         btSairForm = new javax.swing.JButton();
         rtPersonagem = new javax.swing.JLabel();
-        cbPersonagem = new javax.swing.JComboBox<>();
+        cxPersonagem = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +48,11 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
 
         btCalcular.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btCalcular.setText("Calcular");
+        btCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btCalcularActionPerformed(evt);
+            }
+        });
 
         btVoltar.setText("Voltar");
         btVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -72,8 +77,6 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
 
         rtPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         rtPersonagem.setText("Personagem:");
-
-        cbPersonagem.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecione" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -105,8 +108,8 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
                         .addComponent(cxExperiencia, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(rtPersonagem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(cxPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(62, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -117,7 +120,7 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtPersonagem)
-                    .addComponent(cbPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cxPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rtExperiencia)
@@ -146,6 +149,34 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
         sair();
     }//GEN-LAST:event_btSairFormActionPerformed
+        ProtagonistaDAO dao = new ProtagonistaDAO();
+    private void btCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCalcularActionPerformed
+                String nomeProtagonista = cxPersonagem.getText();
+                int experienciaAdquirida;
+                try {
+                    experienciaAdquirida = Integer.parseInt(cxExperiencia.getText());
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Por favor, insira um valor válido de experiência adquirida.", "Erro", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                Protagonista protagonista = dao.consultar(nomeProtagonista);
+
+                if (protagonista != null) {
+                    int experienciaAtual = protagonista.getExperiencia();
+                    int novaExperiencia = experienciaAtual + experienciaAdquirida;
+
+                    protagonista.setExperiencia(novaExperiencia);
+                    protagonista.setNivel(calcularNivel(novaExperiencia));
+
+                    dao.atualizarExperienciaENivel(protagonista);
+                    JOptionPane.showMessageDialog(null, "Experiência e nível atualizados com sucesso.", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                    mostrarAtualizacao(protagonista);                    
+                    limpar();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Protagonista não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+                }       // TODO add your handling code here:
+    }//GEN-LAST:event_btCalcularActionPerformed
 
       public void voltar(){
         FrameMestre frameMestre = new FrameMestre();
@@ -156,7 +187,14 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
     
     public void limpar(){
         cxExperiencia.setText("");
+        cxPersonagem.setText("");
     }
+
+    private void mostrarAtualizacao(Protagonista protagonista) {
+        String mensagem = String.format("Nível: %d\nExperiência Total: %d",
+                protagonista.getNivel(), protagonista.getExperiencia());
+        JOptionPane.showMessageDialog(null, mensagem, "Atualização do Protagonista", JOptionPane.INFORMATION_MESSAGE);
+    }    
         
         public void sair(){
             int respSair = JOptionPane.showConfirmDialog(
@@ -170,6 +208,12 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
             dispose();
         }
     }
+        
+    private int calcularNivel(int experiencia) {
+        // Função exponencial para calcular o nível
+        return (int) Math.floor(Math.sqrt(experiencia / 100.0));
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -207,8 +251,8 @@ public class FormsCalcularNivel extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox<String> cbPersonagem;
     private javax.swing.JTextField cxExperiencia;
+    private javax.swing.JTextField cxPersonagem;
     private javax.swing.JLabel rtExperiencia;
     private javax.swing.JLabel rtPersonagem;
     private javax.swing.JLabel textoPrincipal;

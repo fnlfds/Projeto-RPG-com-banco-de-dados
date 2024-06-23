@@ -159,5 +159,45 @@ public class HabilidadeDAO {
                     );
                 }         
         return habil;
+    }
+    public Habilidade obterHabilidadePorId(int idhabilidade) {
+        Habilidade habilidade = null;
+        String query = "SELECT * FROM habilidade WHERE idhabilidade = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, idhabilidade);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                habilidade = new Habilidade(0,"","","");
+                habilidade.setId_Habilidade(rs.getInt("idhabilidade"));
+                habilidade.setNome(rs.getString("nome"));
+                habilidade.setDescricao(rs.getString("descricao"));
+                habilidade.setEfeito(rs.getString("efeito"));                
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return habilidade;
+    }
+    public void atualizar(Habilidade habil) {
+        String query = "UPDATE habilidade SET descricao = ?, efeito = ? WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            preparedStatement.setString(1, habil.getDescricao());
+            preparedStatement.setString(2, habil.getEfeito());
+            preparedStatement.setString(3, habil.getNome());
+
+            preparedStatement.executeUpdate();     
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }    
 }

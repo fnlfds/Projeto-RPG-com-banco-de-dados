@@ -64,7 +64,7 @@ public class FrameMestre extends javax.swing.JFrame {
         textoMissao.setText("Missão");
 
         botaoConsultarPersonagem.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        botaoConsultarPersonagem.setText("Consultar/\nAlterar/\nExcluir");
+        botaoConsultarPersonagem.setText("Consultar/ Excluir");
         botaoConsultarPersonagem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoConsultarPersonagemActionPerformed(evt);
@@ -129,8 +129,7 @@ public class FrameMestre extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(botaoVoltarMestre)
-                        .addGap(53, 53, 53)
-                        .addComponent(textoHabilidade))
+                        .addGap(138, 138, 138))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -139,7 +138,7 @@ public class FrameMestre extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(textoPersonagem)
                                 .addGap(36, 36, 36)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(botaoGerenciarEquipamento, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -147,23 +146,25 @@ public class FrameMestre extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(textoEquipamento)
                                 .addGap(9, 9, 9)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(41, 41, 41)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(54, 54, 54)
                                 .addComponent(textoInimigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 153, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(62, 62, 62)
+                                .addComponent(textoHabilidade))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(botaoGerenciarInimigo)
-                                .addGap(50, 50, 50)
-                                .addComponent(botaoGerenciarHabilidade)))))
-                .addGap(42, 42, 42)
+                                .addGap(45, 45, 45)
+                                .addComponent(botaoGerenciarHabilidade)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(botaoGerenciarMissao)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textoMissao)
-                        .addGap(20, 20, 20)))
-                .addGap(27, 27, 27))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(textoMissao))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(botaoGerenciarMissao)))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

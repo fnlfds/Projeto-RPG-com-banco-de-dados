@@ -218,17 +218,10 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btConsEquipamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsEquipamentoActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do equipamento",
-            "Consultar Equipamento",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         EquipamentoDAO dao = new EquipamentoDAO();
         Equipamento equip = dao.consultar(nome);
         if (equip != null){
-            cxNome.setText(equip.getNome());
             cxTipo.setText(equip.getTipo());
             cxEfeito.setText(equip.getEfeito());
             cbRaridade.setSelectedItem(equip.getRaridade());

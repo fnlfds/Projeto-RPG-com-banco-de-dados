@@ -70,6 +70,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
 
         btAltInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btAltInimigo.setText("Alterar");
+        btAltInimigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAltInimigoActionPerformed(evt);
+            }
+        });
 
         btConsInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsInimigo.setText("Consultar");
@@ -213,11 +218,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(83, 83, 83)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(223, 223, 223)
-                        .addComponent(rtCaracteristicas)
-                        .addGap(303, 303, 303))
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(rtNome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(cxNome, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +230,11 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                         .addComponent(rtClasse)
                         .addGap(18, 18, 18)
                         .addComponent(cxClasse, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37))))
+                        .addGap(37, 37, 37))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(223, 223, 223)
+                        .addComponent(rtCaracteristicas)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(rtTitulo)
@@ -250,7 +255,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                                 .addComponent(btConsInimigo)
                                 .addGap(18, 18, 18)
                                 .addComponent(btExcInimigo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
                                 .addComponent(btLimparForm)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btVoltar)
@@ -264,18 +269,6 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                                         .addGap(239, 239, 239)
                                         .addComponent(rtAtributos))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(rtFraqueza)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(24, 24, 24)
-                                        .addComponent(rtExpDrop)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(rtChefe)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(checkChefe))
-                                    .addGroup(layout.createSequentialGroup()
                                         .addComponent(cxNivel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(rtPntMana)
@@ -284,18 +277,32 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                                         .addGap(28, 28, 28)
                                         .addComponent(rtPntVida)
                                         .addGap(18, 18, 18)
-                                        .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
+                                        .addComponent(cxPntVida, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addComponent(rtFraqueza)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cxFraqueza, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(24, 24, 24)
+                                                .addComponent(rtExpDrop)
+                                                .addGap(18, 18, 18)
+                                                .addComponent(cxExpDrop, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(rtChefe))
+                                            .addGroup(layout.createSequentialGroup()
+                                                .addGap(20, 20, 20)
+                                                .addComponent(rtEquipamento)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(105, 105, 105)
+                                                .addComponent(rtHabilidade)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(checkChefe)))
+                                .addGap(22, 22, 22)))))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(rtEquipamento)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxEquipamentos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(105, 105, 105)
-                .addComponent(rtHabilidade)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxHabilidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,29 +463,19 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxHabilidadeAncestorAdded
 
     private void btExcInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcInimigoActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do inimigo",
-            "Excluir Inimigo",
-            JOptionPane.QUESTION_MESSAGE
-        );
-
+        String nome = cxNome.getText();
         InimigoDAO dao = new InimigoDAO();
         dao.excluir(nome);          // TODO add your handling code here:
     }//GEN-LAST:event_btExcInimigoActionPerformed
 
     private void btConsInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsInimigoActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do Inimigo",
-            "Consultar Inimigo",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         InimigoDAO dao = new InimigoDAO();
         Inimigo inimigo = dao.consultar(nome);
+        Equipamento equip = new Equipamento(0,false,"","","","");
+        EquipamentoDAO dao1 = new EquipamentoDAO();
+        Habilidade habil = new Habilidade(0,"","","");        
         if (inimigo != null){
-            cxNome.setText(inimigo.getNome());
             cxRaca.setText(inimigo.getRaca());
             cxClasse.setText(inimigo.getClasse());
             cxNivel.setText(Integer.toString(inimigo.getNivel()));
@@ -488,7 +485,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             cxExpDrop.setText(Integer.toString(inimigo.getExperienciaDrop()));
             checkChefe.setSelected(inimigo.isChefe());
             cbxEquipamentos.setSelectedItem(inimigo.getEquipamento());
-            cbxHabilidade.setSelectedItem(inimigo.getHabilidade());          
+            cbxHabilidade.setSelectedItem(inimigo.getHabilidade());
         } else {
             JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
             cxRaca.setText("");
@@ -508,6 +505,50 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
     private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxHabilidadeActionPerformed
+        InimigoDAO dao = new InimigoDAO();      
+        private Inimigo inimigo;
+    private void btAltInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAltInimigoActionPerformed
+        if (inimigo == null) {
+            String nome = cxNome.getText();
+            inimigo = dao.consultar(nome);
+
+            if (inimigo != null) {
+                cxRaca.setText(inimigo.getRaca());
+                cxClasse.setText(inimigo.getClasse());
+                cxNivel.setText(Integer.toString(inimigo.getNivel()));
+                cxPntMana.setText(Integer.toString(inimigo.getPontoMana()));
+                cxPntVida.setText(Integer.toString(inimigo.getPontoVida()));
+                cxFraqueza.setText(inimigo.getFraqueza());
+                cxExpDrop.setText(Integer.toString(inimigo.getExperienciaDrop()));
+                checkChefe.setSelected(inimigo.isChefe());
+                cbxEquipamentos.setSelectedItem(inimigo.getEquipamento());
+                cbxHabilidade.setSelectedItem(inimigo.getHabilidade());
+            } else {
+                JOptionPane.showMessageDialog(null, "Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                limpar();
+            }
+            
+        }else {
+                    if (!inimigo.getNome().equals(cxNome.getText())) {
+                        JOptionPane.showMessageDialog(null, "O nome do inimigo não pode ser alterado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                        cxNome.setText(inimigo.getNome()); // Reseta o nome para o original
+                    }else {
+                        inimigo.setRaca(cxRaca.getText());
+                        inimigo.setClasse(cxClasse.getText());
+                        inimigo.setNivel(Integer.parseInt(cxNivel.getText()));
+                        inimigo.setPontoMana(Integer.parseInt(cxPntMana.getText()));
+                        inimigo.setPontoVida(Integer.parseInt(cxPntVida.getText()));
+                        inimigo.setFraqueza(cxFraqueza.getText());
+                        inimigo.setExperienciaDrop(Integer.parseInt(cxExpDrop.getText()));                        
+                        inimigo.setChefe(checkChefe.isSelected());
+                        inimigo.setEquipamento((Equipamento) cbxEquipamentos.getSelectedItem());
+                        inimigo.setHabilidade((Habilidade) cbxHabilidade.getSelectedItem());
+                        dao.atualizar(inimigo);
+                        JOptionPane.showMessageDialog(null, "Equipamento atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        resetForm();
+                }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_btAltInimigoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -529,6 +570,8 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
         cxPntVida.setText("");
         cxFraqueza.setText("");
         cxExpDrop.setText("");
+        cbxEquipamentos.setSelectedIndex(-1);
+        cbxHabilidade.setSelectedIndex(-1);        
         checkChefe.setSelected(false);
     }       
         
@@ -544,6 +587,12 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
             dispose();
         }
     }
+    
+    private void resetForm() {
+        inimigo = null;
+        cxNome.setText("");
+        limpar();
+    }      
         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

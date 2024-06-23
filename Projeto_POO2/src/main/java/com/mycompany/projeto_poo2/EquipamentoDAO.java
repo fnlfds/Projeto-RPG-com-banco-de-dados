@@ -165,5 +165,48 @@ public class EquipamentoDAO {
                 }         
         return equip;
     }    
-    
+    public Equipamento obterEquipamentoPorId(int idequipamento) {
+        Equipamento equipamento = null;
+        String query = "SELECT * FROM equipamento WHERE idequipamento = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+
+            preparedStatement.setInt(1, idequipamento);
+            ResultSet rs = preparedStatement.executeQuery();
+
+            if (rs.next()) {
+                equipamento = new Equipamento(0,false,"","","","");
+                equipamento.setId_Equipamento(rs.getInt("idequipamento"));
+                equipamento.setNome(rs.getString("nome"));
+                equipamento.setTipo(rs.getString("tipo"));
+                equipamento.setEfeito(rs.getString("efeito"));
+                equipamento.setConsumivel(rs.getBoolean("consumivel"));
+                equipamento.setRaridade(rs.getString("raridade"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return equipamento;
+    }
+    public void atualizar(Equipamento equipamento) {
+        String query = "UPDATE equipamento SET tipo = ?, efeito = ?, consumivel = ?, raridade = ? WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            preparedStatement.setString(1, equipamento.getTipo());
+            preparedStatement.setString(2, equipamento.getEfeito());
+            preparedStatement.setBoolean(3, equipamento.isConsumivel());
+            preparedStatement.setString(4, equipamento.getRaridade());
+            preparedStatement.setString(5, equipamento.getNome());
+
+            preparedStatement.executeUpdate();     
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }    
 }

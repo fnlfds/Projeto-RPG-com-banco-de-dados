@@ -67,12 +67,14 @@
                                   <Component id="rtDinheiro" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <EmptySpace min="-2" pref="158" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
                                           <Component id="btCadPersonagem" min="-2" pref="103" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
+                                          <Component id="btAlterar" min="-2" pref="103" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                           <Component id="btConsultarPersonagem" min="-2" pref="103" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" alignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Component id="rtEquipamento" min="-2" max="-2" attributes="0"/>
@@ -222,6 +224,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btCadPersonagem" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="btConsultarPersonagem" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="btAlterar" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -501,6 +504,17 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value=""/>
       </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btAlterar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Alterar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAlterarActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

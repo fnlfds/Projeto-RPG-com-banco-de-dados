@@ -114,7 +114,9 @@ public class MissaoDAO {
                             JOptionPane.showMessageDialog(null, "Erro: Esta missão não existe.");
                         }
                     }
-                }
+                }catch (SQLIntegrityConstraintViolationException e) {
+                JOptionPane.showMessageDialog(null, "Erro: Não é possível excluir a missão pois há um personagem nela.");
+                 }
             }                   
             catch (SQLException e) {
                 e.printStackTrace();
@@ -158,5 +160,22 @@ public class MissaoDAO {
                     );
                 }         
         return missao;
-    }    
+    }
+
+    public void atualizar(Missao missao) {
+        String query = "UPDATE missao SET objetivo = ?, recompensa = ? WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            preparedStatement.setString(1, missao.getObjetivo());
+            preparedStatement.setString(2, missao.getRecompensa());
+            preparedStatement.setString(3, missao.getNome());
+
+            preparedStatement.executeUpdate();     
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }      
 }

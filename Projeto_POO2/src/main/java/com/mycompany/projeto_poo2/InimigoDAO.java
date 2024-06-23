@@ -11,6 +11,8 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InimigoDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
@@ -112,7 +114,7 @@ public class InimigoDAO {
     public Inimigo consultar(String nome) {
         boolean sucesso = false;        
         String sql = "SELECT * FROM inimigo WHERE nome = ?";
-        Inimigo inimigo = null;
+        Inimigo inimigo = null;      
         Equipamento equip = new Equipamento(0,false,"","","","");
         Habilidade habil = new Habilidade(0,"","","");
         try (Connection conn = DriverManager.getConnection(url,user,senha);
@@ -132,9 +134,15 @@ public class InimigoDAO {
                     inimigo.setClasse(rs.getString("classe"));
                     inimigo.setExperienciaDrop(rs.getInt("experiencia_dropada"));
                     inimigo.setFraqueza(rs.getString("fraqueza"));
-                    inimigo.setEquipamento(equip);            
-                    inimigo.setHabilidade(habil);                  
-                    sucesso = true;                    
+                    int equipamentoId = rs.getInt("equipamento_idequipamento");
+                    int habilidadeId = rs.getInt("habilidade_idHabilidade");
+                    EquipamentoDAO dao = new EquipamentoDAO();
+                    Equipamento equipamento = dao.obterEquipamentoPorId(equipamentoId);
+                    HabilidadeDAO dao1 = new HabilidadeDAO();
+                    Habilidade habilidade = dao1.obterHabilidadePorId(habilidadeId);                    
+                    inimigo.setEquipamento(equipamento);
+                    inimigo.setHabilidade(habilidade);                     
+                    sucesso = true;  
                 }
             }catch (SQLException e) {
             e.printStackTrace();
@@ -148,5 +156,30 @@ public class InimigoDAO {
                     );
                 }         
         return inimigo;
-    }     
+    }
+ 
+    public void atualizar(Inimigo inimigo) {
+        String query = "UPDATE inimigo SET pontovida = ?, pontomana = ?, nivel = ?, raca = ? , classe = ?, chefe = ?, experiencia_dropada = ?, fraqueza = ?"
+                + ",equipamento_idequipamento = ?, habilidade_idHabilidade = ? WHERE nome = ?";
+
+        try (Connection connection = DriverManager.getConnection(url,user,senha);
+             PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            
+            preparedStatement.setInt(1, inimigo.getPontoVida());
+            preparedStatement.setInt(2, inimigo.getPontoMana());
+            preparedStatement.setInt(3, inimigo.getNivel());
+            preparedStatement.setString(4, inimigo.getRaca());
+            preparedStatement.setString(5, inimigo.getClasse());
+            preparedStatement.setBoolean(6, inimigo.isChefe());
+            preparedStatement.setInt(7, inimigo.getExperienciaDrop());
+            preparedStatement.setString(8, inimigo.getFraqueza());           
+            preparedStatement.setInt(9, inimigo.getEquipamento().getId_Equipamento());
+            preparedStatement.setInt(10, inimigo.getHabilidade().getId_Habilidade());
+            preparedStatement.setString(11, inimigo.getNome());            
+            preparedStatement.executeUpdate();     
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }      
 }

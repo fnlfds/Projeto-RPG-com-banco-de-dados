@@ -41,7 +41,6 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
         btLimparForm = new javax.swing.JButton();
         btSairForm = new javax.swing.JButton();
         btExcluir = new javax.swing.JButton();
-        btConsultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,14 +117,6 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
             }
         });
 
-        btConsultar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        btConsultar.setText("Consultar missões do personagem");
-        btConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btConsultarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,13 +136,7 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(rtMissao)
                                 .addGap(18, 18, 18)
-                                .addComponent(cbxMissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(btCadastrar)
-                                .addGap(18, 18, 18)
-                                .addComponent(btExcluir)
-                                .addGap(44, 44, 44)))
+                                .addComponent(cbxMissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 43, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -163,8 +148,10 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btConsultar)
-                .addGap(109, 109, 109))
+                .addComponent(btCadastrar)
+                .addGap(18, 18, 18)
+                .addComponent(btExcluir)
+                .addGap(102, 102, 102))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,13 +164,11 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
                     .addComponent(cbxMissao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(rtProtagonista)
                     .addComponent(rtMissao))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadastrar)
                     .addComponent(btExcluir))
-                .addGap(18, 18, 18)
-                .addComponent(btConsultar)
-                .addGap(37, 37, 37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
                     .addComponent(btSairForm)
@@ -282,10 +267,6 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
         dao.excluir(protmis);    
     }//GEN-LAST:event_btExcluirActionPerformed
 
-    private void btConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarActionPerformed
-
-    }//GEN-LAST:event_btConsultarActionPerformed
-
     public void voltar(){
         FrameJogador frameJogador = new FrameJogador();
         frameJogador.setLocationRelativeTo(frameJogador);
@@ -347,7 +328,6 @@ public class LinkProtagonistaMissao extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btCadastrar;
-    private javax.swing.JButton btConsultar;
     private javax.swing.JButton btExcluir;
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;

@@ -76,6 +76,11 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
 
         btConsInimigo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         btConsInimigo.setText("Consultar");
+        btConsInimigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btConsInimigoActionPerformed(evt);
+            }
+        });
 
         checkChefe.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
 
@@ -356,6 +361,38 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_cbxHabilidadeAncestorAdded
 
+    private void btConsInimigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsInimigoActionPerformed
+        String nome = cxNome.getText(); 
+        InimigoDAO dao = new InimigoDAO();
+        Inimigo inimigo = dao.consultar(nome);
+        if (inimigo != null){
+            cxRaca.setText(inimigo.getRaca());
+            cxClasse.setText(inimigo.getClasse());
+            cxNivel.setText(Integer.toString(inimigo.getNivel()));
+            cxPntMana.setText(Integer.toString(inimigo.getPontoMana()));
+            cxPntVida.setText(Integer.toString(inimigo.getPontoVida()));
+            cxFraqueza.setText(inimigo.getFraqueza());
+            cxExpDrop.setText(Integer.toString(inimigo.getExperienciaDrop()));
+            checkChefe.setSelected(inimigo.isChefe());
+            cbxEquipamentos.getSelectedItem();
+            cbxEquipamentos.setSelectedItem(inimigo.getEquipamento());
+            cbxHabilidade.setSelectedItem(inimigo.getHabilidade());          
+        } else {
+            JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxRaca.setText("");
+            cxNome.setText("");
+            cxClasse.setText("");
+            cxNivel.setText("");
+            cxPntMana.setText("");
+            cxPntVida.setText("");
+            cxFraqueza.setText("");
+            cxExpDrop.setText("");
+            cbxEquipamentos.setSelectedIndex(-1);
+            cbxHabilidade.setSelectedIndex(-1);
+            checkChefe.setSelected(false);
+           }          // TODO add your handling code here:
+    }//GEN-LAST:event_btConsInimigoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -429,7 +466,6 @@ public class FormsInimigoJogador extends javax.swing.JFrame {
     private javax.swing.JButton btLimparForm;
     private javax.swing.JButton btSairForm;
     private javax.swing.JButton btVoltar;
-    private javax.swing.JComboBox cbxEquipamento;
     private javax.swing.JComboBox cbxEquipamentos;
     private javax.swing.JComboBox cbxHabilidade;
     private javax.swing.JCheckBox checkChefe;

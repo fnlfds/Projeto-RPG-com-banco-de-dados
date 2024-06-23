@@ -177,17 +177,10 @@ public class FormsHabilidadeJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_btVoltarActionPerformed
 
     private void btConsHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsHabilidadeActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome da habilidade",
-            "Consultar Habilidade",
-            JOptionPane.QUESTION_MESSAGE
-        );
-        
+        String nome = cxNome.getText();
         HabilidadeDAO dao = new HabilidadeDAO();
         Habilidade habil = dao.consultar(nome);
         if (habil != null){
-            cxNome.setText(habil.getNome());
             cxDescricao.setText(habil.getDescricao());
             cxEfeito.setText(habil.getEfeito());
         } else {

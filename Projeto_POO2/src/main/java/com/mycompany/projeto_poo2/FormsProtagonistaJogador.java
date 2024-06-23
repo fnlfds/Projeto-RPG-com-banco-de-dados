@@ -60,6 +60,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         rtEquipamento = new javax.swing.JLabel();
         rtHabilidade = new javax.swing.JLabel();
         cbxHabilidade = new javax.swing.JComboBox();
+        btAlterar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -214,6 +215,14 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             }
         });
 
+        btAlterar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btAlterar.setText("Alterar");
+        btAlterar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAlterarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,11 +266,12 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                                     .addComponent(cxInteligencia, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(rtDinheiro)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGap(158, 158, 158)
+                                            .addGap(76, 76, 76)
                                             .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(36, 36, 36)
+                                            .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGap(29, 29, 29)
                                             .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(layout.createSequentialGroup()
@@ -383,7 +393,8 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btCadPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btConsultarPersonagem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btAlterar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btLimparForm)
@@ -482,7 +493,42 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     }//GEN-LAST:event_cxPntVidaActionPerformed
 
     private void btConsultarPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btConsultarPersonagemActionPerformed
-        // TODO add your handling code here:
+        String nome = cxNome.getText();       
+        ProtagonistaDAO dao = new ProtagonistaDAO();
+        Protagonista protag = dao.consultar(nome);
+        if (protag != null){
+            cxRaca.setText(protag.getRaca());
+            cxClasse.setText(protag.getClasse());
+            cxNivel.setText(Integer.toString(protag.getNivel()));
+            cxPntMana.setText(Integer.toString(protag.getPontoMana()));
+            cxPntVida.setText(Integer.toString(protag.getPontoVida()));
+            cxCarisma.setText(Integer.toString(protag.getCarisma()));
+            cxDestreza.setText(Integer.toString(protag.getDestreza()));
+            cxForca.setText(Integer.toString(protag.getForca()));
+            cxInteligencia.setText(Integer.toString(protag.getInteligencia()));
+            cxDinheiro.setText(Integer.toString(protag.getDinheiro()));
+            cxExperiencia.setText(Integer.toString(protag.getExperiencia()));
+            cxEfeito.setText(protag.getEfeito());            
+            cbxEquipamento.setSelectedItem(protag.getEquipamento());
+            cbxHabilidade.setSelectedItem(protag.getHabilidade());          
+        } else {
+            JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+            cxRaca.setText("");
+            cxNome.setText("");
+            cxClasse.setText("");
+            cxNivel.setText("");
+            cxPntMana.setText("");
+            cxPntVida.setText("");
+            cxCarisma.setText("");
+            cxDestreza.setText("");
+            cxForca.setText("");
+            cxInteligencia.setText("");
+            cxDinheiro.setText("");
+            cxExperiencia.setText("");
+            cxEfeito.setText("");            
+            cbxEquipamento.setSelectedIndex(-1);
+            cbxHabilidade.setSelectedIndex(-1);
+           }          // TODO add your handling code here:
     }//GEN-LAST:event_btConsultarPersonagemActionPerformed
 
     private void btSairFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSairFormActionPerformed
@@ -522,6 +568,73 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     private void cbxHabilidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxHabilidadeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxHabilidadeActionPerformed
+    ProtagonistaDAO dao = new ProtagonistaDAO();
+    private Protagonista protag;
+    private void btAlterarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAlterarActionPerformed
+        if (protag == null) {
+            String nome = cxNome.getText();
+            protag = dao.consultar(nome);
+
+            if (protag != null) {
+                cxRaca.setText(protag.getRaca());
+                cxClasse.setText(protag.getClasse());
+                cxNivel.setText(Integer.toString(protag.getNivel()));
+                cxPntMana.setText(Integer.toString(protag.getPontoMana()));
+                cxPntVida.setText(Integer.toString(protag.getPontoVida()));
+                cxCarisma.setText(Integer.toString(protag.getCarisma()));
+                cxDestreza.setText(Integer.toString(protag.getDestreza()));
+                cxForca.setText(Integer.toString(protag.getForca()));
+                cxInteligencia.setText(Integer.toString(protag.getInteligencia()));
+                cxDinheiro.setText(Integer.toString(protag.getDinheiro()));
+                cxExperiencia.setText(Integer.toString(protag.getExperiencia()));                
+                cxEfeito.setText(protag.getEfeito());
+                cbxEquipamento.setSelectedItem(protag.getEquipamento());
+                cbxHabilidade.setSelectedItem(protag.getHabilidade()); 
+            } else {
+                JOptionPane.showMessageDialog(null, "Personagem não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                limpar();
+            }
+            
+        }else {
+                    boolean nomeAlterado = !protag.getNome().equals(cxNome.getText());
+                    boolean nivelAlterado = protag.getNivel() != Integer.parseInt(cxNivel.getText());
+                    boolean experienciaAlterada = protag.getExperiencia() != Integer.parseInt(cxExperiencia.getText());
+                    if (nomeAlterado || nivelAlterado || experienciaAlterada) {
+                        StringBuilder mensagem = new StringBuilder("Os seguintes campos não podem ser alterados:\n");
+                        if (nomeAlterado) {
+                            mensagem.append("Nome\n");
+                            cxNome.setText(protag.getNome()); // Reseta o nome para o original
+                        }
+                        if (nivelAlterado) {
+                            mensagem.append("Nível\n");
+                            JOptionPane.showMessageDialog(null,"A atualização de nível deve ser feita no Calcular Nível pelo Mestre");
+                            cxNivel.setText(Integer.toString(protag.getNivel())); // Reseta o nível para o original
+                        }
+                        if (experienciaAlterada) {
+                            mensagem.append("Experiência\n");
+                            JOptionPane.showMessageDialog(null,"A atualização de experiência deve ser feita no Calcular Nível pelo Mestre");                            
+                            cxExperiencia.setText(Integer.toString(protag.getExperiencia())); // Reseta a experiência para o original
+                        }
+                        JOptionPane.showMessageDialog(null, mensagem.toString(), "Aviso", JOptionPane.WARNING_MESSAGE);
+                    }else {
+                        protag.setRaca(cxRaca.getText());
+                        protag.setClasse(cxClasse.getText());
+                        protag.setPontoMana(Integer.parseInt(cxPntMana.getText()));
+                        protag.setPontoVida(Integer.parseInt(cxPntVida.getText()));
+                        protag.setCarisma(Integer.parseInt(cxCarisma.getText()));
+                        protag.setDestreza(Integer.parseInt(cxDestreza.getText()));
+                        protag.setForca(Integer.parseInt(cxForca.getText()));
+                        protag.setInteligencia(Integer.parseInt(cxInteligencia.getText()));
+                        protag.setDinheiro(Integer.parseInt(cxDinheiro.getText()));
+                        protag.setEfeito(cxEfeito.getText());                        
+                        protag.setEquipamento((Equipamento) cbxEquipamento.getSelectedItem());
+                        protag.setHabilidade((Habilidade) cbxHabilidade.getSelectedItem());
+                        dao.atualizar(protag);
+                        JOptionPane.showMessageDialog(null, "Equipamento atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        resetForm();
+                }
+        }         // TODO add your handling code here:
+    }//GEN-LAST:event_btAlterarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -563,6 +676,13 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
         }
     }
     
+    private void resetForm() {
+        protag = null;
+        cxNome.setText("");
+        cxNivel.setText("");
+        cxExperiencia.setText("");        
+        limpar();
+    }      
         
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -597,6 +717,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btAlterar;
     private javax.swing.JButton btCadPersonagem;
     private javax.swing.JButton btConsultarPersonagem;
     private javax.swing.JButton btLimparForm;

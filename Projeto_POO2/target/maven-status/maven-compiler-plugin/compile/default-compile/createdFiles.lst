@@ -7,9 +7,11 @@ com\mycompany\projeto_poo2\FormsInimigoMestre$11.class
 com\mycompany\projeto_poo2\MissaoDAO.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$5.class
 com\mycompany\projeto_poo2\FrameMestre$1.class
+com\mycompany\projeto_poo2\FormsInimigoMestre$14.class
 com\mycompany\projeto_poo2\FormsCalcularNivel$2.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$8.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$4.class
+com\mycompany\projeto_poo2\FormsCalcularNivel$5.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$8.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador$5.class
 com\mycompany\projeto_poo2\FramePrincipal$3.class
@@ -48,6 +50,7 @@ com\mycompany\projeto_poo2\FormsMissaoMestre$2.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$9.class
 com\mycompany\projeto_poo2\FrameMestre.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$13.class
+com\mycompany\projeto_poo2\FormsHabilidadeMestre$8.class
 com\mycompany\projeto_poo2\FormsEquipamentoJogador$6.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$10.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$1.class
@@ -55,6 +58,7 @@ com\mycompany\projeto_poo2\FrameJogador.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$3.class
 com\mycompany\projeto_poo2\FrameMestre$6.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$1.class
+com\mycompany\projeto_poo2\FormsMissaoMestre$9.class
 com\mycompany\projeto_poo2\FrameJogador$2.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$2.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$4.class
@@ -93,7 +97,9 @@ com\mycompany\projeto_poo2\FormsProtagonistaMestre$12.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$3.class
 com\mycompany\projeto_poo2\FormsHabilidadeJogador$4.class
 com\mycompany\projeto_poo2\FormsHabilidadeMestre$6.class
+com\mycompany\projeto_poo2\FormsEquipamentoMestre$11.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$7.class
+com\mycompany\projeto_poo2\FormsProtagonistaJogador$15.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$4.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$1.class
@@ -124,7 +130,6 @@ com\mycompany\projeto_poo2\FormsProtagonistaMestre$13.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$6.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$1.class
 com\mycompany\projeto_poo2\HabilidadeDAO.class
-com\mycompany\projeto_poo2\LinkProtagonistaMissao$10.class
 com\mycompany\projeto_poo2\LinkProtagonistaMissao$9.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$9.class
 com\mycompany\projeto_poo2\FramePrincipal$2.class
@@ -133,10 +138,12 @@ com\mycompany\projeto_poo2\FormsProtagonistaJogador$7.class
 com\mycompany\projeto_poo2\FrameJogador$6.class
 com\mycompany\projeto_poo2\FormsInimigoMestre$5.class
 com\mycompany\projeto_poo2\FormsProtagonistaJogador$10.class
+com\mycompany\projeto_poo2\FormsProtagonistaMestre$14.class
 com\mycompany\projeto_poo2\Equipamento.class
 com\mycompany\projeto_poo2\FormsProtagonistaMestre$2.class
 com\mycompany\projeto_poo2\FrameMestre$2.class
 com\mycompany\projeto_poo2\FormsMissaoMestre$6.class
+com\mycompany\projeto_poo2\FormsInimigoJogador$10.class
 com\mycompany\projeto_poo2\ProtagonistaDAO.class
 com\mycompany\projeto_poo2\Inimigo.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$1.class
