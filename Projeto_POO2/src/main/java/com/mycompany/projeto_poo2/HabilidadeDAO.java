@@ -18,7 +18,7 @@ public class HabilidadeDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
         String driver = "com.mysql.cj.jdbc.Driver";
         String user = "root";
-        String senha = "utfpr";
+        String senha = "direito";
     
         Connection conn = null;
         PreparedStatement ps = null;

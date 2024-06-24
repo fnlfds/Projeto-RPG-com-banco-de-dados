@@ -512,7 +512,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
             cbxEquipamento.setSelectedItem(protag.getEquipamento());
             cbxHabilidade.setSelectedItem(protag.getHabilidade());          
         } else {
-            JOptionPane.showMessageDialog(null,"Inimigo não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Personagem não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
             cxRaca.setText("");
             cxNome.setText("");
             cxClasse.setText("");

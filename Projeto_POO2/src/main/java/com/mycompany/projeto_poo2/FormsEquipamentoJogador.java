@@ -227,7 +227,7 @@ public class FormsEquipamentoJogador extends javax.swing.JFrame {
             cbRaridade.setSelectedItem(equip.getRaridade());
             checkConsumivel.setSelected(equip.isConsumivel());
         } else {
-            JOptionPane.showMessageDialog(null,"Missão não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Equipamento não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
             cxTipo.setText("");
             cxNome.setText("");
             cxEfeito.setText("");
