@@ -451,13 +451,7 @@ public class FormsProtagonistaMestre extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxHabilidadeActionPerformed
 
     private void btExcPersonagemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btExcPersonagemActionPerformed
-        String nome = JOptionPane.showInputDialog(
-            null,
-            "Informe o nome do personagem",
-            "Excluir Personagem",
-            JOptionPane.QUESTION_MESSAGE
-        );
-
+        String nome = cxNome.getText();
         ProtagonistaDAO dao = new ProtagonistaDAO();
         dao.excluir(nome);            // TODO add your handling code here:
     }//GEN-LAST:event_btExcPersonagemActionPerformed
