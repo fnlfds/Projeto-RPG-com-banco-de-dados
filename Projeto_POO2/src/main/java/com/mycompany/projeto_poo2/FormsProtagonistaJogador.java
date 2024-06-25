@@ -630,7 +630,7 @@ public class FormsProtagonistaJogador extends javax.swing.JFrame {
                         protag.setEquipamento((Equipamento) cbxEquipamento.getSelectedItem());
                         protag.setHabilidade((Habilidade) cbxHabilidade.getSelectedItem());
                         dao.atualizar(protag);
-                        JOptionPane.showMessageDialog(null, "Equipamento atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Personagem atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                         resetForm();
                 }
         }         // TODO add your handling code here:
