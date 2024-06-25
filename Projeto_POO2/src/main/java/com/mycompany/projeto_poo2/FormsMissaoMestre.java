@@ -275,7 +275,7 @@ public class FormsMissaoMestre extends javax.swing.JFrame {
                 cxObjetivo.setText(missao.getObjetivo());
                 cxRecompensa.setText(missao.getRecompensa());
             } else {
-                JOptionPane.showMessageDialog(null, "Missao não encontrado", "Aviso", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Missao não encontrada", "Aviso", JOptionPane.WARNING_MESSAGE);
                 limpar();
             }
             
