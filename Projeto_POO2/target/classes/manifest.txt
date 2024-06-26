@@ -1,0 +1,2 @@
+Main-Class: com.mycompany.projeto_poo2.FramePrincipal
+

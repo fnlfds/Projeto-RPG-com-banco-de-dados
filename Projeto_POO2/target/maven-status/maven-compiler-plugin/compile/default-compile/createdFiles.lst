@@ -107,6 +107,8 @@ com\mycompany\projeto_poo2\FormsCalcularNivel$4.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$9.class
 com\mycompany\projeto_poo2\FrameJogador$1.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$1.class
+com\mycompany\projeto_poo2\FrameJogador$4.class
+com\mycompany\projeto_poo2\FormsInimigoMestre$12.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$2.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$6.class
 com\mycompany\projeto_poo2\Personagem.class
@@ -147,6 +149,7 @@ com\mycompany\projeto_poo2\FormsInimigoJogador$10.class
 com\mycompany\projeto_poo2\ProtagonistaDAO.class
 com\mycompany\projeto_poo2\Inimigo.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$1.class
+com\mycompany\projeto_poo2\FormsInimigoMestre$13.class
 com\mycompany\projeto_poo2\FormsEquipamentoMestre$7.class
 com\mycompany\projeto_poo2\FormsInimigoJogador$6.class
 com\mycompany\projeto_poo2\FormsMissaoJogador$3.class

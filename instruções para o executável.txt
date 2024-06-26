@@ -1,0 +1,2 @@
+Localização do .jar : Projeto_POO2\target\classes
+Favor utilizar o comando "java -jar projeto_poo2.jar" no cmd para executar o arquivo, pois ele não está executando diretamente.
