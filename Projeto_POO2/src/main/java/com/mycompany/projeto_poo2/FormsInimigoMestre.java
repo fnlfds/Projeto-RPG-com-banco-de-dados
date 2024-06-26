@@ -544,7 +544,7 @@ public class FormsInimigoMestre extends javax.swing.JFrame {
                         inimigo.setEquipamento((Equipamento) cbxEquipamentos.getSelectedItem());
                         inimigo.setHabilidade((Habilidade) cbxHabilidade.getSelectedItem());
                         dao.atualizar(inimigo);
-                        JOptionPane.showMessageDialog(null, "Equipamento atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Inimigo atualizado com sucesso", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
                         resetForm();
                 }
         }        // TODO add your handling code here:

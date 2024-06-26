@@ -18,7 +18,7 @@ public class InimigoDAO {
         String url = "jdbc:mysql://localhost:3306/rpg";
         String driver = "com.mysql.cj.jdbc.Driver";
         String user = "root";
-        String senha = "direito";
+        String senha = "utfpr";
         Connection conn = null;
         PreparedStatement ps = null;
     

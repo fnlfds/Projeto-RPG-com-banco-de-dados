@@ -44,7 +44,9 @@ CREATE TABLE `protagonista` (
   PRIMARY KEY (`idprotagonista`,`habilidade_idHabilidade`,`equipamento_idequipamento`),
   UNIQUE KEY `nome_UNIQUE` (`nome`),
   KEY `fk_protagonista_habilidade1_idx` (`habilidade_idHabilidade`),
-  KEY `fk_protagonista_equipamento1_idx` (`equipamento_idequipamento`)
+  KEY `fk_protagonista_equipamento1_idx` (`equipamento_idequipamento`),
+ CONSTRAINT `fk_protagonista_habilidade1` FOREIGN KEY (`equipamento_idequipamento`) REFERENCES `equipamento` (`idequipamento`),
+  CONSTRAINT `fk_protagonista_equipamento1` FOREIGN KEY (`habilidade_idHabilidade`) REFERENCES `habilidade` (`idHabilidade`)
 ) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
